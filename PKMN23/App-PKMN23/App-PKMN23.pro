@@ -4,4 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp
+        main.cpp \
+        pokemon.cpp \
+        waterpokemon.cpp
+
+HEADERS += \
+    pokemon.h \
+    waterpokemon.h
