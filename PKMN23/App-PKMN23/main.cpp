@@ -6,8 +6,9 @@ using namespace std;
 
 int main()
 {
-    Pokemon* carapuce = new WaterPokemon("Carapuce", 2, 2, 2, 2, 2);
+    Pokemon * Carapuce = new WaterPokemon("Carapuce", 0.81, 12, 100, 50, 4);
 
-    cout << "Hello World!" << endl;
+    Carapuce->displayPokemon() ;
+
     return 0;
 }

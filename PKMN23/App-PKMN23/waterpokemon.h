@@ -10,7 +10,11 @@ private:
     float itsSpeed ;
 public:
     WaterPokemon(string name, float height, float weight, int hp, int cp, int nbFins);
-    void displayPokemon() const ;
+    ~WaterPokemon();
+    void displayPokemon() ;
+    int nbDamage(Pokemon * anOpponent);
+    void attack(Pokemon * anOpponent);
+    string getItsType();
 };
 
 #endif // WATERPOKEMON_H

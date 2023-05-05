@@ -1,0 +1,22 @@
+Objectifs Version 0.1
+
+Création de la classe abstraite Pokemon
+
+Création des classes héritantes représentant les types
+
+Création d'un mini jeu de test sur les méthodes de la classe Pokemon
+
+
+Idée à rajouter pour prochaine version :
+
+Eventuellement faire des surcharges d'opérateurs (== / << / >>) pour comparé les pokémons plus tard lors des attaques.
+
+
+
+Questions pour prochaine version :
+
+Lorsque les 6 premiers pokémons sont ajouté dans l'équipe du dresseur, 6 points seront-il ajoutés ou ce n'est qu'une fois la partie commencée ? Oui et ensuite impossible d'attraper
+
+Est ce que si on enlève un pokémon, non KO, on peut le récuperer plus tard ? 
+
+Si il n'y a pas de limite la partie est-elle infinie ? Le dresseur attrape t-il des pokémons d'une liste prédéfinie ? Si oui, elle serait prédéfinie aléatoirement ? par le développeur ? par le dresseur ?
