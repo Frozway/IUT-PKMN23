@@ -1,19 +1,25 @@
-Objectifs Version 0.1
+-Objectifs avant Version 0.2
 
-Création de la classe abstraite Pokemon
+Création de la classe abstraite Pokemon : OK
 
-Création des classes héritantes représentant les types
+Création des classes héritantes représentant les types (FEU, EAU, PLANTE, ELECTRIK) : OK
 
-Création d'un mini jeu de test sur les méthodes de la classe Pokemon
+Création des méthodes de bases d'un pokemon (display, attack, getHP, getCP, setHP) : OK
+
+Création d'un sous projet d'auto test QT autour des méthodes des classes héritantes de Pokemon : OK 
+
+Tests réalisés sur chacune des méthodes et fonctionnels : En cours
 
 
-Idée à rajouter pour prochaine version :
+
+
+-Idée à rajouter pour prochaine version :
 
 Eventuellement faire des surcharges d'opérateurs (== / << / >>) pour comparé les pokémons plus tard lors des attaques.
 
 
 
-Questions pour prochaine version :
+-Questions pour prochaine version :
 
 Lorsque les 6 premiers pokémons sont ajouté dans l'équipe du dresseur, 6 points seront-il ajoutés ou ce n'est qu'une fois la partie commencée ? Oui et ensuite impossible d'attraper
 

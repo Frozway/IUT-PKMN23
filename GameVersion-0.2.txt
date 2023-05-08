@@ -1,4 +1,0 @@
-Idées :
-
-Ajouter des attributs privés tel que "points fort" "points faibles" 
-Pourquoi pas s'en servir pour le nbDamage et donc passer l'attribut nbDamage dans la classe mère 

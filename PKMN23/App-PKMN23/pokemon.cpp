@@ -18,3 +18,8 @@ void Pokemon::setItsHP(int newItsHP)
 {
     itsHP = newItsHP;
 }
+
+void Pokemon::attack(Pokemon * currentPokemon, Pokemon * anOpponent)
+{
+    anOpponent->setItsHP(anOpponent->getItsHP() - currentPokemon->nbDamage(anOpponent));
+}

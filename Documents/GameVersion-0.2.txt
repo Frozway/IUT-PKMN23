@@ -1,0 +1,11 @@
+-Objectifs avant Version 0.3
+
+
+
+Idées :
+
+Ajouter des attributs privés tel que "points fort" "points faibles" 
+Pourquoi pas s'en servir pour le nbDamage et donc passer l'attribut nbDamage dans la classe mère 
+
+Commencer les tests unitaires sur la classe Pokemon
+Surcharge d'opérateur sur la classe Pokémon pour les comparer

@@ -1,4 +1,5 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    App-PKMN23
+    App-PKMN23 \
+    PokemonTests
