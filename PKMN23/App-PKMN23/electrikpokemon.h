@@ -24,11 +24,12 @@ public:
      * @param name The name of the ElectrikPokemon.
      * @param height The height of the ElectrikPokemon.
      * @param weight The weight of the ElectrikPokemon.
-     * @param hp The health points of the ElectrikPokemon.
+     * @param maxHP The max health points of the ElectrikPokemon.
+     * @param currentHP The current health points of the ElectrikPokemon.
      * @param cp The combat points of the ElectrikPokemon.
      * @param nbFins The number of fins the ElectrikPokemon has.
      */
-    ElectrikPokemon(string name, float height, float weight, int hp, int cp, int nbLegs, int nbWings, int intensity);
+    ElectrikPokemon(string name, float height, float weight, signed int maxHP, signed int currentHP, signed int cp, int nbLegs, int nbWings, int intensity);
 
     /**
      * @brief Display the details of the ElectrikPokemon.
@@ -69,6 +70,16 @@ public:
      * @return The type of the ElectrikPokemon.
      */
     string getItsType();
+
+    /**
+     * @brief Get the speed of the ElectrikPokemon.
+     *
+     * This method overrides the getItsSpeed() method in the Pokemon class
+     * to return the float of the speed.
+     *
+     * @return The speed of the ElectrikPokemon.
+     */
+    float getItsSpeed();
 };
 
 #endif // ElectrikPOKEMON_H

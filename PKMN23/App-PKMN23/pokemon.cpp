@@ -1,12 +1,17 @@
 #include "pokemon.h"
 
-Pokemon::Pokemon(string name, float height, float weight, int hp, int cp) :
-        itsName(name), itsHeight(height), itsWeight(weight), itsHP(hp), itsCP(cp) {}
+Pokemon::Pokemon(string name, float height, float weight, signed int maxHP, signed int currentHP, signed int cp) :
+        itsName(name), itsHeight(height), itsWeight(weight), itsMaxHP(maxHP), itsCurrentHP(currentHP), itsCP(cp) {}
 
 
-int Pokemon::getItsHP() const
+int Pokemon::getItsMaxHP() const
 {
-    return itsHP;
+    return itsMaxHP;
+}
+
+int Pokemon::getItsCurrentHP() const
+{
+    return itsCurrentHP;
 }
 
 int Pokemon::getItsCP() const
@@ -16,10 +21,10 @@ int Pokemon::getItsCP() const
 
 void Pokemon::setItsHP(int newItsHP)
 {
-    itsHP = newItsHP;
+    itsCurrentHP = newItsHP;
 }
 
 void Pokemon::attack(Pokemon * currentPokemon, Pokemon * anOpponent)
 {
-    anOpponent->setItsHP(anOpponent->getItsHP() - currentPokemon->nbDamage(anOpponent));
+    anOpponent->setItsHP(anOpponent->getItsCurrentHP() - currentPokemon->nbDamage(anOpponent));
 }

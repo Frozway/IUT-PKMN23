@@ -14,8 +14,9 @@ protected:
     string itsName ; /**< The name of the Pokemon */
     float itsHeight ; /**< The height of the Pokemon */
     float itsWeight ; /**< The weight of the Pokemon */
-    int itsHP ; /**< The health points of the Pokemon */
-    int itsCP ; /**< The combat points of the Pokemon */
+    unsigned int itsMaxHP ; /**< The max health points of the Pokemon */
+    unsigned int itsCurrentHP ; /**< The current health points of the Pokemon */
+    unsigned int itsCP ; /**< The combat points of the Pokemon */
 
 public:
     /**
@@ -26,7 +27,7 @@ public:
      * @param hp The health points of the Pokemon.
      * @param cp The combat points of the Pokemon.
      */
-    Pokemon(string name, float height, float weight, int hp, int cp);
+    Pokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp);
 
     virtual ~Pokemon() {};
 
@@ -40,6 +41,8 @@ public:
      * @return The type of the Pokemon.
      */
     virtual string getItsType() = 0;
+
+    virtual void getItsSpeed() = 0;
 
     /**
      * @brief nbDamage A pure virtual function that calculates the damage done by the Pokemon to its opponent.
@@ -56,16 +59,23 @@ public:
     void attack(Pokemon * currentPokemon, Pokemon * anOpponent) ;
 
     /**
-     * @brief getItsHP A function that returns the health points of the Pokemon.
+     * @brief getItsHP A function that returns the max health points of the Pokemon.
      * @return The health points of the Pokemon.
      */
-    int getItsHP() const;
+    int getItsMaxHP() const;
+
+    /**
+     * @brief getItsHP A function that returns the current health points of the Pokemon.
+     * @return The health points of the Pokemon.
+     */
+    int getItsCurrentHP() const;
 
     /**
      * @brief getItsCP A function that returns the combat points of the Pokemon.
      * @return The combat points of the Pokemon.
      */
     int getItsCP() const;
+
 
     /**
      * @brief setItsHP A function that sets the health points of the Pokemon.

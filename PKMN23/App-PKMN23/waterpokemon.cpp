@@ -1,7 +1,7 @@
 #include "waterpokemon.h"
 
-WaterPokemon::WaterPokemon(string name, float height, float weight, int hp, int cp, int nbFins) :
-    Pokemon(name, height, weight, hp, cp), itsNbFins(nbFins), itsSpeed()
+WaterPokemon::WaterPokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp, int nbFins) :
+    Pokemon(name, height, weight, maxHP, currentHP, cp), itsNbFins(nbFins), itsSpeed()
 {
     itsSpeed = (itsWeight * itsNbFins) / 25.0;
 }
@@ -29,6 +29,11 @@ int WaterPokemon::nbDamage(Pokemon * anOpponent)
         return 0.5 * itsCP ;
     }
     else return itsCP ;
-
 }
+
+float WaterPokemon::getItsSpeed()
+{
+    return itsSpeed ;
+}
+
 

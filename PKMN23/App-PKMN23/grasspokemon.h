@@ -21,11 +21,12 @@ public:
      * @param name The name of the GrassPokemon.
      * @param height The height of the GrassPokemon.
      * @param weight The weight of the GrassPokemon.
-     * @param hp The health points of the GrassPokemon.
+     * @param maxHP The max health points of the GrassPokemon.
+     * @param currentHP The current health points of the GrassPokemon.
      * @param cp The combat points of the GrassPokemon.
      * @param nbFins The number of fins the GrassPokemon has.
      */
-    GrassPokemon(string name, float height, float weight, int hp, int cp);
+    GrassPokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp);
 
     /**
      * @brief Display the details of the GrassPokemon.
@@ -66,6 +67,16 @@ public:
      * @return The type of the GrassPokemon.
      */
     string getItsType();
+
+    /**
+     * @brief Get the speed of the GrassPokemon.
+     *
+     * This method overrides the getItsSpeed() method in the Pokemon class
+     * to return the float of the speed.
+     *
+     * @return The speed of the GrassPokemon.
+     */
+    float getItsSpeed();
 };
 
 #endif // GrassPOKEMON_H

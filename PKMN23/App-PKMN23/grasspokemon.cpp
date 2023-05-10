@@ -1,7 +1,7 @@
 #include "grasspokemon.h"
 
-GrassPokemon::GrassPokemon(string name, float height, float weight, int hp, int cp) :
-    Pokemon(name, height, weight, hp, cp),  itsSpeed()
+GrassPokemon::GrassPokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp) :
+    Pokemon(name, height, weight, maxHP, currentHP, cp),  itsSpeed()
 {
     itsSpeed = 10 / (itsWeight * itsHeight) ;
 }
@@ -28,6 +28,10 @@ int GrassPokemon::nbDamage(Pokemon * anOpponent)
         return 0.5 * itsCP ;
     }
     else return itsCP ;
+}
 
+float GrassPokemon::getItsSpeed()
+{
+    return itsSpeed ;
 }
 

@@ -23,11 +23,12 @@ public:
      * @param name The name of the FirePokemon.
      * @param height The height of the FirePokemon.
      * @param weight The weight of the FirePokemon.
-     * @param hp The health points of the FirePokemon.
+     * @param maxHP The max health points of the FirePokemon.
+     * @param currentHP The current health points of the FirePokemon.
      * @param cp The combat points of the FirePokemon.
      * @param nbFins The number of fins the FirePokemon has.
      */
-    FirePokemon(string name, float height, float weight, int hp, int cp, int nbLegs);
+    FirePokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, int cp, int nbLegs);
 
     /**
      * @brief Display the details of the FirePokemon.
@@ -68,6 +69,16 @@ public:
      * @return The type of the FirePokemon.
      */
     string getItsType();
+
+    /**
+     * @brief Get the speed of the FirePokemon.
+     *
+     * This method overrides the getItsSpeed() method in the Pokemon class
+     * to return the float of the speed.
+     *
+     * @return The speed of the FirePokemon.
+     */
+    float getItsSpeed();
 };
 
 #endif // FIREPOKEMON_H

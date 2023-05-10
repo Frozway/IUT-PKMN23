@@ -22,11 +22,12 @@ public:
      * @param name The name of the WaterPokemon.
      * @param height The height of the WaterPokemon.
      * @param weight The weight of the WaterPokemon.
-     * @param hp The health points of the WaterPokemon.
+     * @param maxHP The max health points of the WaterPokemon.
+     * @param currentHP The current health points of the WaterPokemon.
      * @param cp The combat points of the WaterPokemon.
      * @param nbFins The number of fins the WaterPokemon has.
      */
-    WaterPokemon(string name, float height, float weight, int hp, int cp, int nbFins);
+    WaterPokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp, int nbFins);
 
     /**
      * @brief Display the details of the WaterPokemon.
@@ -67,6 +68,16 @@ public:
      * @return The type of the WaterPokemon.
      */
     string getItsType();
+
+    /**
+     * @brief Get the speed of the WaterPokemon.
+     *
+     * This method overrides the getItsSpeed() method in the Pokemon class
+     * to return the float of the speed.
+     *
+     * @return The speed of the WaterPokemon.
+     */
+    float getItsSpeed();
 };
 
 #endif // WATERPOKEMON_H

@@ -1,7 +1,7 @@
 #include "firepokemon.h"
 
-FirePokemon::FirePokemon(string name, float height, float weight, int hp, int cp, int nbLegs) :
-    Pokemon(name, height, weight, hp, cp), itsNbLegs(nbLegs), itsSpeed()
+FirePokemon::FirePokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp, int nbLegs) :
+    Pokemon(name, height, weight, maxHP, currentHP, cp), itsNbLegs(nbLegs), itsSpeed()
 {
     itsSpeed = itsNbLegs * itsWeight * 0.03 ;
 }
@@ -29,7 +29,11 @@ int FirePokemon::nbDamage(Pokemon * anOpponent)
         return 0.5 * itsCP ;
     }
     else return itsCP ;
+}
 
+float FirePokemon::getItsSpeed()
+{
+    return itsSpeed ;
 }
 
 
