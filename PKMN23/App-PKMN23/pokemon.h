@@ -42,7 +42,11 @@ public:
      */
     virtual string getItsType() = 0;
 
-    virtual void getItsSpeed() = 0;
+    /**
+     * @brief getItsSpeed A pure virtual function that returns the speed of the Pokemon.
+     * @return The speed of the Pokemon.
+     */
+    virtual float getItsSpeed() = 0;
 
     /**
      * @brief nbDamage A pure virtual function that calculates the damage done by the Pokemon to its opponent.

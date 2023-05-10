@@ -1,6 +1,6 @@
 #include "pokemon.h"
 
-Pokemon::Pokemon(string name, float height, float weight, signed int maxHP, signed int currentHP, signed int cp) :
+Pokemon::Pokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp) :
         itsName(name), itsHeight(height), itsWeight(weight), itsMaxHP(maxHP), itsCurrentHP(currentHP), itsCP(cp) {}
 
 

@@ -28,7 +28,7 @@ public:
      * @param cp The combat points of the FirePokemon.
      * @param nbFins The number of fins the FirePokemon has.
      */
-    FirePokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, int cp, int nbLegs);
+    FirePokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp, int nbLegs);
 
     /**
      * @brief Display the details of the FirePokemon.
