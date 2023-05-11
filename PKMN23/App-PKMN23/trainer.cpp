@@ -118,14 +118,6 @@ void Trainer::attack(Trainer* anOpponentTrainer, Pokemon* myPokemon, Pokemon* an
         anOpponentTrainer->setItsPoints(itsPoints-3); // !!!!!!!!!!!!!!!!!!!!!!!!! Vérifier que si le trainer arrive a 0 il descende d'un niveau
     }
 
-    // Vérifier si mon Pokémon est mis KO en un coup
-    if (myPokemon->getItsCurrentHP() <= 0)
-    {
-        myPokemon->setItsHP(0);
-        // Retirer les points pour avoir mon Pokémon mis KO en un coup
-        itsPoints -= 3;
-    }
-
     // Vérifier si j'ai infligé plus de dégâts que j'ai reçu
     if (damageToOpponent > damageToMe)
     {
