@@ -66,23 +66,35 @@ void PokemonUnitTests::cleanupTestCase()
 
 void PokemonUnitTests::attackTest()
 {
-    Carapuce->attack(Salameche) ;
+    // Test de l'attaque de Carapuce sur Salameche
+    Carapuce->attack(Salameche);
+
+    // Vérification que la santé actuelle de Salameche est de 10 après l'attaque
     QCOMPARE(Salameche->getItsCurrentHP(), 10);
 
+    // Vérification que les dégâts infligés par Salameche à Bulbizarre sont corrects
+    // Les dégâts sont calculés en multipliant le CP de Salameche par 2
+    QCOMPARE(Salameche->nbDamage(Bulbizarre), 2 * (Salameche->getItsCP()));
 }
-
 
 void PokemonUnitTests::getterAndSetterTest()
 {
-    QCOMPARE(Carapuce->getItsCP() , 30);
+    // Vérification du getter de l'attribut itsCP de Carapuce
+    QCOMPARE(Carapuce->getItsCP(), 30);
 
+    // Vérification du getter de l'attribut itsCurrentHP de Bulbizarre
     QCOMPARE(Bulbizarre->getItsCurrentHP(), 70);
 
+    // Vérification du getter de l'attribut itsType de Salameche
     QCOMPARE(Salameche->getItsType(), "FIRE");
 
+    // Modification de la santé actuelle de Pikachu à 80 à l'aide du setter
     Pikachu->setItsHP(80);
+
+    // Vérification que la santé actuelle de Pikachu est bien de 80
     QCOMPARE(Pikachu->getItsCurrentHP(), 80);
 }
+
 
 
 
