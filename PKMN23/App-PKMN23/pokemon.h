@@ -1,3 +1,12 @@
+/**
+* @brief The Pokemon class
+* The Pokemon class is the base class for all types of Pokemons in the game.
+* @author Thibaut LEFRANCOIS
+* @version 0.1
+* @date May 2023
+* @copyright Thibaut LEFRANCOIS
+*/
+
 #ifndef POKEMON_H
 #define POKEMON_H
 
@@ -6,9 +15,6 @@
 
 using namespace std ;
 
-/**
- * @brief The Pokemon class is the base class for all types of Pokemons in the game.
- */
 class Pokemon
 {
 protected:

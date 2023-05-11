@@ -1,14 +1,19 @@
+/**
+* @brief The WaterPokemon class represents a water-type Pokemon.
+* It inherits from the Pokemon class and adds additional attributes
+* specific to water-type Pokemon, such as its number of fins and speed.
+* @author Thibaut LEFRANCOIS
+* @version 0.1
+* @date May 2023
+* @copyright Thibaut LEFRANCOIS
+*/
+
 #ifndef WATERPOKEMON_H
 #define WATERPOKEMON_H
 
 #include "pokemon.h"
 
-/**
- * @brief The WaterPokemon class represents a water-type Pokemon.
- *
- * It inherits from the Pokemon class and adds additional attributes
- * specific to water-type Pokemon, such as its number of fins and speed.
- */
+
 class WaterPokemon : public Pokemon
 {
 private:
@@ -47,17 +52,6 @@ public:
      * @return The damage inflicted on the opponent.
      */
     int nbDamage(Pokemon * anOpponent);
-
-    /**
-     * @brief Attack an opponent Pokemon.
-     *
-     * This method simulates an attack by the current WaterPokemon on an opponent
-     * Pokemon by reducing the opponent's health points based on the damage inflicted.
-     *
-     * @param currentPokemon A pointer to the current WaterPokemon.
-     * @param anOpponent A pointer to the opponent Pokemon.
-     */
-    //void attack(Pokemon * currentPokemon, Pokemon * anOpponent);
 
     /**
      * @brief Get the type of the WaterPokemon.

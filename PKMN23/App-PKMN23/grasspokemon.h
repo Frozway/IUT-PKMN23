@@ -1,14 +1,18 @@
+/**
+* @brief The GrassPokemon class represents a Grass-type Pokemon.
+* It inherits from the Pokemon class and adds additional attributes
+* specific to Grass-type Pokemon, such as its number of fins and speed.
+* @author Thibaut LEFRANCOIS
+* @version 0.1
+* @date May 2023
+* @copyright Thibaut LEFRANCOIS
+*/
+
 #ifndef GrassPOKEMON_H
 #define GrassPOKEMON_H
 
 #include "pokemon.h"
 
-/**
- * @brief The GrassPokemon class represents a Grass-type Pokemon.
- *
- * It inherits from the Pokemon class and adds additional attributes
- * specific to Grass-type Pokemon, such as its number of fins and speed.
- */
 class GrassPokemon : public Pokemon
 {
 private:
@@ -46,17 +50,6 @@ public:
      * @return The damage inflicted on the opponent.
      */
     int nbDamage(Pokemon * anOpponent);
-
-    /**
-     * @brief Attack an opponent Pokemon.
-     *
-     * This method simulates an attack by the current GrassPokemon on an opponent
-     * Pokemon by reducing the opponent's health points based on the damage inflicted.
-     *
-     * @param currentPokemon A pointer to the current GrassPokemon.
-     * @param anOpponent A pointer to the opponent Pokemon.
-     */
-    //void attack(Pokemon * currentPokemon, Pokemon * anOpponent);
 
     /**
      * @brief Get the type of the GrassPokemon.

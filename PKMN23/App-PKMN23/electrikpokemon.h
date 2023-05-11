@@ -1,3 +1,11 @@
+/**
+* @brief The ElectrikPokemon class
+* The Pokemon class is the base class for all types of Pokemons in the game.
+* @author Thibaut LEFRANCOIS
+* @version 0.1
+* @date May 2023
+* @copyright Thibaut LEFRANCOIS
+*/
 #ifndef ELECTRIKPOKEMON_H
 #define ELECTRIKPOKEMON_H
 
@@ -49,17 +57,6 @@ public:
      * @return The damage inflicted on the opponent.
      */
     int nbDamage(Pokemon * anOpponent);
-
-    /**
-     * @brief Attack an opponent Pokemon.
-     *
-     * This method simulates an attack by the current ElectrikPokemon on an opponent
-     * Pokemon by reducing the opponent's health points based on the damage inflicted.
-     *
-     * @param currentPokemon A pointer to the current ElectrikPokemon.
-     * @param anOpponent A pointer to the opponent Pokemon.
-     */
-    //void attack(Pokemon * currentPokemon, Pokemon * anOpponent);
 
     /**
      * @brief Get the type of the ElectrikPokemon.
