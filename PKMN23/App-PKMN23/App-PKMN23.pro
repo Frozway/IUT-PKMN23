@@ -9,6 +9,7 @@ SOURCES += \
         grasspokemon.cpp \
         main.cpp \
         pokemon.cpp \
+        trainer.cpp \
         waterpokemon.cpp
 
 HEADERS += \
@@ -16,4 +17,5 @@ HEADERS += \
     firepokemon.h \
     grasspokemon.h \
     pokemon.h \
+    trainer.h \
     waterpokemon.h
