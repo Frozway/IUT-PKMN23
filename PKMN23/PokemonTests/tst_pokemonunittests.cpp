@@ -26,6 +26,7 @@ private slots:
     void initTestCase();
     void cleanupTestCase();
     void getterAndSetterTest();
+    void attackTest();
 
 };
 
@@ -63,17 +64,27 @@ void PokemonUnitTests::cleanupTestCase()
 
 }
 
+void PokemonUnitTests::attackTest()
+{
+    Carapuce->attack(Salameche) ;
+    QCOMPARE(Salameche->getItsCurrentHP(), 10);
+
+}
+
+
 void PokemonUnitTests::getterAndSetterTest()
 {
     QCOMPARE(Carapuce->getItsCP() , 30);
 
     QCOMPARE(Bulbizarre->getItsCurrentHP(), 70);
 
-    QCOMPARE(Salameche->getItsType(), "FEU");
+    QCOMPARE(Salameche->getItsType(), "FIRE");
 
     Pikachu->setItsHP(80);
     QCOMPARE(Pikachu->getItsCurrentHP(), 80);
 }
+
+
 
 QTEST_APPLESS_MAIN(PokemonUnitTests)
 

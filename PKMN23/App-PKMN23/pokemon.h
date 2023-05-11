@@ -2,6 +2,7 @@
 #define POKEMON_H
 
 #include <iostream>
+#include <cmath>
 
 using namespace std ;
 
@@ -27,7 +28,7 @@ public:
      * @param hp The health points of the Pokemon.
      * @param cp The combat points of the Pokemon.
      */
-    Pokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp);
+    Pokemon(string name, float height, float weight, unsigned int maxHP, int currentHP, unsigned int cp);
 
     virtual ~Pokemon() {};
 
@@ -60,7 +61,7 @@ public:
      * @param currentPokemon A pointer to the attacking Pokemon.
      * @param anOpponent A pointer to the opponent Pokemon.
      */
-    void attack(Pokemon * currentPokemon, Pokemon * anOpponent) ;
+    void attack(Pokemon * anOpponent) ;
 
     /**
      * @brief getItsHP A function that returns the max health points of the Pokemon.

@@ -1,6 +1,6 @@
 #include "electrikpokemon.h"
 
-ElectrikPokemon::ElectrikPokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp, int nbLegs, int nbWings, int intensity) :
+ElectrikPokemon::ElectrikPokemon(string name, float height, float weight, unsigned int maxHP, int currentHP, unsigned int cp, int nbLegs, int nbWings, int intensity) :
     Pokemon(name, height, weight, maxHP, currentHP, cp), itsNbLegs(nbLegs), itsNbWings(nbWings), itsIntensity(intensity), itsSpeed()
 {
     itsSpeed = (itsNbLegs + itsNbWings) * itsIntensity * 0.05 ;
@@ -24,7 +24,7 @@ int ElectrikPokemon::nbDamage(Pokemon * anOpponent)
     {
         return 2 * itsCP;
     }
-    else if(anOpponent->getItsType() == "ELECTRIK" || anOpponent->getItsType() == "PLANTE")
+    else if(anOpponent->getItsType() == "ELECTRIK" || anOpponent->getItsType() == "GRASS")
     {
         return 0.5 * itsCP ;
     }

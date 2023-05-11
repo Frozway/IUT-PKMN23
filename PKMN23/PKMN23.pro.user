@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 9.0.2, 2023-05-10T20:21:05. -->
+<!-- Written by QtCreator 9.0.2, 2023-05-11T14:52:45. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -70,6 +70,7 @@
    </valuemap>
    <valuemap type="QVariantMap" key="AutoTest.CheckStates">
     <value type="Qt::CheckState" key="1@C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/PokemonTests/tst_pokemonunittests.cpp:PokemonUnitTests">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/PokemonTests/tst_pokemonunittests.cpp:attackTest">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/PokemonTests/tst_pokemonunittests.cpp:cleanupTestCase">Unchecked</value>
     <value type="Qt::CheckState" key="1@C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/PokemonTests/tst_pokemonunittests.cpp:getterAndSetterTest">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/PokemonTests/tst_pokemonunittests.cpp:initTestCase">Unchecked</value>

@@ -27,7 +27,7 @@ public:
      * @param cp The combat points of the WaterPokemon.
      * @param nbFins The number of fins the WaterPokemon has.
      */
-    WaterPokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp, int nbFins);
+    WaterPokemon(string name, float height, float weight, unsigned int maxHP, int currentHP, unsigned int cp, int nbFins);
 
     /**
      * @brief Display the details of the WaterPokemon.

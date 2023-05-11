@@ -1,6 +1,6 @@
 #include "pokemon.h"
 
-Pokemon::Pokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp) :
+Pokemon::Pokemon(string name, float height, float weight, unsigned int maxHP, int currentHP, unsigned int cp) :
         itsName(name), itsHeight(height), itsWeight(weight), itsMaxHP(maxHP), itsCurrentHP(currentHP), itsCP(cp) {}
 
 
@@ -24,7 +24,7 @@ void Pokemon::setItsHP(int newItsHP)
     itsCurrentHP = newItsHP;
 }
 
-void Pokemon::attack(Pokemon * currentPokemon, Pokemon * anOpponent)
+void Pokemon::attack(Pokemon * anOpponent)
 {
-    anOpponent->setItsHP(anOpponent->getItsCurrentHP() - currentPokemon->nbDamage(anOpponent));
+    anOpponent->setItsHP(anOpponent->getItsCurrentHP() - this->nbDamage(anOpponent));
 }

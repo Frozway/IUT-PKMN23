@@ -1,6 +1,6 @@
 #include "grasspokemon.h"
 
-GrassPokemon::GrassPokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp) :
+GrassPokemon::GrassPokemon(string name, float height, float weight, unsigned int maxHP, int currentHP, unsigned int cp) :
     Pokemon(name, height, weight, maxHP, currentHP, cp),  itsSpeed()
 {
     itsSpeed = 10 / (itsWeight * itsHeight) ;
@@ -8,12 +8,12 @@ GrassPokemon::GrassPokemon(string name, float height, float weight, unsigned int
 
 string GrassPokemon::getItsType()
 {
-    return "PLANTE" ;
+    return "GRASS" ;
 }
 
 void GrassPokemon::displayPokemon()
 {
-    cout << "Je suis le Pokemon " << itsName << "(type PLANTE). Mon poids est de " << itsWeight
+    cout << "Je suis le Pokemon " << itsName << "(type GRASS). Mon poids est de " << itsWeight
          << "kg, ma taille est de " << itsHeight << "m, ma vitesse est de " << itsSpeed << "km/h";
 }
 
@@ -23,7 +23,7 @@ int GrassPokemon::nbDamage(Pokemon * anOpponent)
     {
         return 2 * itsCP;
     }
-    else if(anOpponent->getItsType() == "FEU" || anOpponent->getItsType() == "PLANTE")
+    else if(anOpponent->getItsType() == "FIRE" || anOpponent->getItsType() == "GRASS")
     {
         return 0.5 * itsCP ;
     }

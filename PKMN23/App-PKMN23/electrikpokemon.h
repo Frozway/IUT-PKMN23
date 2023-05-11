@@ -29,7 +29,7 @@ public:
      * @param cp The combat points of the ElectrikPokemon.
      * @param nbFins The number of fins the ElectrikPokemon has.
      */
-    ElectrikPokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp, int nbLegs, int nbWings, int intensity);
+    ElectrikPokemon(string name, float height, float weight, unsigned int maxHP, int currentHP, unsigned int cp, int nbLegs, int nbWings, int intensity);
 
     /**
      * @brief Display the details of the ElectrikPokemon.

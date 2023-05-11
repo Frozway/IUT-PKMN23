@@ -1,6 +1,7 @@
 #include "waterpokemon.h"
 
-WaterPokemon::WaterPokemon(string name, float height, float weight, unsigned int maxHP, unsigned int currentHP, unsigned int cp, int nbFins) :
+
+WaterPokemon::WaterPokemon(string name, float height, float weight, unsigned int maxHP, int currentHP, unsigned int cp, int nbFins) :
     Pokemon(name, height, weight, maxHP, currentHP, cp), itsNbFins(nbFins), itsSpeed()
 {
     itsSpeed = (itsWeight * itsNbFins) / 25.0;
@@ -8,23 +9,23 @@ WaterPokemon::WaterPokemon(string name, float height, float weight, unsigned int
 
 string WaterPokemon::getItsType()
 {
-    return "EAU" ;
+    return "WATER" ;
 }
 
 void WaterPokemon::displayPokemon()
 {
-    cout << "Je suis le Pokemon " << itsName << "(type EAU). Mon poids est de " << itsWeight
+    cout << "Je suis le Pokemon " << itsName << "(type WATER). Mon poids est de " << itsWeight
          << "kg, ma vitesse est de " << itsSpeed << " km/h. J'ai " << itsNbFins
          << " nageoires, ma taille est de " << itsHeight << "m." ;
 }
 
 int WaterPokemon::nbDamage(Pokemon * anOpponent)
 {
-    if(anOpponent->getItsType() == "FEU")
+    if(anOpponent->getItsType() == "FIRE")
     {
         return 2 * itsCP;
     }
-    else if(anOpponent->getItsType() == "EAU" || anOpponent->getItsType() == "PLANTE")
+    else if(anOpponent->getItsType() == "WATER" || anOpponent->getItsType() == "GRASS")
     {
         return 0.5 * itsCP ;
     }
@@ -35,5 +36,6 @@ float WaterPokemon::getItsSpeed()
 {
     return itsSpeed ;
 }
+
 
 
