@@ -1,6 +1,8 @@
 /**
 * @brief The ElectrikPokemon class
-* The Pokemon class is the base class for all types of Pokemons in the game.
+* The ElectrikPokemon class represents a Electrik-type Pokemon.
+* It inherits from the Pokemon class and adds additional attributes
+* specific to Electrik-type Pokemon, such as its number of fins and speed.
 * @author Thibaut LEFRANCOIS
 * @version 0.1
 * @date May 2023
@@ -10,13 +12,6 @@
 #define ELECTRIKPOKEMON_H
 
 #include "pokemon.h"
-
-/**
- * @brief The ElectrikPokemon class represents a Electrik-type Pokemon.
- *
- * It inherits from the Pokemon class and adds additional attributes
- * specific to Electrik-type Pokemon, such as its number of fins and speed.
- */
 class ElectrikPokemon : public Pokemon
 {
 private:
