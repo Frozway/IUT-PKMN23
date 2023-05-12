@@ -13,10 +13,9 @@
 class Trainer
 {
 private:
-
     string itsName;
-    static int itsLevel;
-    static int itsPoints;
+    int itsLevel;
+    int itsPoints;
     vector<Pokemon*> * itsPokemonTeam;
 
 public:
@@ -25,24 +24,23 @@ public:
 
     void catchPokemon(Pokemon* pokemon);
     void removePokemon(Pokemon* pokemon);
-    void attack(Trainer* anOpponentTrainer, Pokemon* myPokemon, Pokemon* anOpponentPokemon);
+    void attack(Pokemon* myPokemon, Pokemon* anOpponentPokemon);
 
     void displayTrainer();
+    void displayTeam();
+    void calculateLevel();
+
     float getItsAverageSpeed();
+    float getItsAverageSpeed(string itsType);
     int getItsTotalTeamHP();
     int getItsTotalCP();
-
-    bool operator<(const Trainer& anOpponent);
+    void setItsPoints(int newItsPoints);
 
     // Getters and setters
     string getItsName() const;
     int getItsLevel() const;
     int getItsPoints() const;
     vector<Pokemon*> getTeam() const;
-
-
-
-    static void setItsPoints(int newItsPoints);
 };
 
 

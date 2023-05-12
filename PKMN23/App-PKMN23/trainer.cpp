@@ -1,12 +1,11 @@
 #include "trainer.h"
 
-int Trainer::itsLevel = 1;
-int Trainer::itsPoints = 0;
-
 Trainer::Trainer(string name)
 {
     itsName = name ;
     itsPokemonTeam = new vector<Pokemon*> ;
+    itsLevel = 1 ;
+    itsPoints = 0 ;
 }
 
 void Trainer::catchPokemon(Pokemon* pokemon)
@@ -32,7 +31,7 @@ float Trainer::getItsAverageSpeed()
     float totalAttackSpeed = 0.0;
 
     // Parcourir chaque Pokémon dans l'équipe du dresseur
-    for (auto& pokemon : *itsPokemonTeam)
+    for (Pokemon * pokemon : *itsPokemonTeam)
     {
         totalAttackSpeed += pokemon->getItsSpeed();
     }
@@ -53,7 +52,7 @@ int Trainer::getItsTotalTeamHP()
     int totalHP = 0;
 
     // Parcourir chaque Pokémon dans l'équipe du dresseur
-    for (const auto& pokemon : *itsPokemonTeam)
+    for (Pokemon *pokemon : *itsPokemonTeam)
     {
         totalHP += pokemon->getItsCurrentHP();
     }
@@ -66,57 +65,36 @@ int Trainer::getItsTotalCP()
     int totalCP = 0;
 
     // Parcourir tous les Pokémon de l'équipe
-    for (const auto& pokemon : *itsPokemonTeam)
+    for(Pokemon* pokemon : *itsPokemonTeam)
     {
         totalCP += pokemon->getItsCP();
     }
-
     return totalCP;
 }
 
 
 void Trainer::displayTrainer()
 {
-    cout << "Dresseur : " << itsName << endl;
-    cout << "Niveau : " << itsLevel << endl;
-    cout << "Points : " << itsPoints << endl;
-    cout << "Nombre de points de vie total de l'équipe : " << getItsTotalTeamHP() << endl;
-    cout << "Puissance de combat totale de l'équipe : " << getItsTotalCP() << endl;
-    cout << "Moyenne de la vitesse d'attaque de l'équipe : " << getItsAverageSpeed() << endl;
+    cout << "Dresseur : " << itsName << endl ;
+    cout << "Niveau : " << itsLevel << endl ;
+    cout << "Points : " << itsPoints << endl ;
+    cout << "Nombre de points de vie total de l'equipe : " << getItsTotalTeamHP() << " HP" << endl ;
+    cout << "Puissance de combat totale de l'equipe : " << getItsTotalCP() << " CP" << endl ;
+    cout << "Moyenne de la vitesse d'attaque de l'equipe : " << getItsAverageSpeed() << " KM/H" << endl ;
+    cout << "Moyenne de la vitesse d'attaque de l'equipe (Type EAU) : " << getItsAverageSpeed("WATER") << " KM/H" << endl ;
+    cout << "Moyenne de la vitesse d'attaque de l'equipe (Type FIRE): " << getItsAverageSpeed("FIRE") << " KM/H" << endl ;
+    cout << "Moyenne de la vitesse d'attaque de l'equipe (Type GRASS): " << getItsAverageSpeed("GRASS") << " KM/H" << endl ;
+    cout << "Moyenne de la vitesse d'attaque de l'equipe (Type ELECTRIK): " << getItsAverageSpeed("ELECTRIK") << " KM/H" << endl ;
 }
 
-bool Trainer::operator<(const Trainer& anOpponent)
-{
 
-    if (this->getItsLevel() != anOpponent.getItsLevel())
-    {
-        return this->getItsLevel() < anOpponent.getItsLevel();
-    }
-
-    // Comparaison basée sur les caractéristiques de l'équipe de Pokémon
-    // ... Ajoutez ici votre logique de comparaison en fonction des critères spécifiés dans le cahier des charges ...
-
-    // Par défaut, retourne false si les dresseurs ont des niveaux égaux et des équipes de Pokémon similaires
-    return false;
-}
-
-void Trainer::attack(Trainer* anOpponentTrainer, Pokemon* myPokemon, Pokemon* anOpponentPokemon)
+void Trainer::attack(Pokemon* myPokemon, Pokemon* anOpponentPokemon)
 {
     int damageToOpponent = myPokemon->nbDamage(anOpponentPokemon);
     int damageToMe = anOpponentPokemon->nbDamage(myPokemon);
 
     // Actualiser le nombre de points de vie de l'adversaire et du dresseur
     myPokemon->attack(anOpponentPokemon);
-    //anOpponentPokemon->setItsHP(anOpponentPokemon->getItsCurrentHP() - damageToOpponent);
-    //myPokemon->setItsHP(myPokemon->getItsCurrentHP() - damageToMe);
-
-    // Vérifier si le Pokémon de l'adversaire est mis KO en un coup
-    if (anOpponentPokemon->getItsCurrentHP() <= 0)
-    {
-        // Ajouter les points pour mettre KO le Pokémon de l'adversaire
-        itsPoints += 3;
-        anOpponentTrainer->setItsPoints(itsPoints-3); // !!!!!!!!!!!!!!!!!!!!!!!!! Vérifier que si le trainer arrive a 0 il descende d'un niveau
-    }
 
     // Vérifier si j'ai infligé plus de dégâts que j'ai reçu
     if (damageToOpponent > damageToMe)
@@ -130,4 +108,57 @@ void Trainer::setItsPoints(int newItsPoints)
 {
     itsPoints = newItsPoints;
 }
+
+void Trainer::calculateLevel()
+{
+    if(itsPoints >= 10)
+    {
+        itsLevel += 1 ;
+        itsPoints -= 10 ;
+    }
+    else if(itsPoints < 0 && itsLevel > 1)
+    {
+        itsLevel += 1 ;
+        itsPoints -= 10 ;
+    }
+}
+
+float Trainer::getItsAverageSpeed(string itsType)
+{
+        int count = 0;
+        float totalSpeed = 0.0;
+
+        // Parcourir chaque Pokémon dans l'équipe du dresseur
+        for (auto * pokemon : *itsPokemonTeam)
+        {
+            // Vérifier si le Pokémon a le type spécifié
+            if (pokemon->getItsType() == itsType)
+            {
+                totalSpeed += pokemon->getItsSpeed();
+                count++;
+            }
+        }
+
+        // Calculer la moyenne de la vitesse d'attaque pour le type donné
+        if (count > 0)
+        {
+            return totalSpeed / count;
+        }
+        else
+        {
+            return 0.0;
+        }
+
+}
+
+void Trainer::displayTeam()
+{
+    for (size_t i = 0; i < itsPokemonTeam->size(); i++)
+    {
+        cout << "Pokemon #" << i + 1 << ":" << endl;
+        (*itsPokemonTeam)[i]->displayPokemon();
+        cout << endl;
+    }
+}
+
 
