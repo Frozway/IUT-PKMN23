@@ -9,3 +9,12 @@ Pourquoi pas s'en servir pour le nbDamage et donc passer l'attribut nbDamage dan
 
 Commencer les tests unitaires sur la classe Pokemon
 Surcharge d'opérateur sur la classe Pokémon pour les comparer
+
+Game :
+
+    if (anOpponentPokemon->getItsCurrentHP() <= 0)
+    {
+        // Ajouter les points pour mettre KO le Pokémon de l'adversaire
+        itsPoints += 3;
+        anOpponentTrainer->setItsPoints(anOpponentTrainer->itsPoints-3);
+    }
