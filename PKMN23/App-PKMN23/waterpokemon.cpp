@@ -14,9 +14,10 @@ string WaterPokemon::getItsType()
 
 void WaterPokemon::displayPokemon()
 {
-    cout << "Je suis le Pokemon " << itsName << "(type WATER). Mon poids est de " << itsWeight
-         << "kg, ma vitesse est de " << itsSpeed << " km/h. J'ai " << itsNbFins
-         << " nageoires, ma taille est de " << itsHeight << "m." ;
+    cout << itsName << " (" << getItsType() <<") | " << itsCurrentHP << " HP | " << itsCP << " PC | " << itsSpeed << " KM/H | " << endl ;
+//    cout << "Je suis le Pokemon " << itsName << "(type WATER). Mon poids est de " << itsWeight
+//         << "kg, ma vitesse est de " << itsSpeed << " km/h. J'ai " << itsNbFins
+//         << " nageoires, ma taille est de " << itsHeight << "m." ;
 }
 
 int WaterPokemon::nbDamage(Pokemon * anOpponent)

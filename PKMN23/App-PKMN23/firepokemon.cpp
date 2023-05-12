@@ -13,9 +13,10 @@ string FirePokemon::getItsType()
 
 void FirePokemon::displayPokemon()
 {
-    cout << "Je suis le Pokemon " << itsName << "(type FIRE). Mon poids est de " << itsWeight
-         << "kg, ma vitesse est de " << itsSpeed << " km/h. J'ai " << itsNbLegs
-         << " pattes, ma taille est de " << itsHeight << "m." ;
+    cout << itsName << " (" << getItsType() <<") | " << itsCurrentHP << " HP | " << itsCP << " PC | " << itsSpeed << " KM/H | " << endl ;
+//    cout << "Je suis le Pokemon " << itsName << "(type FIRE). Mon poids est de " << itsWeight
+//         << "kg, ma vitesse est de " << itsSpeed << " km/h. J'ai " << itsNbLegs
+//         << " pattes, ma taille est de " << itsHeight << "m." ;
 }
 
 int FirePokemon::nbDamage(Pokemon * anOpponent)
