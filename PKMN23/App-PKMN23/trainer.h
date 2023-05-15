@@ -4,7 +4,7 @@
  *
  * @author Thibaut LEFRANCOIS
  * @version 0.2
- * @date 15/05/23
+ * @date May 2023
  */
 
 #ifndef TRAINER_H
