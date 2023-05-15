@@ -100,8 +100,13 @@ void Trainer::displayTrainer()
 }
 
 
-void Trainer::attack(Pokemon* myPokemon, Pokemon* anOpponentPokemon)
+void Trainer::attack(Pokemon* myPokemon, Trainer * anOpponentTrainer, Pokemon* anOpponentPokemon)
 {
+    if(this->isPokemonInTeam(myPokemon) == false || anOpponentTrainer->isPokemonInTeam(anOpponentPokemon) == false)
+    {
+        return ;
+    }
+
     int damageToOpponent = myPokemon->nbDamage(anOpponentPokemon);
     int damageToMe = anOpponentPokemon->nbDamage(myPokemon);
 
@@ -171,6 +176,55 @@ void Trainer::displayTeam()
         (*itsPokemonTeam)[i]->displayPokemon();
         cout << endl;
     }
+}
+
+vector<Pokemon*> Trainer::getItsTeam()
+{
+    return *itsPokemonTeam;
+}
+
+int Trainer::getItsLevel()
+{
+    return itsLevel;
+}
+
+int Trainer::getItsPoints()
+{
+    return itsPoints;
+}
+
+void Trainer::removePokemon(Pokemon* pokemon)
+{
+    if(isPokemonInTeam(pokemon))
+    {
+        // Parcourir chaque Pokémon dans l'équipe du dresseur
+        for (auto it = itsPokemonTeam->begin(); it != itsPokemonTeam->end(); ++it)
+        {
+            // Vérifier si le Pokémon à supprimer est trouvé dans l'équipe
+            if (*it == pokemon)
+            {
+                // Supprimer le Pokémon de l'équipe
+                itsPokemonTeam->erase(it);
+                break; // Sortir de la boucle après la suppression
+            }
+        }
+    }
+    else return ;
+}
+
+bool Trainer::isPokemonInTeam(Pokemon* pokemon)
+{
+    // Parcourir chaque Pokémon dans l'équipe du dresseur
+    for (const auto& p : *itsPokemonTeam)
+    {
+        // Vérifier si le Pokémon est trouvé dans l'équipe
+        if (p == pokemon)
+        {
+            return true; // Le Pokémon est trouvé, retourner true
+        }
+    }
+
+    return false; // Le Pokémon n'est pas trouvé, retourner false
 }
 
 

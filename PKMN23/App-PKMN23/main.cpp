@@ -55,8 +55,8 @@ int main()
 
     cout << endl << endl << endl << "=================================================================" << endl << endl << endl ;
 
-    trainer1->attack(tortank, charizard);
-    trainer1->attack(tortank, charizard);
+    //trainer1->attack(tortank, charizard);
+    //trainer1->attack(tortank, charizard);
     trainer2->displayTeam();
 
 
