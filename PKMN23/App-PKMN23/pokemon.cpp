@@ -3,6 +3,11 @@
 Pokemon::Pokemon(string name, float height, float weight, unsigned int maxHP, int currentHP, unsigned int cp) :
         itsName(name), itsHeight(height), itsWeight(weight), itsMaxHP(maxHP), itsCurrentHP(currentHP), itsCP(cp) {}
 
+string Pokemon::getItsName() const
+{
+    return itsName;
+}
+
 
 int Pokemon::getItsMaxHP() const
 {

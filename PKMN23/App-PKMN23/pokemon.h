@@ -70,6 +70,12 @@ public:
     void attack(Pokemon * anOpponent) ;
 
     /**
+     * @brief getItsNale A function that returns the name of the Pokemon.
+     * @return The name of the Pokemon.
+     */
+    string getItsName() const;
+
+    /**
      * @brief getItsHP A function that returns the max health points of the Pokemon.
      * @return The health points of the Pokemon.
      */

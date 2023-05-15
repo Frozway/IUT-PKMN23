@@ -2,9 +2,9 @@
  * @brief The Trainer class
  * The Trainer class represents a trainer in the Pokémon game. It manages a team of Pokémon and performs various operations related to the trainer and their team.
  *
- * @author [Your Name]
- * @version 1.0
- * @date [Current Date]
+ * @author Thibaut LEFRANCOIS
+ * @version 0.2
+ * @date 15/05/23
  */
 
 #ifndef TRAINER_H
