@@ -29,6 +29,9 @@ private slots:
     void cleanupTestCase();
     void catchAndRemovePokemon_test();
     void attackPokemonByTrainer_test();
+    void testPokemonInTeam();
+    void testLevel();
+    void testGetter();
 
 };
 
@@ -53,16 +56,22 @@ void TrainerUnitTests::initTestCase()
 {
     Sacha = new Trainer("Sacha");
     Pierre = new Trainer("Pierre");
+    carapuce = new WaterPokemon("Carapuce", 0.81, 12, 70, 70, 30, 4);
+    bulbizarre = new GrassPokemon("Bulbizarre", 0.7, 15, 70, 70, 30);
+    salameche = new FirePokemon("Salameche", 0.65, 12, 70, 70, 30, 2);
+    pikachu = new ElectrikPokemon("Pikachu", 0.4, 6, 70, 70, 30, 2, 0, 50);
 }
 
 void TrainerUnitTests::cleanupTestCase()
 {
-//    delete Sacha ;
-//    delete Pierre ;
+    delete Sacha ;
+    delete Pierre ;
 }
 
 void TrainerUnitTests::catchAndRemovePokemon_test()
 {
+    initTestCase();
+
     //Ajout de pokémon et vérifier si il se retrouve bien dans l'équipe du dresseur
     Sacha->catchPokemon(carapuce);
     QCOMPARE(Sacha->getItsTeam()[0], carapuce);
@@ -70,10 +79,14 @@ void TrainerUnitTests::catchAndRemovePokemon_test()
     //Retrait du pokemon et vérifier si maintenant la liste est vide
     Sacha->removePokemon(carapuce);
     QCOMPARE(Sacha->getItsTeam().empty(), true);
+
+    cleanupTestCase();
 }
 
 void TrainerUnitTests::attackPokemonByTrainer_test()
 {
+    initTestCase();
+
     //Ajout de pokemon pour combattre
     Sacha->catchPokemon(carapuce);
     Pierre->catchPokemon(salameche);
@@ -100,6 +113,39 @@ void TrainerUnitTests::attackPokemonByTrainer_test()
     QCOMPARE(actualCarapuceHP, expectedCarapuceHP); //Vérifier que carapuce à été soigné
 }
 
+void TrainerUnitTests::testPokemonInTeam()
+{
+    initTestCase();
+    Sacha->catchPokemon(carapuce);
+    //Tester la recherche de pokemon dans une équipe d'un dresseur
+    QCOMPARE(Sacha->isPokemonInTeam(carapuce), true) ;
+    cleanupTestCase();
+}
+
+void TrainerUnitTests::testLevel()
+{
+    initTestCase();
+
+    Sacha->setItsPoints(0);
+    Sacha->setItsPoints(10);
+    Sacha->calculateLevel();
+    QCOMPARE(Sacha->getItsLevel(), 2);
+    QCOMPARE(Sacha->getItsPoints(), 0);
+
+    cleanupTestCase();
+}
+
+void TrainerUnitTests::testGetter()
+{
+    initTestCase();
+
+    //Vérifie le nombre total d'HP de l'équipe de sacha (carapuce (70) + salameche (70))
+    Sacha->catchPokemon(salameche);
+    Sacha->catchPokemon(carapuce);
+    QCOMPARE(Sacha->getItsTotalTeamHP(), 140);
+
+    QCOMPARE(Sacha->getItsTotalCP(), 60);
+}
 
 QTEST_APPLESS_MAIN(TrainerUnitTests)
 
