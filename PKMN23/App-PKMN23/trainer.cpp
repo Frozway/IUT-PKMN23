@@ -8,6 +8,18 @@ Trainer::Trainer(string name)
     itsPoints = 0 ;
 }
 
+Trainer::~Trainer()
+{
+    // Parcourir le vecteur d'équipe de Pokémon
+        for (Pokemon * pokemon : *itsPokemonTeam)
+        {
+            delete pokemon; // Supprimer chaque objet Pokémon
+        }
+
+        itsPokemonTeam->clear(); // Effacer tous les pointeurs de Pokémon du vecteur
+        delete itsPokemonTeam;   // Supprimer le vecteur lui-même
+}
+
 void Trainer::catchPokemon(Pokemon* pokemon)
 {
     itsPokemonTeam->push_back(pokemon);

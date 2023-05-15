@@ -87,7 +87,6 @@ public:
      */
     int getItsCP() const;
 
-
     /**
      * @brief setItsHP A function that sets the health points of the Pokemon.
      * @param newItsHP The new health points of the Pokemon.

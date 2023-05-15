@@ -47,6 +47,18 @@ int main()
     trainer1->displayTeam();
     trainer1->displayTrainer();
 
+    cout << endl << endl << endl << "=================================================================" << endl << endl << endl ;
+
+
+    trainer2->displayTeam();
+    trainer2->displayTrainer();
+
+    cout << endl << endl << endl << "=================================================================" << endl << endl << endl ;
+
+    trainer1->attack(tortank, charizard);
+    trainer1->attack(tortank, charizard);
+    trainer2->displayTeam();
+
 
     return 0;
 }
