@@ -1,6 +1,6 @@
 #include "gamemaker.h"
 
-gameMaker::gameMaker()
+GameMaker::GameMaker()
 {
 
 }

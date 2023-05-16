@@ -12,7 +12,9 @@
 #define CYAN_TEXT    "\033[36;1m"
 #define WHITE_TEXT   "\033[37;1m"
 
-#include "gamemaker.h"
+//#include "gamemaker.h"
+#include "trainer.h"
+#include "pokemon.h"
 
 class UI
 {

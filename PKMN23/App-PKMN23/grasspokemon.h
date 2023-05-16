@@ -17,6 +17,8 @@ class GrassPokemon : public Pokemon
 {
 private:
     float itsSpeed ; /**< The speed of the GrassPokemon. */
+    string itsType ; /**< The type of the GrassPokemon. */
+
 
 public:
     /**

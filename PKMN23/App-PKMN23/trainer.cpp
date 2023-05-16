@@ -1,4 +1,4 @@
-#include "trainer.h"
+  #include "trainer.h"
 
 Trainer::Trainer(string name)
 {
@@ -225,6 +225,11 @@ bool Trainer::isPokemonInTeam(Pokemon* pokemon)
     }
 
     return false; // Le Pokémon n'est pas trouvé, retourner false
+}
+
+string Trainer::getItsName()
+{
+    return itsName;
 }
 
 

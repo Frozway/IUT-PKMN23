@@ -1,9 +1,11 @@
 TEMPLATE = app
 CONFIG += console c++17
 CONFIG -= app_bundle
-CONFIG -= qt
+QT     += sql
+#CONFIG -= qt
 
 SOURCES += \
+        database.cpp \
         electrikpokemon.cpp \
         firepokemon.cpp \
         gamemaker.cpp \
@@ -15,6 +17,7 @@ SOURCES += \
         waterpokemon.cpp
 
 HEADERS += \
+    database.h \
     electrikpokemon.h \
     firepokemon.h \
     gamemaker.h \

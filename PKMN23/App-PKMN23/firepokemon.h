@@ -19,6 +19,7 @@ class FirePokemon : public Pokemon
 private:
     int itsNbLegs ; /**< The number of fins the FirePokemon has. */
     float itsSpeed ; /**< The speed of the FirePokemon. */
+    string itsType; /**< The type of the FirePokemon. */
 
 public:
     /**

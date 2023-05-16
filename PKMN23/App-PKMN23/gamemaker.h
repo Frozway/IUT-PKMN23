@@ -3,6 +3,8 @@
 
 #include "pokemon.h"
 #include "trainer.h"
+#include "ui.h"
+#include "database.h"
 
 class GameMaker
 {

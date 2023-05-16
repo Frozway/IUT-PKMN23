@@ -5,11 +5,12 @@ WaterPokemon::WaterPokemon(string name, float height, float weight, unsigned int
     Pokemon(name, height, weight, maxHP, currentHP, cp), itsNbFins(nbFins), itsSpeed()
 {
     itsSpeed = (itsWeight * itsNbFins) / 25.0;
+    itsType = "WATER" ;
 }
 
 string WaterPokemon::getItsType()
 {
-    return "WATER" ;
+    return itsType ;
 }
 
 void WaterPokemon::displayPokemon()

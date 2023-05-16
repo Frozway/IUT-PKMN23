@@ -19,6 +19,7 @@ private:
     int itsNbWings ; /**< The number of wings the ElectrikPokemon has. */
     int itsIntensity ;  /**< The electrical intensity the ElectrikPokemon has. */
     float itsSpeed ; /**< The speed of the ElectrikPokemon. */
+    string itsType; /**< The type of the ElectrikPokemon. */
 
 public:
     /**

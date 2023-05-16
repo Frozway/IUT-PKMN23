@@ -4,11 +4,12 @@ FirePokemon::FirePokemon(string name, float height, float weight, unsigned int m
     Pokemon(name, height, weight, maxHP, currentHP, cp), itsNbLegs(nbLegs), itsSpeed()
 {
     itsSpeed = itsNbLegs * itsWeight * 0.03 ;
+    itsType = "FIRE";
 }
 
 string FirePokemon::getItsType()
 {
-    return "FIRE" ;
+    return itsType ;
 }
 
 void FirePokemon::displayPokemon()

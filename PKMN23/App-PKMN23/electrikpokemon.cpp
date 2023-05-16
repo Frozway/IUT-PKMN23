@@ -4,11 +4,12 @@ ElectrikPokemon::ElectrikPokemon(string name, float height, float weight, unsign
     Pokemon(name, height, weight, maxHP, currentHP, cp), itsNbLegs(nbLegs), itsNbWings(nbWings), itsIntensity(intensity), itsSpeed()
 {
     itsSpeed = (itsNbLegs + itsNbWings) * itsIntensity * 0.05 ;
+    itsType = "ELECTRICK";
 }
 
 string ElectrikPokemon::getItsType()
 {
-    return "ELECTRIK" ;
+    return itsType ;
 }
 
 void ElectrikPokemon::displayPokemon()

@@ -19,6 +19,7 @@ class WaterPokemon : public Pokemon
 private:
     int itsNbFins ; /**< The number of fins the WaterPokemon has. */
     float itsSpeed ; /**< The speed of the WaterPokemon. */
+    string itsType ; /**< The type of the WaterPokemon. */
 
 public:
     /**

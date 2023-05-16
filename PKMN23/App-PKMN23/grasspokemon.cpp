@@ -4,11 +4,12 @@ GrassPokemon::GrassPokemon(string name, float height, float weight, unsigned int
     Pokemon(name, height, weight, maxHP, currentHP, cp),  itsSpeed()
 {
     itsSpeed = 10 / (itsWeight * itsHeight) ;
+    itsType = "GRASS" ;
 }
 
 string GrassPokemon::getItsType()
 {
-    return "GRASS" ;
+    return itsType ;
 }
 
 void GrassPokemon::displayPokemon()

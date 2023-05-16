@@ -1,11 +1,13 @@
 #include <iostream>
-#include "electrikpokemon.h"
-#include "grasspokemon.h"
-#include "pokemon.h"
-#include "trainer.h"
-#include "waterpokemon.h"
-#include "firepokemon.h"
-#include "ui.h"
+//#include "electrikpokemon.h"
+//#include "grasspokemon.h"
+//#include "pokemon.h"
+//#include "trainer.h"
+//#include "waterpokemon.h"
+//#include "firepokemon.h"
+//#include "ui.h"
+
+#include "gamemaker.h"
 
 using namespace std;
 
@@ -13,8 +15,24 @@ int main()
 {
 
 
-    UI UserInterface;
-    UserInterface.displayMenu();
+    //UI UserInterface;
+
+
+    DataBase * Database = new DataBase();
+    QSqlDatabase db = Database->initDataBase() ;
+
+    Trainer* trainer1 = new Trainer("Sacha");
+
+    Database->fillARandomTeam(trainer1, db);
+
+
+
+    trainer1->displayTeam();
+
+
+
+
+    //UserInterface.displayMenu();
 //    // Création des 12 Pokémon
 //    Pokemon* carapuce = new WaterPokemon("Carapuce", 0.81, 12, 70, 70, 30, 4);
 //    Pokemon* bulbizarre = new GrassPokemon("Bulbizarre", 0.7, 15, 70, 70, 30);
