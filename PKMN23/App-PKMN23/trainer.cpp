@@ -22,20 +22,29 @@ Trainer::~Trainer()
 
 void Trainer::catchPokemon(Pokemon* pokemon)
 {
-    itsPokemonTeam->push_back(pokemon);
-    itsPoints += 1 ;
-
-    // Trier l'équipe dans l'ordre naturel par type et par PC
-
-    sort(itsPokemonTeam->begin(), itsPokemonTeam->end(), [](Pokemon* p1, Pokemon* p2)
+    if(itsPokemonTeam->size() < 6)
     {
-        // Trier par type (ordre alphabétique)
-        if (p1->getItsType() != p2->getItsType()) {
-            return p1->getItsType() < p2->getItsType();
-        }
-        // Trier par PC (puissance de combat)
-        return p1->getItsCP() < p2->getItsCP();
-    });
+        itsPokemonTeam->push_back(pokemon);
+        itsPoints += 1 ;
+
+        // Trier l'équipe dans l'ordre naturel par type et par PC
+
+        sort(itsPokemonTeam->begin(), itsPokemonTeam->end(), [](Pokemon* p1, Pokemon* p2)
+        {
+            // Trier par type (ordre alphabétique)
+            if (p1->getItsType() != p2->getItsType()) {
+                return p1->getItsType() < p2->getItsType();
+            }
+            // Trier par PC (puissance de combat)
+            return p1->getItsCP() < p2->getItsCP();
+        });
+    }
+    else
+    {
+        cout << "Equipe déjà complète !" << endl ;
+    }
+
+
 }
 
 float Trainer::getItsAverageSpeed()

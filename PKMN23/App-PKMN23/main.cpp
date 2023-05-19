@@ -18,14 +18,12 @@ int main()
     //UI UserInterface;
 
 
-    DataBase * Database = new DataBase();
-    QSqlDatabase db = Database->initDataBase() ;
+    PokemonDataBase * PokemonDatabase = new PokemonDataBase();
+
 
     Trainer* trainer1 = new Trainer("Sacha");
 
-    Database->fillARandomTeam(trainer1, db);
-
-
+    PokemonDatabase->fillARandomTeam(trainer1);
 
     trainer1->displayTeam();
 

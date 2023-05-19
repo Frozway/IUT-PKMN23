@@ -5,24 +5,24 @@ QT     += sql
 #CONFIG -= qt
 
 SOURCES += \
-        database.cpp \
         electrikpokemon.cpp \
         firepokemon.cpp \
         gamemaker.cpp \
         grasspokemon.cpp \
         main.cpp \
         pokemon.cpp \
+        pokemondatabase.cpp \
         trainer.cpp \
         ui.cpp \
         waterpokemon.cpp
 
 HEADERS += \
-    database.h \
     electrikpokemon.h \
     firepokemon.h \
     gamemaker.h \
     grasspokemon.h \
     pokemon.h \
+    pokemondatabase.h \
     trainer.h \
     ui.h \
     waterpokemon.h

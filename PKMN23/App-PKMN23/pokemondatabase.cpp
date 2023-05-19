@@ -1,40 +1,45 @@
-#include "database.h"
+#include "pokemondatabase.h"
 
-DataBase::DataBase()
+PokemonDataBase::PokemonDataBase()
 {
-
+    itsPokemonDataBase = QSqlDatabase::addDatabase("QSQLITE");
+    itsPokemonDataBase.setDatabaseName("../../DataBase/pokemon.db");
 }
 
-QSqlDatabase DataBase::initDataBase()
+void PokemonDataBase::openDataBase()
 {
-    QSqlDatabase Database = QSqlDatabase::addDatabase("QSQLITE");
-    Database.setDatabaseName("pokemon.db");
+    itsPokemonDataBase.open();
+}
 
-    if (!Database.open())
+
+bool PokemonDataBase::tryDataBase()
+{
+    if (!itsPokemonDataBase.open())
     {
         qDebug() << "Error: Connection with database failed";
+        return false;
     }
     else
     {
         qDebug() << "Database: Connection ok";
+        return true;
     }
-    return Database;
 }
 
-void DataBase::closeDatabase(QSqlDatabase Database)
+void PokemonDataBase::closeDatabase()
 {
-   Database.close();
+   itsPokemonDataBase.close();
 }
 
-void DataBase::fillARandomTeam(Trainer * trainer, QSqlDatabase Database)
+void PokemonDataBase::fillARandomTeam(Trainer * trainer)
 {
-    //for(int i = 0 ; i < 6 ; i++)
-    //{
-        QSqlQuery query("SELECT * FROM POKEMON ORDER BY RANDOM() LIMIT 1;", Database);
+    for(int i = 0 ; i < 6 ; i++)
+    {
+        openDataBase();
 
-        //if(query.next())
-        //{
-            cout << "test" ;
+        QSqlQuery query("SELECT * FROM POKEMON ORDER BY RANDOM() LIMIT 1;", itsPokemonDataBase);
+        if(query.next())
+        {
             QString str = query.value("NAME").toString();
             string name = str.toStdString();
             float height = query.value("HEIGHT").toFloat();
@@ -46,14 +51,11 @@ void DataBase::fillARandomTeam(Trainer * trainer, QSqlDatabase Database)
             QString typeQ = query.value("TYPE").toString();
             string type = typeQ.toStdString();
 
-            cout << type ;
-
             if(type == "FIRE")
             {
                 int nbLegs = query.value("NBLEGS").toInt();
                 Pokemon * pokemon = new FirePokemon(name, height, weight, maxHP, currentHP, cp, nbLegs);
                 trainer->catchPokemon(pokemon);
-                cout << "Ok" ;
             }
 
             else if(type == "WATER")
@@ -61,14 +63,12 @@ void DataBase::fillARandomTeam(Trainer * trainer, QSqlDatabase Database)
                 int nbFins = query.value("NBFINS").toInt();
                 Pokemon * pokemon = new WaterPokemon(name, height, weight, maxHP, currentHP, cp, nbFins);
                 trainer->catchPokemon(pokemon);
-                cout << "Ok" ;
             }
 
             else if(type == "GRASS")
             {
                 Pokemon * pokemon = new GrassPokemon(name, height, weight, maxHP, currentHP, cp);
                 trainer->catchPokemon(pokemon);
-                cout << "Ok" ;
             }
 
             else if(type == "ELECTRIK")
@@ -78,13 +78,13 @@ void DataBase::fillARandomTeam(Trainer * trainer, QSqlDatabase Database)
                 int intensity = query.value("NBINTENSITY").toInt();
                 Pokemon * pokemon = new ElectrikPokemon(name, height, weight, maxHP, currentHP, cp, nbLegs, nbWings, intensity);
                 trainer->catchPokemon(pokemon);
-                cout << "Ok" ;
             }
             else
             {
                 qDebug () << "No pokemon found";
             }
-        //}
-    //}
+        }
+        closeDatabase();
+    }
 
 }
