@@ -50,6 +50,24 @@ public:
     virtual string getItsType() = 0;
 
     /**
+     * @brief getItsNbLegs A function that returns the number of Legs of a Pokemon.
+     * @return The number of Legs of a Pokemon.
+     */
+    //virtual int getItsNbLegs() = 0 ;
+
+    /**
+     * @brief getItsNbWings A function that returns the number of Wings of an ElectrikPokemon.
+     * @return The number of Wings of an ElectrikPokemon.
+     */
+    //virtual int getItsNbWings() = 0 ;
+
+    /**
+     * @brief getItsIntensity A function that returns the intensity (mA) of an ElectrikPokemon.
+     * @return The intensity (mA) of an ElectrikPokemon.
+     */
+    //virtual int getItsIntensity() = 0 ;
+
+    /**
      * @brief getItsSpeed A pure virtual function that returns the speed of the Pokemon.
      * @return The speed of the Pokemon.
      */
@@ -92,6 +110,18 @@ public:
      * @return The combat points of the Pokemon.
      */
     int getItsCP() const;
+
+    /**
+     * @brief getItsHeight A function that returns the height of the Pokemon.
+     * @return The height of the Pokemon.
+     */
+    float getItsHeight() const;
+
+    /**
+     * @brief getItsWeight A function that returns the weight of the Pokemon.
+     * @return The weight of the Pokemon.
+     */
+    float getItsWeight() const;
 
     /**
      * @brief setItsHP A function that sets the health points of the Pokemon.

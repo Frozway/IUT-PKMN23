@@ -1,5 +1,5 @@
-#ifndef POKEMONDATABASE_H
-#define POKEMONDATABASE_H
+#ifndef DATABASE_H
+#define DATABASE_H
 
 #include<iostream>
 #include<QString>
@@ -13,16 +13,17 @@
 #include "grasspokemon.h"
 #include "waterpokemon.h"
 
-class PokemonDataBase
+class Database
 {
 private:
     QSqlDatabase itsPokemonDataBase ;
+    QSqlDatabase itsSaveDataBase ;
 public:
-    PokemonDataBase();
+    Database();
     bool tryDataBase();
     void closeDatabase();
     void fillARandomTeam(Trainer * trainer);
     void openDataBase();
 };
 
-#endif // POKEMONDATABASE_H
+#endif // DATABASE_H

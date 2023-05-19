@@ -40,3 +40,4 @@ float ElectrikPokemon::getItsSpeed()
     return itsSpeed ;
 }
 
+

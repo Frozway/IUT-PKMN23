@@ -41,7 +41,7 @@ void Trainer::catchPokemon(Pokemon* pokemon)
     }
     else
     {
-        cout << "Equipe déjà complète !" << endl ;
+        cout << "Equipe deja complete !" << endl ;
     }
 
 

@@ -83,7 +83,7 @@ void UI::clearScreen()
     #endif
 }
 
-void UI::displayTrainer(Trainer * trainer)
+void UI::displayInfoTrainer(Trainer * trainer)
 {
     cout << "Dresseur : " << trainer->getItsName() << endl ;
     cout << "Niveau : " << trainer->getItsLevel() << endl ;
@@ -97,19 +97,19 @@ void UI::displayTrainer(Trainer * trainer)
     cout << "Moyenne de la vitesse d'attaque de l'equipe (Type ELECTRIK): " << trainer->getItsAverageSpeed("ELECTRIK") << " KM/H" << endl ;
 }
 
-void UI::displayPokemon(Pokemon * pokemon)
+void UI::displayInfoPokemon(Pokemon * pokemon)
 {
     cout << pokemon->getItsName() << " (" << pokemon->getItsType() <<") | "
-         << pokemon->getItsCurrentHP() << " HP | " << pokemon->getItsCP()
-         << " PC | " << pokemon->getItsSpeed() << " KM/H | " << endl ;
-
+         << pokemon->getItsMaxHP() << " HP | " << pokemon->getItsCP()
+         << " PC | " << pokemon->getItsSpeed() << " KM/H | "
+         << pokemon->getItsHeight() << " M | " << pokemon->getItsWeight() << " KG | " ;
 }
 
 void UI::displayTeamTrainer(Trainer * trainer)
 {
     vector<Pokemon*> itsTrainerPokemonTeam = trainer->getItsTeam();
 
-    for (size_t i = 0; i < itsTrainerPokemonTeam.size(); i++)
+    for (int i = 0; i < (int)itsTrainerPokemonTeam.size(); i++)
     {
         cout << "Pokemon #" << i + 1 << ":" << endl;
         (itsTrainerPokemonTeam)[i]->displayPokemon();

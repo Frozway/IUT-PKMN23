@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 9.0.2, 2023-05-17T15:46:38. -->
+<!-- Written by QtCreator 9.0.2, 2023-05-19T17:26:09. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -69,6 +69,8 @@
     <value type="bool" key="AutoTest.Framework.QtTest">true</value>
    </valuemap>
    <valuemap type="QVariantMap" key="AutoTest.CheckStates">
+    <value type="Qt::CheckState" key="1@C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/PokemonDBTests/tst_pokemondbunittests.cpp:PokemonDBUnitTests">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/PokemonDBTests/tst_pokemondbunittests.cpp:database_manipulation_tests">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/PokemonTests/tst_pokemonunittests.cpp:PokemonUnitTests">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/PokemonTests/tst_pokemonunittests.cpp:attackTest">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/PokemonTests/tst_pokemonunittests.cpp:cleanupTestCase">Unchecked</value>
@@ -297,7 +299,23 @@
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/build-PKMN23-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/TrainerTests</value>
    </valuemap>
-   <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">3</value>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.3">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/PokemonDBTests/PokemonDBTests.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/PokemonDBTests/PokemonDBTests.pro</value>
+    <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/build-PKMN23-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/PokemonDBTests</value>
+   </valuemap>
+   <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">4</value>
   </valuemap>
  </data>
  <data>

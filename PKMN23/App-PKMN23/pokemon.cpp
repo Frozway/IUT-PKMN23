@@ -8,6 +8,15 @@ string Pokemon::getItsName() const
     return itsName;
 }
 
+float Pokemon::getItsHeight() const
+{
+    return itsHeight ;
+}
+
+float Pokemon::getItsWeight() const
+{
+    return itsWeight ;
+}
 
 int Pokemon::getItsMaxHP() const
 {

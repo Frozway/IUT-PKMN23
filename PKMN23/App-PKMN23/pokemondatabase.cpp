@@ -1,53 +1,31 @@
-#include "database.h"
+#include "pokemondatabase.h"
 
-Database::Database()
+PokemonDataBase::PokemonDataBase()
 {
     itsPokemonDataBase = QSqlDatabase::addDatabase("QSQLITE");
-    itsSaveDataBase = QSqlDatabase::addDatabase("QSQLITE");
     itsPokemonDataBase.setDatabaseName("../../DataBase/pokemon.db");
-    //itsSaveDataBase = QSqlDatabase::addDatabase("QSQLITE");
-    itsSaveDataBase.setDatabaseName("../../DataBase/gameSave.db");
-
 }
 
-void Database::openDataBase()
+void PokemonDataBase::openDataBase()
 {
     itsPokemonDataBase.open();
-    itsSaveDataBase.open();
 }
 
-
-bool Database::tryDataBase()
-{
-    if (!itsPokemonDataBase.open())
-    {
-        qDebug() << "Error: Connection with Pokemon database failed";
-        return false;
-    }
-    else if(!itsSaveDataBase.open())
-    {
-        qDebug() << "Error: Connection with Save database failed";
-        return false;
-    }
-    else
-    {
-        qDebug() << "Database: Connection ok";
-        return true;
-    }
-}
-
-void Database::closeDatabase()
+void PokemonDataBase::closeDatabase()
 {
    itsPokemonDataBase.close();
-   itsSaveDataBase.close();
 }
 
-void Database::fillARandomTeam(Trainer * trainer)
+bool PokemonDataBase::isOpenDataBase()
+{
+    return itsPokemonDataBase.isOpen();
+}
+
+void PokemonDataBase::fillARandomTeam(Trainer * trainer)
 {
     for(int i = 0 ; i < 6 ; i++)
     {
-        //openDataBase();
-        itsPokemonDataBase.open();
+        openDataBase();
 
         QSqlQuery query("SELECT * FROM POKEMON ORDER BY RANDOM() LIMIT 1;", itsPokemonDataBase);
         if(query.next())
@@ -96,8 +74,6 @@ void Database::fillARandomTeam(Trainer * trainer)
                 qDebug () << "No pokemon found";
             }
         }
-        //closeDatabase();
-        itsPokemonDataBase.close();
+        closeDatabase();
     }
-
 }
