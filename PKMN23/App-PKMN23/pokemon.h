@@ -50,24 +50,6 @@ public:
     virtual string getItsType() = 0;
 
     /**
-     * @brief getItsNbLegs A function that returns the number of Legs of a Pokemon.
-     * @return The number of Legs of a Pokemon.
-     */
-    //virtual int getItsNbLegs() = 0 ;
-
-    /**
-     * @brief getItsNbWings A function that returns the number of Wings of an ElectrikPokemon.
-     * @return The number of Wings of an ElectrikPokemon.
-     */
-    //virtual int getItsNbWings() = 0 ;
-
-    /**
-     * @brief getItsIntensity A function that returns the intensity (mA) of an ElectrikPokemon.
-     * @return The intensity (mA) of an ElectrikPokemon.
-     */
-    //virtual int getItsIntensity() = 0 ;
-
-    /**
      * @brief getItsSpeed A pure virtual function that returns the speed of the Pokemon.
      * @return The speed of the Pokemon.
      */
