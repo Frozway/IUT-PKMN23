@@ -25,6 +25,7 @@ private:
     vector<Pokemon*> * itsPokemonTeam; /**< The team of Pokémon owned by the trainer */
 
 public:
+
     /**
      * @brief Trainer constructor.
      * @param name The name of the trainer.
@@ -136,6 +137,7 @@ public:
      * @param newItsPoints The new points earned by the trainer.
      */
     void setItsPoints(int newItsPoints);
+    void setItsName(const string &newItsName);
 };
 
 #endif // TRAINER_H

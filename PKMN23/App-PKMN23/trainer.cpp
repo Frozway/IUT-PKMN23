@@ -20,6 +20,11 @@ Trainer::~Trainer()
         delete itsPokemonTeam;   // Supprimer le vecteur lui-même
 }
 
+void Trainer::setItsName(const string &newItsName)
+{
+    itsName = newItsName;
+}
+
 void Trainer::catchPokemon(Pokemon* pokemon)
 {
     if(itsPokemonTeam->size() < 6)

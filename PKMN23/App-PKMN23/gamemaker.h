@@ -8,8 +8,15 @@
 
 class GameMaker
 {
+private:
+    UI * itsUserInterface ;
+    PokemonDataBase * itsPokemonDB ;
+    Trainer * itsTrainer1 ;
+    Trainer * itsTrainer2 ;
 public:
     GameMaker();
+    void Play();
+    void SetupMode(string mode);
 };
 
 #endif // GAMEMAKER_H

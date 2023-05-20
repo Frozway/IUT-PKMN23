@@ -15,19 +15,21 @@ int main()
 {
 
 
-    UI * UserInterface = new UI();
+//    UI * UserInterface = new UI();
 
 
-    PokemonDataBase * PokemonDatabase = new PokemonDataBase();
+//    PokemonDataBase * PokemonDatabase = new PokemonDataBase();
 
 
-    Trainer* trainer1 = new Trainer("Sacha");
+//    Trainer* trainer1 = new Trainer("Sacha");
 
-    PokemonDatabase->fillARandomTeam(trainer1);
+//    PokemonDatabase->fillARandomTeam(trainer1);
 
-    UserInterface->displayTeamTrainer(trainer1);
+//    UserInterface->displayTeamTrainer(trainer1);
 
+    GameMaker * Game = new GameMaker();
 
+    Game->Play();
 
 
 

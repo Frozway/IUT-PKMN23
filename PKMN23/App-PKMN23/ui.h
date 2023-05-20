@@ -21,13 +21,15 @@ class UI
 {
 public:
     UI();
-    void displayMenu();
+    string chooseMode();
     void displayBoard();
     void clearScreen();
     void displayInfoTrainer(Trainer * trainer);
     void displayInfoPokemon(Pokemon *pokemon);
     void displayPokemonForTeam(Pokemon * pokemon);
     void displayTeamTrainer(Trainer * trainer);
+
+    string setupName(Trainer * trainer);
 };
 
 #endif // UI_H

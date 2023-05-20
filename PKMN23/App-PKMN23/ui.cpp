@@ -5,7 +5,7 @@ UI::UI()
 
 }
 
-void UI::displayMenu()
+string UI::chooseMode()
 {
     int choice ;
 
@@ -21,6 +21,8 @@ void UI::displayMenu()
                           | [1] : Solo VS IA            |
                           |                             |
                           | [2] : Multijoueur           |
+                          |                             |
+                          | [3] : Demo (IA VS IA)       |
                           |                             |
                           | [4] : Regles du jeu         |
                           |                             |
@@ -48,16 +50,16 @@ void UI::displayMenu()
 
     switch(choice)
     {
-        case 1 : //soloMode();
+        case 1 : return "SOLO VS IA";
         break;
 
-        case 2 : //multiMode();
+        case 2 : return "MULTIJOUEUR";
         break;
 
-        case 3 : //launchTest();
+        case 3 : return "DEMO";
         break;
 
-        case 4 : //launchRules();
+        case 4 : return "REGLES";
 
         case 5 : break ;
 
@@ -121,4 +123,14 @@ void UI::displayTeamTrainer(Trainer * trainer)
         cout << endl << endl ;
     }
 
+}
+
+string UI::setupName(Trainer * trainer)
+{
+    string name ;
+    cout << endl << R"(//==========================================================\\)" << endl;
+    cout << endl << BLUE_TEXT << trainer->getItsName() << ", quel est ton surnom : " << COLOR_RESET ;
+    cin >> name ;
+    clearScreen();
+    return name;
 }
