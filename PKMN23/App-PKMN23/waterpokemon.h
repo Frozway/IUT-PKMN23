@@ -36,12 +36,12 @@ public:
     WaterPokemon(string name, float height, float weight, unsigned int maxHP, int currentHP, unsigned int cp, int nbFins);
 
     /**
-     * @brief Display the details of the WaterPokemon.
+     * @brief Return the details of the WaterPokemon.
      *
      * This method overrides the displayPokemon() method in the Pokemon class
      * to include the additional attributes specific to WaterPokemon.
      */
-    void displayPokemon() ;
+    string displayPokemon() ;
 
     /**
      * @brief Calculate the damage inflicted on an opponent.

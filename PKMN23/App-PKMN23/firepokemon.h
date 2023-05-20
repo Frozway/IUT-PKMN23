@@ -36,12 +36,12 @@ public:
     FirePokemon(string name, float height, float weight, unsigned int maxHP, int currentHP, unsigned int cp, int nbLegs);
 
     /**
-     * @brief Display the details of the FirePokemon.
+     * @brief Return the details of the FirePokemon.
      *
      * This method overrides the displayPokemon() method in the Pokemon class
      * to include the additional attributes specific to FirePokemon.
      */
-    void displayPokemon() ;
+    string displayPokemon() ;
 
     /**
      * @brief Calculate the damage inflicted on an opponent.

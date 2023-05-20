@@ -12,12 +12,15 @@ string FirePokemon::getItsType()
     return itsType ;
 }
 
-void FirePokemon::displayPokemon()
+string FirePokemon::displayPokemon()
 {
-    cout << itsName << " (" << getItsType() <<") | " << itsCurrentHP << " HP | " << itsCP << " PC | " << itsSpeed << " KM/H | " << endl ;
-//    cout << "Je suis le Pokemon " << itsName << "(type FIRE). Mon poids est de " << itsWeight
-//         << "kg, ma vitesse est de " << itsSpeed << " km/h. J'ai " << itsNbLegs
-//         << " pattes, ma taille est de " << itsHeight << "m." ;
+    stringstream description ;
+
+    description << "Je suis le Pokemon " << itsName << "(type FIRE). Mon poids est de " << itsWeight
+                << "kg, ma vitesse est de " << itsSpeed << " km/h. J'ai " << itsNbLegs
+                << " pattes, ma taille est de " << itsHeight << "m." ;
+
+    return description.str();
 }
 
 int FirePokemon::nbDamage(Pokemon * anOpponent)

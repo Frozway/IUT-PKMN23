@@ -12,13 +12,15 @@ string ElectrikPokemon::getItsType()
     return itsType ;
 }
 
-void ElectrikPokemon::displayPokemon()
+string ElectrikPokemon::displayPokemon()
 {
-    cout << itsName << " (" << getItsType() <<") | " << itsCurrentHP << " HP | " << itsCP << " PC | " << itsSpeed << " KM/H | " << endl ;
+    stringstream description ;
 
-//    cout << "Je suis le Pokemon " << itsName << "(type ELECTRIK). Mon poids est de " << itsWeight
-//         << "kg, ma vitesse est de " << itsSpeed << " km/h. J'ai " << itsNbLegs
-//         << " pattes, ma taille est de " << itsHeight << " m et mon intensité est de " << itsIntensity << " mA." ;
+    description << "Je suis le Pokemon " << itsName << "(type ELECTRIK). Mon poids est de " << itsWeight
+                << "kg, ma vitesse est de " << itsSpeed << " km/h. J'ai " << itsNbLegs
+                << " pattes, ma taille est de " << itsHeight << " m et mon intensité est de " << itsIntensity << " mA." ;
+
+    return description.str();
 }
 
 int ElectrikPokemon::nbDamage(Pokemon * anOpponent)

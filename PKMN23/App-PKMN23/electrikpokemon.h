@@ -36,12 +36,12 @@ public:
     ElectrikPokemon(string name, float height, float weight, unsigned int maxHP, int currentHP, unsigned int cp, int nbLegs, int nbWings, int intensity);
 
     /**
-     * @brief Display the details of the ElectrikPokemon.
+     * @brief Return the details of the ElectrikPokemon.
      *
      * This method overrides the displayPokemon() method in the Pokemon class
      * to include the additional attributes specific to ElectrikPokemon.
      */
-    void displayPokemon() ;
+    string displayPokemon() ;
 
     /**
      * @brief Calculate the damage inflicted on an opponent.

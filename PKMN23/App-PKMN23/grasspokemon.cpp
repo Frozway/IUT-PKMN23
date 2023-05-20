@@ -12,11 +12,14 @@ string GrassPokemon::getItsType()
     return itsType ;
 }
 
-void GrassPokemon::displayPokemon()
+string GrassPokemon::displayPokemon()
 {
-    cout << itsName << " (" << getItsType() <<") | " << itsCurrentHP << " HP | " << itsCP << " PC | " << itsSpeed << " KM/H | " << endl ;
-//    cout << "Je suis le Pokemon " << itsName << "(type GRASS). Mon poids est de " << itsWeight
-//         << "kg, ma taille est de " << itsHeight << "m, ma vitesse est de " << itsSpeed << "km/h";
+    stringstream description ;
+
+    description << "Je suis le Pokemon " << itsName << "(type GRASS). Mon poids est de " << itsWeight
+                << "kg, ma taille est de " << itsHeight << "m, ma vitesse est de " << itsSpeed << "km/h";
+
+    return description.str();
 }
 
 int GrassPokemon::nbDamage(Pokemon * anOpponent)

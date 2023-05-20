@@ -35,12 +35,12 @@ public:
     GrassPokemon(string name, float height, float weight, unsigned int maxHP, int currentHP, unsigned int cp);
 
     /**
-     * @brief Display the details of the GrassPokemon.
+     * @brief Return the details of the GrassPokemon.
      *
      * This method overrides the displayPokemon() method in the Pokemon class
      * to include the additional attributes specific to GrassPokemon.
      */
-    void displayPokemon() ;
+    string displayPokemon() ;
 
     /**
      * @brief Calculate the damage inflicted on an opponent.

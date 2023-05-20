@@ -15,7 +15,7 @@ int main()
 {
 
 
-    //UI UserInterface;
+    UI * UserInterface = new UI();
 
 
     PokemonDataBase * PokemonDatabase = new PokemonDataBase();
@@ -25,7 +25,9 @@ int main()
 
     PokemonDatabase->fillARandomTeam(trainer1);
 
-    trainer1->displayTeam();
+    UserInterface->displayTeamTrainer(trainer1);
+
+
 
 
 

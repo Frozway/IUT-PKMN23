@@ -99,10 +99,15 @@ void UI::displayInfoTrainer(Trainer * trainer)
 
 void UI::displayInfoPokemon(Pokemon * pokemon)
 {
+    cout << pokemon->displayPokemon() ;
+}
+
+void UI::displayPokemonForTeam(Pokemon * pokemon)
+{
     cout << pokemon->getItsName() << " (" << pokemon->getItsType() <<") | "
-         << pokemon->getItsMaxHP() << " HP | " << pokemon->getItsCP()
-         << " PC | " << pokemon->getItsSpeed() << " KM/H | "
-         << pokemon->getItsHeight() << " M | " << pokemon->getItsWeight() << " KG | " ;
+             << pokemon->getItsMaxHP() << " HP | " << pokemon->getItsCP()
+             << " PC | " << pokemon->getItsSpeed() << " KM/H | "
+             << pokemon->getItsHeight() << " M | " << pokemon->getItsWeight() << " KG | " ;
 }
 
 void UI::displayTeamTrainer(Trainer * trainer)
@@ -112,8 +117,8 @@ void UI::displayTeamTrainer(Trainer * trainer)
     for (int i = 0; i < (int)itsTrainerPokemonTeam.size(); i++)
     {
         cout << "Pokemon #" << i + 1 << ":" << endl;
-        (itsTrainerPokemonTeam)[i]->displayPokemon();
-        cout << endl;
+        displayPokemonForTeam(itsTrainerPokemonTeam[i]);
+        cout << endl << endl ;
     }
 
 }

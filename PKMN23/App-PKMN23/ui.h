@@ -15,7 +15,6 @@
 //#include "gamemaker.h"
 #include "trainer.h"
 #include "pokemon.h"
-#include "electrikpokemon.h"
 
 
 class UI
@@ -25,10 +24,9 @@ public:
     void displayMenu();
     void displayBoard();
     void clearScreen();
-
-
     void displayInfoTrainer(Trainer * trainer);
     void displayInfoPokemon(Pokemon *pokemon);
+    void displayPokemonForTeam(Pokemon * pokemon);
     void displayTeamTrainer(Trainer * trainer);
 };
 

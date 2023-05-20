@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <sstream>
 
 using namespace std ;
 
@@ -39,9 +40,9 @@ public:
     virtual ~Pokemon() {};
 
     /**
-     * @brief displayPokemon A pure virtual function that displays the information about the Pokemon.
+     * @brief displayPokemon A pure virtual function that return the information about the Pokemon.
      */
-    virtual void displayPokemon() = 0;
+    virtual string displayPokemon() = 0;
 
     /**
      * @brief getItsType A pure virtual function that returns the type of the Pokemon.
