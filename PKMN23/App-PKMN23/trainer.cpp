@@ -1,4 +1,4 @@
-  #include "trainer.h"
+#include "trainer.h"
 
 Trainer::Trainer(string name)
 {

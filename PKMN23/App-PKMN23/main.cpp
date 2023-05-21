@@ -8,12 +8,13 @@
 //#include "ui.h"
 
 #include "gamemaker.h"
+#include <string>
+
 
 using namespace std;
 
 int main()
 {
-
 
 //    UI * UserInterface = new UI();
 
@@ -26,6 +27,7 @@ int main()
 //    PokemonDatabase->fillARandomTeam(trainer1);
 
 //    UserInterface->displayTeamTrainer(trainer1);
+
 
     GameMaker * Game = new GameMaker();
 

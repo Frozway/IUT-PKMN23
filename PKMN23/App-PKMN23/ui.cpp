@@ -1,5 +1,6 @@
 #include "ui.h"
 
+
 UI::UI()
 {
 
@@ -11,7 +12,21 @@ string UI::chooseMode()
 
     clearScreen();
 
-    cout << R"(
+    cout << YELLOW_TEXT << R"(
+                                          ,'\
+            _.----.        ____         ,'  _\   ___    ___     ____
+        _,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`.
+        \      __    \    '-.  | /   `.  ___    |    \/    |   '-.   \ |  |
+         \.    \ \   |  __  |  |/    ,','_  `.  |          | __  |    \|  |
+           \    \/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |
+            \     ,-'/  /   \    ,'   | \/ / ,`.|         /  /   \  |     |
+             \    \ |   \_/  |   `-.  \    `'  /|  |    ||   \_/  | |\    |
+              \    \ \      /       `-.`.___,-' |  |\  /| \      /  | |   |
+               \    \ `.__,'|  |`-._    `|      |__| \/ |  `.__,'|  | |   |
+                \_.-'       |__|    `-._ |              '-.|     '-.| |   |
+                                        `'                            '-._|
+
+)" << COLOR_RESET << R"(
             //==========================================================\\
 
                           /-----------------------------\
@@ -65,6 +80,8 @@ string UI::chooseMode()
 
         break;
     }
+
+    return "BREAK" ;
 }
 
 void UI::clearScreen()
@@ -87,16 +104,25 @@ void UI::clearScreen()
 
 void UI::displayInfoTrainer(Trainer * trainer)
 {
-    cout << "Dresseur : " << trainer->getItsName() << endl ;
-    cout << "Niveau : " << trainer->getItsLevel() << endl ;
-    cout << "Points : " << trainer->getItsPoints() << endl ;
-    cout << "Nombre de points de vie total de l'equipe : " << trainer->getItsTotalTeamHP() << " HP" << endl ;
-    cout << "Puissance de combat totale de l'equipe : " << trainer->getItsTotalCP() << " CP" << endl ;
-    cout << "Moyenne de la vitesse d'attaque de l'equipe : " << trainer->getItsAverageSpeed() << " KM/H" << endl ;
-    cout << "Moyenne de la vitesse d'attaque de l'equipe (Type EAU) : " << trainer->getItsAverageSpeed("WATER") << " KM/H" << endl ;
-    cout << "Moyenne de la vitesse d'attaque de l'equipe (Type FIRE): " << trainer->getItsAverageSpeed("FIRE") << " KM/H" << endl ;
-    cout << "Moyenne de la vitesse d'attaque de l'equipe (Type GRASS): " << trainer->getItsAverageSpeed("GRASS") << " KM/H" << endl ;
-    cout << "Moyenne de la vitesse d'attaque de l'equipe (Type ELECTRIK): " << trainer->getItsAverageSpeed("ELECTRIK") << " KM/H" << endl ;
+    printCenteredText("Dresseur : " + trainer->getItsName());
+    cout << endl ;
+    printCenteredText("Niveau : " + to_string(trainer->getItsLevel()));
+    cout << endl ;
+    printCenteredText("Points : " + to_string(trainer->getItsPoints()));
+    cout << endl ;
+    printCenteredText("Nombre de points de vie total de l'equipe : " + to_string(trainer->getItsTotalTeamHP()) + "HP");
+    cout << endl ;
+    printCenteredText("Puissance de combat totale de l'equipe : " + to_string(trainer->getItsTotalCP()) + "CP");
+    cout << endl ;
+    printCenteredText("Vitesse moyenne de l'equipe : " + to_string(trainer->getItsAverageSpeed()) + "KM/H");
+    cout << endl ;
+    printCenteredText("Vitesse moyenne de l'equipe (EAU) : " + to_string(trainer->getItsAverageSpeed("WATER")) + "KM/H");
+    cout << endl ;
+    printCenteredText("Vitesse moyenne de l'equipe (FIRE) : " + to_string(trainer->getItsAverageSpeed("FIRE")) + "KM/H");
+    cout << endl ;
+    printCenteredText("Vitesse moyenne de l'equipe (GRASS) : " + to_string(trainer->getItsAverageSpeed("GRASS")) + "KM/H");
+    cout << endl ;
+    printCenteredText("Vitesse moyenne de l'equipe (ELECTRIK) : " + to_string(trainer->getItsAverageSpeed("ELECTRIK")) + "KM/H");
 }
 
 void UI::displayInfoPokemon(Pokemon * pokemon)
@@ -131,6 +157,118 @@ string UI::setupName(Trainer * trainer)
     cout << endl << R"(//==========================================================\\)" << endl;
     cout << endl << BLUE_TEXT << trainer->getItsName() << ", quel est ton surnom : " << COLOR_RESET ;
     cin >> name ;
+    cout << endl ;
     clearScreen();
     return name;
 }
+
+void UI::basicGameDialog(Trainer * firstTrainer, Trainer * secondTrainer)
+{
+
+    cout << endl << BLUE_TEXT;
+    printCenteredText("Allocation des pokemon de facon aleatoire");
+    cout << endl ;
+
+    printCenteredText("Le joueur qui commencera la partie est " + firstTrainer->getItsName());
+
+    cout << endl << endl << COLOR_RESET;
+
+    displayInfoTrainers(firstTrainer, secondTrainer);
+    bottomBoard();
+}
+
+void UI::topBoard()
+{
+
+    cout << YELLOW_TEXT << R"(
+                                                                                                  ,'\
+                                                                    _.----.        ____         ,'  _\   ___    ___     ____
+                                                                _,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`.
+                                                                \      __    \    '-.  | /   `.  ___    |    \/    |   '-.   \ |  |
+                                                                 \.    \ \   |  __  |  |/    ,','_  `.  |          | __  |    \|  |
+                                                                   \    \/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |
+                                                                    \     ,-'/  /   \    ,'   | \/ / ,`.|         /  /   \  |     |
+                                                                     \    \ |   \_/  |   `-.  \    `'  /|  |    ||   \_/  | |\    |
+                                                                      \    \ \      /       `-.`.___,-' |  |\  /| \      /  | |   |
+                                                                       \    \ `.__,'|  |`-._    `|      |__| \/ |  `.__,'|  | |   |
+                                                                        \_.-'       |__|    `-._ |              '-.|     '-.| |   |
+                                                                                                `'                            '-._|
+
+)"
+        << COLOR_RESET <<R"(            //==============================================================================================================================================================================\\)" << endl;
+}
+
+
+
+
+
+void UI::bottomBoard()
+{
+    cout << endl << R"(            \\==============================================================================================================================================================================//)" << endl;
+}
+
+void UI::printCenteredText(string text)
+{
+    int padding = 200 - text.length();
+    int leftPadding = padding / 2;
+    int rightPadding = padding - leftPadding;
+
+    cout << setfill(' ') << setw(leftPadding) << "" << text << setw(rightPadding) << "" << endl;
+}
+
+void UI::printCenteredText(string text, int width)
+{
+    int padding = width - text.length();
+    int leftPadding = padding / 2;
+    int rightPadding = padding - leftPadding;
+
+    cout << setfill(' ') << setw(leftPadding) << "" << text << setw(rightPadding) << "" << endl;
+}
+
+void UI::displaySpace()
+{
+    cout << "                                   " ;
+
+}
+
+void UI::displayInfoTrainers(Trainer* trainer1, Trainer* trainer2)
+{
+    int columnWidth = 80;
+
+    displaySpace();
+    cout << setw(columnWidth) << left << "Dresseur : " + trainer1->getItsName();
+    cout << setw(columnWidth) << left << "Dresseur : " + trainer2->getItsName() << endl;
+
+    displaySpace();
+    cout << setw(columnWidth) << left << "Niveau : " + to_string(trainer1->getItsLevel()) + "           Points : " + to_string(trainer1->getItsPoints());
+    cout << setw(columnWidth) << left << "Niveau : " + to_string(trainer2->getItsLevel()) + "           Points : " + to_string(trainer2->getItsPoints()) << endl << endl ;
+
+    displaySpace();
+    cout << setw(columnWidth) << left << "Nombre de points de vie total de l'equipe : " + to_string(trainer1->getItsTotalTeamHP()) + " HP";
+    cout << setw(columnWidth) << left << "Nombre de points de vie total de l'equipe : " + to_string(trainer2->getItsTotalTeamHP()) + " HP" << endl;
+
+    displaySpace();
+    cout << setw(columnWidth) << left << "Puissance de combat totale de l'equipe : " + to_string(trainer1->getItsTotalCP()) + " CP";
+    cout << setw(columnWidth) << left << "Puissance de combat totale de l'equipe : " + to_string(trainer2->getItsTotalCP()) + " CP" << endl << endl ;
+
+    displaySpace();
+    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe : " + to_string(trainer1->getItsAverageSpeed()) + " KM/H";
+    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe : " + to_string(trainer2->getItsAverageSpeed()) + " KM/H" << endl;
+
+    displaySpace();
+    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type EAU) : " + to_string(trainer1->getItsAverageSpeed("WATER")) + " KM/H";
+    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type EAU) : " + to_string(trainer2->getItsAverageSpeed("WATER")) + " KM/H" << endl;
+
+    displaySpace();
+    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type FIRE) : " + to_string(trainer1->getItsAverageSpeed("FIRE")) + " KM/H";
+    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type FIRE) : " + to_string(trainer2->getItsAverageSpeed("FIRE")) + " KM/H" << endl;
+
+    displaySpace();
+    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type GRASS) : " + to_string(trainer1->getItsAverageSpeed("GRASS")) + " KM/H";
+    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type GRASS) : " + to_string(trainer2->getItsAverageSpeed("GRASS")) + " KM/H" << endl;
+
+    displaySpace();
+    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type ELECTRIK) : " + to_string(trainer1->getItsAverageSpeed("ELECTRIK")) + " KM/H";
+    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type ELECTRIK) : " + to_string(trainer2->getItsAverageSpeed("ELECTRIK")) + " KM/H" << endl;
+}
+

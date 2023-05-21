@@ -15,6 +15,7 @@
 //#include "gamemaker.h"
 #include "trainer.h"
 #include "pokemon.h"
+#include <iomanip>
 
 
 class UI
@@ -28,6 +29,13 @@ public:
     void displayInfoPokemon(Pokemon *pokemon);
     void displayPokemonForTeam(Pokemon * pokemon);
     void displayTeamTrainer(Trainer * trainer);
+    void basicGameDialog(Trainer * firstTrainer, Trainer * secondTrainer);
+    void topBoard();
+    void bottomBoard();
+    void displaySpace();
+    void printCenteredText(string text);
+    void printCenteredText(string text, int width);
+    void displayInfoTrainers(Trainer * trainer1, Trainer * trainer2);
 
     string setupName(Trainer * trainer);
 };
