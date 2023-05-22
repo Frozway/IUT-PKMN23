@@ -11,20 +11,70 @@ GameMaker::GameMaker()
 
 void GameMaker::Play()
 {
+    system("pause");
+
+    string mode = itsUserInterface->Menu();
+
+    if(mode == "SOLO VS IA")
+    {
+        gameLoopPVAI();
+    }
+    else if(mode == "MULTIJOUEUR")
+    {
+        gameLoopPVP();
+    }
+    else if(mode == "DEMO")
+    {
+        gameLoopAI();
+    }
+}
+
+void GameMaker::gameLoopPVAI()
+{
+}
+
+void GameMaker::gameLoopPVP()
+{
+}
+
+void GameMaker::gameLoopAI()
+{
     srand (time(NULL));
 
-    SetupMode(itsUserInterface->chooseMode());
+    SetupMode("DEMO");
 
     itsUserInterface->topBoard();
-
-    itsPokemonDB->fillARandomTeam(itsTrainer1);
-    itsPokemonDB->fillARandomTeam(itsTrainer2);
 
     Trainer * firstTrainer = isFirstTrainer(itsTrainer1, itsTrainer2)[0];
     Trainer * secondTrainer = isFirstTrainer(itsTrainer1, itsTrainer2)[1];
 
-    itsUserInterface->basicGameDialog(firstTrainer, secondTrainer);
+    Fight(firstTrainer, secondTrainer);
+
+
+    //itsUserInterface->basicGameDialog(firstTrainer, secondTrainer);
+
+
 }
+
+void GameMaker::Fight(Trainer * firstTrainer, Trainer * secondTrainer)
+{
+    firstTrainer->setFighterPokemon(firstTrainer->getItsTeam()[1]);
+    secondTrainer->setFighterPokemon(secondTrainer->getItsTeam()[1]);
+
+    //itsUserInterface->displayTeamTrainer(firstTrainer);
+
+    itsUserInterface->displayFight(firstTrainer->getFighterPokemon(), secondTrainer->getFighterPokemon());
+
+}
+
+
+
+
+
+
+
+
+
 
 void GameMaker::SetupMode(string mode)
 {
@@ -32,7 +82,11 @@ void GameMaker::SetupMode(string mode)
 
     if(mode == "SOLO VS IA")
     {
-        itsTrainer1->setItsName(itsUserInterface->setupName(itsTrainer1));
+        if(itsUserInterface->isANewPlayer(itsTrainer1) == true)
+        {
+            itsTrainer1->setItsName(itsUserInterface->setupName(itsTrainer1));
+        }
+
         itsTrainer2->setItsName("IA");
     }
 
@@ -46,6 +100,9 @@ void GameMaker::SetupMode(string mode)
     {
         itsTrainer1->setItsName("IA-1");
         itsTrainer2->setItsName("IA-2");
+        itsPokemonDB->fillARandomTeam(itsTrainer1);
+        itsPokemonDB->fillARandomTeam(itsTrainer2);
+
     }
 
 }
@@ -87,4 +144,16 @@ array<Trainer*, 2> GameMaker::isFirstTrainer(Trainer * trainer1, Trainer * train
     }
 
     return startingTrainers;
+}
+
+void GameMaker::pauseGame(int time)
+{
+    // Pause pendant le nombre de secondes spécifié
+    #ifdef _WIN32
+        // Windows
+        Sleep(time * 1000);
+    #else
+        // UNIX
+        sleep(seconds);
+    #endif
 }

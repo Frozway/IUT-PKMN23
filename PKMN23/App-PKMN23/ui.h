@@ -12,7 +12,6 @@
 #define CYAN_TEXT    "\033[36;1m"
 #define WHITE_TEXT   "\033[37;1m"
 
-//#include "gamemaker.h"
 #include "trainer.h"
 #include "pokemon.h"
 #include <iomanip>
@@ -22,22 +21,27 @@ class UI
 {
 public:
     UI();
-    string chooseMode();
-    void displayBoard();
+    string Menu();
     void clearScreen();
     void displayInfoTrainer(Trainer * trainer);
+    void displayInfoTrainers(Trainer * trainer1, Trainer * trainer2);
     void displayInfoPokemon(Pokemon *pokemon);
-    void displayPokemonForTeam(Pokemon * pokemon);
+
+    void centerPokemon();
+    void displayPokemon(Pokemon * pokemon);
+
     void displayTeamTrainer(Trainer * trainer);
     void basicGameDialog(Trainer * firstTrainer, Trainer * secondTrainer);
     void topBoard();
     void bottomBoard();
     void displaySpace();
     void printCenteredText(string text);
-    void printCenteredText(string text, int width);
-    void displayInfoTrainers(Trainer * trainer1, Trainer * trainer2);
-
     string setupName(Trainer * trainer);
+    bool isANewPlayer(Trainer * trainer);
+    void displayInputText();
+    void displayFight(Pokemon * pokemon1, Pokemon * pokemon2);
+
+
 };
 
 #endif // UI_H

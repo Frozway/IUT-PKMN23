@@ -22,7 +22,8 @@ private:
     string itsName; /**< The name of the trainer */
     int itsLevel; /**< The level of the trainer */
     int itsPoints; /**< The points earned by the trainer */
-    vector<Pokemon*> * itsPokemonTeam; /**< The team of Pokémon owned by the trainer */
+    Pokemon * fighterPokemon ; /**< The Pokemon that is chosen to fight */
+    vector<Pokemon*> * itsPokemonTeam; /**< The team of Pokemon owned by the trainer */
 
 public:
 
@@ -138,6 +139,8 @@ public:
      */
     void setItsPoints(int newItsPoints);
     void setItsName(const string &newItsName);
+    void setFighterPokemon(Pokemon *newFighterPokemon);
+    Pokemon *getFighterPokemon() const;
 };
 
 #endif // TRAINER_H

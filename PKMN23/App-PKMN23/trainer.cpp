@@ -1,11 +1,22 @@
 #include "trainer.h"
 
+void Trainer::setFighterPokemon(Pokemon *newFighterPokemon)
+{
+    fighterPokemon = newFighterPokemon;
+}
+
+Pokemon *Trainer::getFighterPokemon() const
+{
+    return fighterPokemon;
+}
+
 Trainer::Trainer(string name)
 {
     itsName = name ;
-    itsPokemonTeam = new vector<Pokemon*> ;
     itsLevel = 1 ;
     itsPoints = 0 ;
+    fighterPokemon = nullptr ;
+    itsPokemonTeam = new vector<Pokemon*> ;
 }
 
 Trainer::~Trainer()
