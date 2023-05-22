@@ -12,35 +12,45 @@
 #define CYAN_TEXT    "\033[36;1m"
 #define WHITE_TEXT   "\033[37;1m"
 
+#include <windows.h>
+#include <unistd.h>
+#include <iomanip>
 #include "trainer.h"
 #include "pokemon.h"
-#include <iomanip>
+
+
 
 
 class UI
 {
 public:
+
     UI();
+
     string Menu();
-    void clearScreen();
-    void displayInfoTrainer(Trainer * trainer);
-    void displayInfoTrainers(Trainer * trainer1, Trainer * trainer2);
-    void displayInfoPokemon(Pokemon *pokemon);
-
-    void centerPokemon();
-    void displayPokemon(Pokemon * pokemon);
-
-    void displayTeamTrainer(Trainer * trainer);
-    void basicGameDialog(Trainer * firstTrainer, Trainer * secondTrainer);
     void topBoard();
     void bottomBoard();
-    void displaySpace();
-    void printCenteredText(string text);
-    string setupName(Trainer * trainer);
-    bool isANewPlayer(Trainer * trainer);
-    void displayInputText();
-    void displayFight(Pokemon * pokemon1, Pokemon * pokemon2);
 
+    void clearScreen();
+    void pauseText(int time);
+
+    void displayPokemon(Pokemon * pokemon);
+    void displayInfoPokemon(Pokemon * pokemon);
+
+    void displayInfoTrainer(Trainer * trainer);
+    void displayInfoTrainers(Trainer* trainer1, Trainer* trainer2);
+    void displayTeamTrainer(Trainer * trainer);
+    void displayTeamsTrainers(Trainer* trainer1, Trainer* trainer2);
+
+    bool isANewPlayer(Trainer* trainer);
+    string setupName(Trainer * trainer);
+
+    void displayFight(Trainer * trainer1, Trainer * trainer2);
+
+    void printCenteredText(string text);
+    void setCenteredTextForAPokemon();
+    void setCenteredTextForTeamsColumns();
+    void setCenteredTextForInput();
 
 };
 

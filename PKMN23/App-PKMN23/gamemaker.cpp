@@ -43,8 +43,6 @@ void GameMaker::gameLoopAI()
 
     SetupMode("DEMO");
 
-    itsUserInterface->topBoard();
-
     Trainer * firstTrainer = isFirstTrainer(itsTrainer1, itsTrainer2)[0];
     Trainer * secondTrainer = isFirstTrainer(itsTrainer1, itsTrainer2)[1];
 
@@ -60,10 +58,16 @@ void GameMaker::Fight(Trainer * firstTrainer, Trainer * secondTrainer)
 {
     firstTrainer->setFighterPokemon(firstTrainer->getItsTeam()[1]);
     secondTrainer->setFighterPokemon(secondTrainer->getItsTeam()[1]);
-
     //itsUserInterface->displayTeamTrainer(firstTrainer);
 
-    itsUserInterface->displayFight(firstTrainer->getFighterPokemon(), secondTrainer->getFighterPokemon());
+
+
+    itsUserInterface->displayFight(firstTrainer, secondTrainer);
+
+//    firstTrainer->attack(firstTrainer->getFighterPokemon(), secondTrainer, secondTrainer->getFighterPokemon()) ;
+//    secondTrainer->attack(secondTrainer->getFighterPokemon(), firstTrainer, firstTrainer->getFighterPokemon());
+
+//    itsUserInterface->displayFight(firstTrainer->getFighterPokemon(), secondTrainer->getFighterPokemon());
 
 }
 
@@ -146,14 +150,4 @@ array<Trainer*, 2> GameMaker::isFirstTrainer(Trainer * trainer1, Trainer * train
     return startingTrainers;
 }
 
-void GameMaker::pauseGame(int time)
-{
-    // Pause pendant le nombre de secondes spécifié
-    #ifdef _WIN32
-        // Windows
-        Sleep(time * 1000);
-    #else
-        // UNIX
-        sleep(seconds);
-    #endif
-}
+

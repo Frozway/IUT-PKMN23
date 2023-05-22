@@ -1,8 +1,6 @@
 #ifndef GAMEMAKER_H
 #define GAMEMAKER_H
 
-#include <windows.h>
-#include <unistd.h>
 #include <random>
 #include "ui.h"
 #include "pokemon.h"
@@ -28,7 +26,6 @@ public:
     void gameLoopPVAI();
     void gameLoopAI();
     void SetupMode(string mode);
-    void pauseGame(int time);
     array<Trainer*, 2> isFirstTrainer(Trainer * trainer1, Trainer * trainer2);
 };
 

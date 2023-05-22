@@ -6,14 +6,17 @@ UI::UI()
 
 }
 
+//*********************************************************** MENU & PLATEAU TEMPLATE *************************************************************************************//
+
 string UI::Menu()
 {
-    int choice ;
+    //Nettoyer l'écran pour éviter les bugs
     clearScreen();
+
+    //Afficher le haut du plateau
     topBoard();
 
-    cout << R"(
-                                                                                      /-----------------------------\
+    cout << R"(                                                                                      /-----------------------------\
                                                                                       |     PokemonCard - Menu      |
                                                                                       |-----------------------------|
                                                                                       |                             |
@@ -30,13 +33,16 @@ string UI::Menu()
                                                                                       \-----------------------------/
 )";
 
+    //Afficher le bas du plateau
     bottomBoard();
-    displayInputText() ;
 
+    setCenteredTextForInput() ;
+
+    int choice ;
     while(true)
     {
         cin >> choice;
-        if(cin.fail() || choice < 1 || choice > 6 )
+        if(cin.fail() || choice < 1 || choice > 5 )
         {
             cout << endl << RED_TEXT << "               " << "Votre choix n'est pas possible, veuillez recommencer : " << COLOR_RESET;
             cin.clear(); //Réinitialiser l'entrée si une erreur à été produite pour pouvoir de nouveau entrée une valeur
@@ -71,8 +77,7 @@ string UI::Menu()
 void UI::topBoard()
 {
 
-    cout << YELLOW_TEXT << R"(
-                                                                                                  ,'\
+    cout << YELLOW_TEXT << R"(                                                                                                  ,'\
                                                                     _.----.        ____         ,'  _\   ___    ___     ____
                                                                 _,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`.
                                                                 \      __    \    '-.  | /   `.  ___    |    \/    |   '-.   \ |  |
@@ -87,16 +92,16 @@ void UI::topBoard()
 
 )"
         << COLOR_RESET <<R"(            //==============================================================================================================================================================================\\)" << endl;
+    cout << endl ;
 }
-
-
-
-
 
 void UI::bottomBoard()
 {
     cout << endl << R"(            \\==============================================================================================================================================================================//)" << endl;
+    cout << endl ;
 }
+
+//************************************************************** NETTOYAGE & FLUIDITE **********************************************************************************//
 
 void UI::clearScreen()
 {
@@ -116,58 +121,24 @@ void UI::clearScreen()
     #endif
 }
 
-bool UI::isANewPlayer(Trainer* trainer)
+void UI::pauseText(int time)
 {
-    topBoard();
-
-    int choice ;
-    cout << CYAN_TEXT << endl;
-    printCenteredText(trainer->getItsName());
-    cout << endl << BLUE_TEXT ;
-    printCenteredText("avez vous une sauvegarde ?");
-    cout << COLOR_RESET << endl ;
-    printCenteredText("[0] Non | [1] Oui") ;
-    cout << endl ;
-    bottomBoard();
-    displayInputText() ;
-    //cout << "Votre reponse : ";
-    while(true)
-    {
-        cin >> choice;
-        if(cin.fail() || (choice != 0 && choice != 1))
-        {
-            cout << endl << RED_TEXT ;
-            printCenteredText("Votre choix n'est pas possible, veuillez recommencer :");
-            cout << COLOR_RESET ;
-            cin.clear(); //Réinitialiser l'entrée si une erreur à été produite pour pouvoir de nouveau entrée une valeur
-            cin.ignore(10,'\n'); //Ignore un certains nombre de caractères pour ne pas prendre en compte l'entrée comme plusieurs entrée et cela à partir la fin de ligne
-        }
-        else
-            break;
-    }
-    cout << endl ;
-
-    clearScreen() ;
-
-
-
-    if(choice == 0)
-    {
-        return true;
-    }
-    else return false;
-
+    // Pause pendant le nombre de secondes spécifié
+    #ifdef _WIN32
+        // Windows
+        Sleep(time * 1000);
+    #else
+        // UNIX
+        sleep(seconds);
+    #endif
 }
 
-void UI::displayInfoPokemon(Pokemon * pokemon)
-{
-    cout << pokemon->displayPokemon() ;
-}
+//**************************************************************** POKEMON ********************************************************************************//
 
 void UI::displayPokemon(Pokemon * pokemon)
 {
-    centerPokemon() ;
-
+    //Formatage de l'affichage d'un pokémon avec printf pour garder le même format à l'affichage de chaque pokémon
+    // % : variable | <nombre> : longeur maximum autorisé pour la variable | <s/i/f> : type de la variable (string/int/float)
     if(pokemon->getItsType() == "FIRE")
     {
         printf("| %-13s (FIRE)  : %-3i PV | %-3i CP | %-5.2f KM/H |",
@@ -202,105 +173,26 @@ void UI::displayPokemon(Pokemon * pokemon)
     }
 }
 
-void UI::centerPokemon()
+void UI::displayInfoPokemon(Pokemon * pokemon)
 {
-    cout << setfill(' ') << setw(70) << "" ;
+    //Récupéré les informations détaillés du pokémon
+    //Info spécifique à son type avec une phrase de présentation (cahier des charges)
+    cout << pokemon->displayPokemon() ;
 }
 
-void UI::displayTeamTrainer(Trainer * trainer)
-{
-    vector<Pokemon*> itsTrainerPokemonTeam = trainer->getItsTeam();
-
-    cout << "X------------------------------------------------------X" << endl ;
-
-    for (int i = 0; i < (int)itsTrainerPokemonTeam.size(); i++)
-    {
-        cout << "| Pokemon #" << i + 1 << ":                                          |" << endl;
-        displayPokemon(itsTrainerPokemonTeam[i]);
-        cout << endl ;
-        if (i != 5)
-        {
-            cout << "x                                                      x" << endl ;
-        }
-    }
-    cout << "X------------------------------------------------------X" << endl ;
-
-}
-
-string UI::setupName(Trainer * trainer)
-{
-    string name ;
-    topBoard();
-    cout << endl << BLUE_TEXT ;
-    printCenteredText(trainer->getItsName() + ", quel est ton surnom");
-    cout << COLOR_RESET ;
-    bottomBoard();
-    displayInputText();
-    cin >> name ;
-    cout << endl ;
-    clearScreen();
-    return name;
-}
-
-void UI::basicGameDialog(Trainer * firstTrainer, Trainer * secondTrainer)
-{
-
-    cout << endl << BLUE_TEXT;
-    printCenteredText("Allocation des pokemon de facon aleatoire");
-    cout << endl ;
-
-    printCenteredText("Le joueur qui commencera la partie est " + firstTrainer->getItsName());
-
-    cout << endl << endl << COLOR_RESET;
-
-    displayInfoTrainers(firstTrainer, secondTrainer);
-    bottomBoard();
-}
-
-
-
-void UI::printCenteredText(string text)
-{
-    int padding = 200 - text.length();
-    int leftPadding = padding / 2;
-    int rightPadding = padding - leftPadding;
-
-    cout << setfill(' ') << setw(leftPadding) << "" << text << setw(rightPadding) << "" << endl;
-}
-
-
-
-void UI::displaySpace()
-{
-    cout << "                                   " ;
-
-}
-
-void UI::displayInputText()
-{
-    cout << endl << "                                                                                            Votre reponse : " ; //Puiss le texte qu'on veut affiché demandant une entrée utilisateur
-}
+//************************************************************* TRAINER ***********************************************************************************//
 
 void UI::displayInfoTrainer(Trainer * trainer)
 {
     printCenteredText("Dresseur : " + trainer->getItsName());
-    cout << endl ;
     printCenteredText("Niveau : " + to_string(trainer->getItsLevel()));
-    cout << endl ;
     printCenteredText("Points : " + to_string(trainer->getItsPoints()));
-    cout << endl ;
     printCenteredText("Nombre de points de vie total de l'equipe : " + to_string(trainer->getItsTotalTeamHP()) + "HP");
-    cout << endl ;
     printCenteredText("Puissance de combat totale de l'equipe : " + to_string(trainer->getItsTotalCP()) + "CP");
-    cout << endl ;
     printCenteredText("Vitesse moyenne de l'equipe : " + to_string(trainer->getItsAverageSpeed()) + "KM/H");
-    cout << endl ;
     printCenteredText("Vitesse moyenne de l'equipe (EAU) : " + to_string(trainer->getItsAverageSpeed("WATER")) + "KM/H");
-    cout << endl ;
     printCenteredText("Vitesse moyenne de l'equipe (FIRE) : " + to_string(trainer->getItsAverageSpeed("FIRE")) + "KM/H");
-    cout << endl ;
     printCenteredText("Vitesse moyenne de l'equipe (GRASS) : " + to_string(trainer->getItsAverageSpeed("GRASS")) + "KM/H");
-    cout << endl ;
     printCenteredText("Vitesse moyenne de l'equipe (ELECTRIK) : " + to_string(trainer->getItsAverageSpeed("ELECTRIK")) + "KM/H");
 }
 
@@ -308,73 +200,241 @@ void UI::displayInfoTrainers(Trainer* trainer1, Trainer* trainer2)
 {
     int columnWidth = 80;
 
-    displaySpace();
+    setCenteredTextForTeamsColumns();
     cout << setw(columnWidth) << left << "Dresseur : " + trainer1->getItsName();
     cout << setw(columnWidth) << left << "Dresseur : " + trainer2->getItsName() << endl;
 
-    displaySpace();
+    setCenteredTextForTeamsColumns();
     cout << setw(columnWidth) << left << "Niveau : " + to_string(trainer1->getItsLevel()) + "           Points : " + to_string(trainer1->getItsPoints());
     cout << setw(columnWidth) << left << "Niveau : " + to_string(trainer2->getItsLevel()) + "           Points : " + to_string(trainer2->getItsPoints()) << endl << endl ;
 
-    displaySpace();
+    setCenteredTextForTeamsColumns();
     cout << setw(columnWidth) << left << "Nombre de points de vie total de l'equipe : " + to_string(trainer1->getItsTotalTeamHP()) + " HP";
     cout << setw(columnWidth) << left << "Nombre de points de vie total de l'equipe : " + to_string(trainer2->getItsTotalTeamHP()) + " HP" << endl;
 
-    displaySpace();
+    setCenteredTextForTeamsColumns();
     cout << setw(columnWidth) << left << "Puissance de combat totale de l'equipe : " + to_string(trainer1->getItsTotalCP()) + " CP";
     cout << setw(columnWidth) << left << "Puissance de combat totale de l'equipe : " + to_string(trainer2->getItsTotalCP()) + " CP" << endl << endl ;
 
-    displaySpace();
-    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe : " + to_string(trainer1->getItsAverageSpeed()) + " KM/H";
-    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe : " + to_string(trainer2->getItsAverageSpeed()) + " KM/H" << endl;
+//    setCenteredTextForTeamsColumns();
+//    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe : " + to_string(trainer1->getItsAverageSpeed()) + " KM/H";
+//    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe : " + to_string(trainer2->getItsAverageSpeed()) + " KM/H" << endl;
 
-    displaySpace();
-    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type EAU) : " + to_string(trainer1->getItsAverageSpeed("WATER")) + " KM/H";
-    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type EAU) : " + to_string(trainer2->getItsAverageSpeed("WATER")) + " KM/H" << endl;
+//    setCenteredTextForTeamsColumns();
+//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type EAU) : " + to_string(trainer1->getItsAverageSpeed("WATER")) + " KM/H";
+//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type EAU) : " + to_string(trainer2->getItsAverageSpeed("WATER")) + " KM/H" << endl;
 
-    displaySpace();
-    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type FIRE) : " + to_string(trainer1->getItsAverageSpeed("FIRE")) + " KM/H";
-    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type FIRE) : " + to_string(trainer2->getItsAverageSpeed("FIRE")) + " KM/H" << endl;
+//    setCenteredTextForTeamsColumns();
+//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type FIRE) : " + to_string(trainer1->getItsAverageSpeed("FIRE")) + " KM/H";
+//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type FIRE) : " + to_string(trainer2->getItsAverageSpeed("FIRE")) + " KM/H" << endl;
 
-    displaySpace();
-    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type GRASS) : " + to_string(trainer1->getItsAverageSpeed("GRASS")) + " KM/H";
-    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type GRASS) : " + to_string(trainer2->getItsAverageSpeed("GRASS")) + " KM/H" << endl;
+//    setCenteredTextForTeamsColumns();
+//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type GRASS) : " + to_string(trainer1->getItsAverageSpeed("GRASS")) + " KM/H";
+//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type GRASS) : " + to_string(trainer2->getItsAverageSpeed("GRASS")) + " KM/H" << endl;
 
-    displaySpace();
-    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type ELECTRIK) : " + to_string(trainer1->getItsAverageSpeed("ELECTRIK")) + " KM/H";
-    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe (Type ELECTRIK) : " + to_string(trainer2->getItsAverageSpeed("ELECTRIK")) + " KM/H" << endl;
+//    setCenteredTextForTeamsColumns();
+//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type ELECTRIK) : " + to_string(trainer1->getItsAverageSpeed("ELECTRIK")) + " KM/H";
+//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type ELECTRIK) : " + to_string(trainer2->getItsAverageSpeed("ELECTRIK")) + " KM/H" << endl;
 }
 
-void UI::displayFight(Pokemon* pokemon1, Pokemon* pokemon2)
+void UI::displayTeamTrainer(Trainer * trainer)
+{
+    setCenteredTextForAPokemon();
+    cout << "X------------------------------------------------------X" << endl ;
+
+    for (int i = 0; i < 6; i++)
+    {
+        setCenteredTextForAPokemon() ;
+        displayPokemon(trainer->getItsTeam()[i]);
+        setCenteredTextForAPokemon();
+        cout << endl ;
+        if (i != 5)
+        {
+            setCenteredTextForAPokemon();
+            cout << "x                                                      x" << endl ;
+        }
+    }
+    setCenteredTextForAPokemon();
+    cout << "X------------------------------------------------------X" << endl ;
+
+}
+
+void UI::displayTeamsTrainers(Trainer* trainer1, Trainer* trainer2)
 {
     cout << endl ;
-    centerPokemon();
+    setCenteredTextForTeamsColumns();;
+    cout << "X------------------------------------------------------X" ;
+    cout << setfill(' ') << setw(24) << "" ;
+    cout << "X------------------------------------------------------X" << endl ;
+
+    for (int i = 0; i < 6; i++)
+    {
+        setCenteredTextForTeamsColumns();;
+        displayPokemon(trainer1->getItsTeam()[i]);
+        cout << setfill(' ') << setw(24) << "" ;
+        displayPokemon(trainer2->getItsTeam()[i]);
+        cout << endl ;
+        if (i != 5)
+        {
+            setCenteredTextForTeamsColumns();;
+            cout << "x                                                      x" ;
+            cout << setfill(' ') << setw(24) << "" ;
+            cout << "x                                                      x" << endl ;
+        }
+    }
+    setCenteredTextForTeamsColumns();;
+    cout << "X------------------------------------------------------X" ;
+    cout << setfill(' ') << setw(24) << "" ;
+    cout << "X------------------------------------------------------X" << endl ;
+}
+
+//*************************************************************** DIALOGUE DE MISE EN PLACE *********************************************************************************//
+
+bool UI::isANewPlayer(Trainer* trainer)
+{
+    topBoard();
+
+    int choice ;
+    cout << CYAN_TEXT ;
+    printCenteredText(trainer->getItsName());
+    cout << BLUE_TEXT ;
+    printCenteredText("avez vous une sauvegarde ?");
+    cout << COLOR_RESET ;
+    printCenteredText("[0] Non | [1] Oui") ;
+    bottomBoard();
+    setCenteredTextForInput() ;
+    //cout << "Votre reponse : ";
+    while(true)
+    {
+        cin >> choice;
+        if(cin.fail() || (choice != 0 && choice != 1))
+        {
+            cout << RED_TEXT ;
+            printCenteredText("Votre choix n'est pas possible, veuillez recommencer :");
+            cout << COLOR_RESET ;
+            cin.clear(); //Réinitialiser l'entrée si une erreur à été produite pour pouvoir de nouveau entrée une valeur
+            cin.ignore(10,'\n'); //Ignore un certains nombre de caractères pour ne pas prendre en compte l'entrée comme plusieurs entrée et cela à partir la fin de ligne
+        }
+        else
+            break;
+    }
+    cout << endl ;
+
+    clearScreen() ;
+
+
+
+    if(choice == 0)
+    {
+        return true;
+    }
+    else return false;
+
+}
+
+string UI::setupName(Trainer * trainer)
+{
+    string name ;
+    topBoard();
+    cout << BLUE_TEXT ;
+    printCenteredText(trainer->getItsName() + ", quel est ton surnom");
+    cout << COLOR_RESET ;
+    bottomBoard();
+    setCenteredTextForInput();
+    cin >> name ;
+    cout << endl ;
+    clearScreen();
+    return name;
+}
+
+//*************************************************************** AFFICHAGE EN JEU *********************************************************************************//
+
+void UI::displayFight(Trainer * trainer1, Trainer * trainer2)
+{
+
+    topBoard();
+
+    displayInfoTrainers(trainer1, trainer2);
+    displayTeamsTrainers(trainer1, trainer2);
+
+    cout << endl ;
+    setCenteredTextForAPokemon();
+
+    pauseText(1);
     cout << "x------------------------------------------------------x" << endl ;
 
-    centerPokemon();
+    setCenteredTextForAPokemon();
     cout << "|                                                      |" << endl ;
 
-    displayPokemon(pokemon1);
+    setCenteredTextForAPokemon() ;
+    displayPokemon(trainer1->getFighterPokemon());
 
     cout << endl ;
-    centerPokemon();
+    setCenteredTextForAPokemon();
     cout << "|                                                      |" << endl ;
 
-    centerPokemon();
+    setCenteredTextForAPokemon();
     cout << "|-----------------------VERSUS-------------------------|" ;
 
-    cout << endl ;
-    centerPokemon();
-    cout << "|                                                      |" << endl ;
-
-    displayPokemon(pokemon2);
+    pauseText(1);
 
     cout << endl ;
-
-    centerPokemon();
+    setCenteredTextForAPokemon();
     cout << "|                                                      |" << endl ;
 
-    centerPokemon();
+    setCenteredTextForAPokemon() ;
+    displayPokemon(trainer2->getFighterPokemon());
+
+    cout << endl ;
+
+    setCenteredTextForAPokemon();
+    cout << "|                                                      |" << endl ;
+
+    setCenteredTextForAPokemon();
     cout << "x------------------------------------------------------x" << endl;
+
+    pauseText(1);
+
+    bottomBoard() ;
+
+    string attack1 = "Le pokemon " + trainer1->getFighterPokemon()->getItsName() + " inflige " + to_string(trainer1->getFighterPokemon()->nbDamage(trainer2->getFighterPokemon())) + " degats a " + trainer2->getFighterPokemon()->getItsName() ;
+    string attack2 = "Le pokemon " + trainer2->getFighterPokemon()->getItsName() + " inflige " + to_string(trainer2->getFighterPokemon()->nbDamage(trainer1->getFighterPokemon())) + " degats a " + trainer1->getFighterPokemon()->getItsName() ;
+
+    pauseText(2);
+
+    printCenteredText(attack1);
+    pauseText(2);
+    printCenteredText(attack2);
 }
+
+//*************************************************************** FONCTION DE CENTRAGE *********************************************************************************//
+
+void UI::printCenteredText(string text)
+{
+    int padding = 200 - text.length();
+    int leftPadding = padding / 2;
+    int rightPadding = padding - leftPadding;
+
+    cout << setfill(' ') << setw(leftPadding) << "" << text << setw(rightPadding) << "" << endl ;
+    cout << endl ;
+}
+
+void UI::setCenteredTextForAPokemon()
+{
+    cout << setfill(' ') << setw(70) << "" ;
+}
+
+void UI::setCenteredTextForTeamsColumns()
+{
+    cout << setfill(' ') << setw(35) << "" ;
+}
+
+void UI::setCenteredTextForInput()
+{
+    cout << setfill(' ') << setw(92) << "" ;
+    cout<< "Votre reponse : " ;
+}
+
+
+
 
