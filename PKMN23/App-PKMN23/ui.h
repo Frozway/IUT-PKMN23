@@ -32,6 +32,7 @@ public:
     void bottomBoard();
 
     void clearScreen();
+    void fastClearScreen();
     void pauseText(int time);
 
     void displayPokemon(Pokemon * pokemon);
@@ -46,6 +47,8 @@ public:
     string setupName(Trainer * trainer);
 
     void displayFight(Trainer * trainer1, Trainer * trainer2);
+    void displayFightWinner(Trainer * trainer1, Trainer * trainer2);
+    void displayGameWinner(Trainer * winner);
 
     void printCenteredText(string text);
     void setCenteredTextForAPokemon();

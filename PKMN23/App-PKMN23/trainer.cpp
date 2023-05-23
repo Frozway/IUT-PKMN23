@@ -2,10 +2,11 @@
 
 void Trainer::setFighterPokemon(Pokemon *newFighterPokemon)
 {
+    //fighterPokemon = nullptr ;
     fighterPokemon = newFighterPokemon;
 }
 
-Pokemon *Trainer::getFighterPokemon() const
+Pokemon *Trainer::getFighterPokemon()
 {
     return fighterPokemon;
 }
@@ -257,4 +258,28 @@ string Trainer::getItsName()
     return itsName;
 }
 
+bool Trainer::allPokemonsDead()
+{
+    for (Pokemon* pokemon : *itsPokemonTeam)
+    {
+        if (pokemon->getItsCurrentHP() > 0)
+        {
+            return false; // Au moins un Pokémon est en vie, donc l'équipe n'est pas entièrement morte
+        }
+    }
+    return true; // Tous les Pokémon sont morts
+}
 
+Pokemon* Trainer::getNextAlivePokemon()
+{
+    for (Pokemon* pokemon : *itsPokemonTeam)
+    {
+        if (pokemon->getItsCurrentHP() > 0)
+        {
+            return pokemon;
+        }
+    }
+
+    // Aucun Pokémon en vie trouvé
+    return nullptr;
+}

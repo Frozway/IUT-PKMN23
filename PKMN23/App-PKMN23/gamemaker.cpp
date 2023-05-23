@@ -7,6 +7,8 @@ GameMaker::GameMaker()
     itsPokemonDB = new PokemonDataBase();
     itsTrainer1 = new Trainer("Joueur 1");
     itsTrainer2 = new Trainer("Joueur 2");
+    itsFirstTrainer = new Trainer("itsFirstTrainer");
+    itsSecondTrainer = new Trainer("itsSecondTrainer");
 }
 
 void GameMaker::Play()
@@ -17,14 +19,17 @@ void GameMaker::Play()
 
     if(mode == "SOLO VS IA")
     {
+        pauseGame(2);
         gameLoopPVAI();
     }
     else if(mode == "MULTIJOUEUR")
     {
+        pauseGame(2);
         gameLoopPVP();
     }
     else if(mode == "DEMO")
     {
+        pauseGame(2);
         gameLoopAI();
     }
 }
@@ -43,31 +48,106 @@ void GameMaker::gameLoopAI()
 
     SetupMode("DEMO");
 
-    Trainer * firstTrainer = isFirstTrainer(itsTrainer1, itsTrainer2)[0];
-    Trainer * secondTrainer = isFirstTrainer(itsTrainer1, itsTrainer2)[1];
+    initFirstTrainer(itsTrainer1, itsTrainer2);
 
-    Fight(firstTrainer, secondTrainer);
+    //******************************* Affichage les infos des trainers pour la démo ***********************************//
+
+    itsUserInterface->fastClearScreen();
+
+    itsUserInterface->topBoard();
+
+    itsUserInterface->displayInfoTrainer(itsFirstTrainer);
+    itsUserInterface->displayTeamTrainer(itsFirstTrainer);
+
+    itsUserInterface->bottomBoard();
+
+    itsUserInterface->clearScreen();
+
+    itsUserInterface->topBoard();
+
+    itsUserInterface->displayInfoTrainer(itsSecondTrainer);
+    itsUserInterface->displayTeamTrainer(itsSecondTrainer);
+
+    itsUserInterface->bottomBoard();
+
+    //int pokemonTrainer1 = 0 ;
+    //int pokemonTrainer2 = 0 ;
+
+    //Attribution du pokémon aux IA (pour la démo on prendra toujours le premier)
+    itsFirstTrainer->setFighterPokemon(itsFirstTrainer->getItsTeam()[0]);
+    itsSecondTrainer->setFighterPokemon(itsSecondTrainer->getItsTeam()[0]);
+
+    do
+    {
+        Fight(itsFirstTrainer, itsSecondTrainer);
+
+        if(itsFirstTrainer->getFighterPokemon()->getItsCurrentHP() == 0)
+        {
+            itsFirstTrainer->setFighterPokemon(itsFirstTrainer->getNextAlivePokemon());
+        }
+        else if(itsSecondTrainer->getFighterPokemon()->getItsCurrentHP() == 0)
+        {
+            itsSecondTrainer->setFighterPokemon(itsSecondTrainer->getNextAlivePokemon());
+        }
+    }
+    while(isGameFinished(itsFirstTrainer, itsSecondTrainer) == false);
 
 
-    //itsUserInterface->basicGameDialog(firstTrainer, secondTrainer);
+    //itsUserInterface->displayTeamTrainer(itsSecondTrainer);
 
+    itsUserInterface->displayGameWinner(getWinner(itsFirstTrainer, itsSecondTrainer));
 
 }
 
-void GameMaker::Fight(Trainer * firstTrainer, Trainer * secondTrainer)
+void GameMaker::Fight(Trainer * itsFirstTrainer, Trainer * itsSecondTrainer)
 {
-    firstTrainer->setFighterPokemon(firstTrainer->getItsTeam()[1]);
-    secondTrainer->setFighterPokemon(secondTrainer->getItsTeam()[1]);
-    //itsUserInterface->displayTeamTrainer(firstTrainer);
+    int nbAttacksTrainer1 = 0;
+    int nbAttacksTrainer2 = 0;
+
+    do
+    {
+        // Afficher l'état de la bataille entre le premier et le deuxième dresseur
+        itsUserInterface->displayFight(itsFirstTrainer, itsSecondTrainer);
+
+        // Le premier dresseur attaque le Pokémon combattant du deuxième dresseur
+        itsFirstTrainer->attack(itsFirstTrainer->getFighterPokemon(), itsSecondTrainer, itsSecondTrainer->getFighterPokemon());
+        itsFirstTrainer->calculateLevel();
+        nbAttacksTrainer1++;
+
+        // Vérifier si la bataille est terminée après l'attaque du premier dresseur
+        if (isFightFinished(itsFirstTrainer->getFighterPokemon(), itsSecondTrainer->getFighterPokemon()) == false)
+        {
+            // Afficher l'état de la bataille entre le deuxième et le premier dresseur
+            itsUserInterface->displayFight(itsSecondTrainer, itsFirstTrainer);
+
+            // Le deuxième dresseur attaque le Pokémon combattant du premier dresseur
+            itsSecondTrainer->attack(itsSecondTrainer->getFighterPokemon(), itsFirstTrainer, itsFirstTrainer->getFighterPokemon());
+            itsSecondTrainer->calculateLevel();
+            nbAttacksTrainer2++;
+
+            // Vérifier si la bataille est terminée après l'attaque du deuxième dresseur
+            if (isFightFinished(itsFirstTrainer->getFighterPokemon(), itsSecondTrainer->getFighterPokemon()) == true && nbAttacksTrainer2 == 1)
+            {
+                // Le deuxième dresseur a remporté la bataille en un seul tour, il gagne 3 points et en fait perdre 3 au premier dresseur
+                itsSecondTrainer->setItsPoints(itsSecondTrainer->getItsPoints() + 3);
+                itsFirstTrainer->setItsPoints(itsFirstTrainer->getItsPoints() - 3);
+                break;
+            }
+        }
+        else if(nbAttacksTrainer1 == 1)
+        {
+            // Le premier dresseur a remporté la bataille en un seul tour, il gagne 3 points et en fait perdre 3 au deuxième dresseur
+            itsFirstTrainer->setItsPoints(itsFirstTrainer->getItsPoints() + 3);
+            itsSecondTrainer->setItsPoints(itsSecondTrainer->getItsPoints() - 3);
+            break;
+        }
+    } while (isFightFinished(itsFirstTrainer->getFighterPokemon(), itsSecondTrainer->getFighterPokemon()) == false);
 
 
+    // Afficher le gagnant de la bataille
+    itsUserInterface->displayFightWinner(itsFirstTrainer, itsSecondTrainer);
 
-    itsUserInterface->displayFight(firstTrainer, secondTrainer);
 
-//    firstTrainer->attack(firstTrainer->getFighterPokemon(), secondTrainer, secondTrainer->getFighterPokemon()) ;
-//    secondTrainer->attack(secondTrainer->getFighterPokemon(), firstTrainer, firstTrainer->getFighterPokemon());
-
-//    itsUserInterface->displayFight(firstTrainer->getFighterPokemon(), secondTrainer->getFighterPokemon());
 
 }
 
@@ -82,7 +162,7 @@ void GameMaker::Fight(Trainer * firstTrainer, Trainer * secondTrainer)
 
 void GameMaker::SetupMode(string mode)
 {
-    itsUserInterface->clearScreen();
+    itsUserInterface->fastClearScreen();
 
     if(mode == "SOLO VS IA")
     {
@@ -102,38 +182,36 @@ void GameMaker::SetupMode(string mode)
 
     else if(mode == "DEMO")
     {
-        itsTrainer1->setItsName("IA-1");
-        itsTrainer2->setItsName("IA-2");
+        itsTrainer1->setItsName("IA-Aron");
+        itsTrainer2->setItsName("IA-Nelson");
         itsPokemonDB->fillARandomTeam(itsTrainer1);
         itsPokemonDB->fillARandomTeam(itsTrainer2);
-
     }
 
 }
 
-array<Trainer*, 2> GameMaker::isFirstTrainer(Trainer * trainer1, Trainer * trainer2)
+void GameMaker::initFirstTrainer(Trainer * trainer1, Trainer * trainer2)
 {
-    array<Trainer*, 2> startingTrainers = { nullptr, nullptr };
 
     if (trainer1->getItsLevel() > trainer2->getItsLevel())
     {
-        startingTrainers[0] = trainer1;
-        startingTrainers[1] = trainer2;
+        itsFirstTrainer = trainer1;
+        itsSecondTrainer = trainer2;
     }
     else if (trainer2->getItsLevel() > trainer1->getItsLevel())
     {
-        startingTrainers[0] = trainer2;
-        startingTrainers[1] = trainer1;
+        itsFirstTrainer = trainer2;
+        itsSecondTrainer = trainer1;
     }
     else if (trainer1->getItsTotalCP() > trainer2->getItsTotalCP())
     {
-        startingTrainers[0] = trainer1;
-        startingTrainers[1] = trainer2;
+        itsFirstTrainer = trainer1;
+        itsSecondTrainer = trainer2;
     }
     else if (trainer2->getItsTotalCP() > trainer1->getItsTotalCP())
     {
-        startingTrainers[0] = trainer2;
-        startingTrainers[1] = trainer1;
+        itsFirstTrainer = trainer2;
+        itsSecondTrainer = trainer1;
     }
     else
     {
@@ -143,11 +221,75 @@ array<Trainer*, 2> GameMaker::isFirstTrainer(Trainer * trainer1, Trainer * train
 
         int randomIndex = dis(gen);
 
-        startingTrainers[randomIndex] = trainer1;
-        startingTrainers[1 - randomIndex] = trainer2;
+        if(randomIndex == 0)
+        {
+            itsFirstTrainer = trainer1;
+            itsSecondTrainer = trainer2;
+        }
+        else
+        {
+            itsFirstTrainer = trainer2;
+            itsSecondTrainer = trainer1;
+        }
     }
 
-    return startingTrainers;
+    itsFirstTrainer->setItsName("IA-FIRST");
+    itsSecondTrainer->setItsName("IA-SECOND");
+
 }
 
+void GameMaker::pauseGame(int time)
+{
+    // Pause pendant le nombre de secondes spécifié
+    #ifdef _WIN32
+        // Windows
+        Sleep(time * 1000);
+    #else
+        // UNIX
+        sleep(seconds);
+    #endif
+}
 
+bool GameMaker::isFightFinished(Pokemon* pokemon1, Pokemon * pokemon2)
+{
+    if(pokemon1->getItsCurrentHP() == 0 || pokemon2->getItsCurrentHP()==0)
+    {
+        return true ;
+    }
+    else return false;
+}
+
+Trainer GameMaker::getFightWinner(Trainer * trainer1, Trainer * trainer2)
+{
+    // Vérifier le vainqueur et le retourner
+    if (trainer1->getFighterPokemon()->getItsCurrentHP() == 0)
+    {
+        return *trainer2;
+    }
+    else if(trainer2->getFighterPokemon()->getItsCurrentHP() == 0)
+    {
+        return *trainer1;
+    }
+}
+
+Trainer * GameMaker::getWinner(Trainer* trainer1, Trainer* trainer2)
+{
+    if (trainer1->allPokemonsDead() && !trainer2->allPokemonsDead())
+    {
+        return trainer2; // trainer2 a remporté le combat
+    }
+    else if (!trainer1->allPokemonsDead() && trainer2->allPokemonsDead())
+    {
+        return trainer1; // trainer1 a remporté le combat
+    }
+    else return nullptr ;
+}
+
+bool GameMaker::isGameFinished(Trainer* trainer1, Trainer* trainer2)
+{
+    if(trainer1->allPokemonsDead() == true || trainer2->allPokemonsDead() == true)
+    {
+        return true;
+    }
+    else return false;
+}

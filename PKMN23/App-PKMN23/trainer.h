@@ -139,9 +139,17 @@ public:
      * @param newItsPoints The new points earned by the trainer.
      */
     void setItsPoints(int newItsPoints);
+
+    bool allPokemonsDead() ;
     void setItsName(const string &newItsName);
+
     void setFighterPokemon(Pokemon *newFighterPokemon);
-    Pokemon *getFighterPokemon() const;
+
+    Pokemon* getNextAlivePokemon();
+
+
+
+    Pokemon *getFighterPokemon();
 };
 
 #endif // TRAINER_H

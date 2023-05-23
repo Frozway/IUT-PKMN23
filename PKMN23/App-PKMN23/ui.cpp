@@ -11,7 +11,7 @@ UI::UI()
 string UI::Menu()
 {
     //Nettoyer l'écran pour éviter les bugs
-    clearScreen();
+    fastClearScreen();
 
     //Afficher le haut du plateau
     topBoard();
@@ -107,19 +107,35 @@ void UI::clearScreen()
 {
     //Récuperer les informations lié a l'OS de l'utilisateur pour que son clear fonctionne à l'appui d'une touche
     #ifdef _WIN32
-    //system("pause");
+    system("pause");
     system("cls") ;
 
     #elif __APPLE__
-    //system( "read -n 1 -s -p \"Appuyer sur une touche pour lancer le jeu\""); //Mac et Linux
+    system( "read -n 1 -s -p \"Appuyer sur une touche pour lancer le jeu\""); //Mac et Linux
     system("clear");
 
     #elif __linux
-    //system( "read -n 1 -s -p \"Appuyer sur une touche pour lancer le jeu\""); //Mac et Linux
+    system( "read -n 1 -s -p \"Appuyer sur une touche pour lancer le jeu\""); //Mac et Linux
     system("clear");
 
     #endif
 }
+
+void UI::fastClearScreen()
+{
+    //Récuperer les informations lié a l'OS de l'utilisateur pour que son clear fonctionne à l'appui d'une touche
+    #ifdef _WIN32
+    system("cls") ;
+
+    #elif __APPLE__
+    system("clear");
+
+    #elif __linux
+    system("clear");
+
+    #endif
+}
+
 
 void UI::pauseText(int time)
 {
@@ -137,6 +153,10 @@ void UI::pauseText(int time)
 
 void UI::displayPokemon(Pokemon * pokemon)
 {
+    if(pokemon->getItsCurrentHP() == 0)
+    {
+        cout << RED_TEXT ;
+    }
     //Formatage de l'affichage d'un pokémon avec printf pour garder le même format à l'affichage de chaque pokémon
     // % : variable | <nombre> : longeur maximum autorisé pour la variable | <s/i/f> : type de la variable (string/int/float)
     if(pokemon->getItsType() == "FIRE")
@@ -171,6 +191,7 @@ void UI::displayPokemon(Pokemon * pokemon)
                        pokemon->getItsCP(),
                        pokemon->getItsSpeed());
     }
+    cout << COLOR_RESET;
 }
 
 void UI::displayInfoPokemon(Pokemon * pokemon)
@@ -184,7 +205,10 @@ void UI::displayInfoPokemon(Pokemon * pokemon)
 
 void UI::displayInfoTrainer(Trainer * trainer)
 {
-    printCenteredText("Dresseur : " + trainer->getItsName());
+    cout << BLUE_TEXT ;
+    printCenteredText("Voici les informations du joueur " +trainer->getItsName());
+    cout << COLOR_RESET;
+    //printCenteredText("Dresseur : " + trainer->getItsName());
     printCenteredText("Niveau : " + to_string(trainer->getItsLevel()));
     printCenteredText("Points : " + to_string(trainer->getItsPoints()));
     printCenteredText("Nombre de points de vie total de l'equipe : " + to_string(trainer->getItsTotalTeamHP()) + "HP");
@@ -209,12 +233,8 @@ void UI::displayInfoTrainers(Trainer* trainer1, Trainer* trainer2)
     cout << setw(columnWidth) << left << "Niveau : " + to_string(trainer2->getItsLevel()) + "           Points : " + to_string(trainer2->getItsPoints()) << endl << endl ;
 
     setCenteredTextForTeamsColumns();
-    cout << setw(columnWidth) << left << "Nombre de points de vie total de l'equipe : " + to_string(trainer1->getItsTotalTeamHP()) + " HP";
-    cout << setw(columnWidth) << left << "Nombre de points de vie total de l'equipe : " + to_string(trainer2->getItsTotalTeamHP()) + " HP" << endl;
-
-    setCenteredTextForTeamsColumns();
-    cout << setw(columnWidth) << left << "Puissance de combat totale de l'equipe : " + to_string(trainer1->getItsTotalCP()) + " CP";
-    cout << setw(columnWidth) << left << "Puissance de combat totale de l'equipe : " + to_string(trainer2->getItsTotalCP()) + " CP" << endl << endl ;
+    //cout << setw(columnWidth) << left << "Nombre de points de vie total de l'equipe : " + to_string(trainer1->getItsTotalTeamHP()) + " HP";
+    //cout << setw(columnWidth) << left << "Nombre de points de vie total de l'equipe : " + to_string(trainer2->getItsTotalTeamHP()) + " HP" << endl;
 
 //    setCenteredTextForTeamsColumns();
 //    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe : " + to_string(trainer1->getItsAverageSpeed()) + " KM/H";
@@ -320,7 +340,7 @@ bool UI::isANewPlayer(Trainer* trainer)
     }
     cout << endl ;
 
-    clearScreen() ;
+    fastClearScreen() ;
 
 
 
@@ -343,7 +363,7 @@ string UI::setupName(Trainer * trainer)
     setCenteredTextForInput();
     cin >> name ;
     cout << endl ;
-    clearScreen();
+    fastClearScreen();
     return name;
 }
 
@@ -352,6 +372,7 @@ string UI::setupName(Trainer * trainer)
 void UI::displayFight(Trainer * trainer1, Trainer * trainer2)
 {
 
+    clearScreen();
     topBoard();
 
     displayInfoTrainers(trainer1, trainer2);
@@ -360,7 +381,6 @@ void UI::displayFight(Trainer * trainer1, Trainer * trainer2)
     cout << endl ;
     setCenteredTextForAPokemon();
 
-    pauseText(1);
     cout << "x------------------------------------------------------x" << endl ;
 
     setCenteredTextForAPokemon();
@@ -375,8 +395,6 @@ void UI::displayFight(Trainer * trainer1, Trainer * trainer2)
 
     setCenteredTextForAPokemon();
     cout << "|-----------------------VERSUS-------------------------|" ;
-
-    pauseText(1);
 
     cout << endl ;
     setCenteredTextForAPokemon();
@@ -393,18 +411,57 @@ void UI::displayFight(Trainer * trainer1, Trainer * trainer2)
     setCenteredTextForAPokemon();
     cout << "x------------------------------------------------------x" << endl;
 
-    pauseText(1);
-
     bottomBoard() ;
 
     string attack1 = "Le pokemon " + trainer1->getFighterPokemon()->getItsName() + " inflige " + to_string(trainer1->getFighterPokemon()->nbDamage(trainer2->getFighterPokemon())) + " degats a " + trainer2->getFighterPokemon()->getItsName() ;
-    string attack2 = "Le pokemon " + trainer2->getFighterPokemon()->getItsName() + " inflige " + to_string(trainer2->getFighterPokemon()->nbDamage(trainer1->getFighterPokemon())) + " degats a " + trainer1->getFighterPokemon()->getItsName() ;
 
-    pauseText(2);
+    pauseText(5);
 
     printCenteredText(attack1);
     pauseText(2);
-    printCenteredText(attack2);
+    //printCenteredText(attack2);
+
+
+}
+
+void UI::displayFightWinner(Trainer * trainer1, Trainer * trainer2)
+{
+    Trainer * winner = nullptr;
+    cout << RED_TEXT ;
+    if(trainer1->getFighterPokemon()->getItsCurrentHP() == 0)
+    {
+        winner = trainer2 ;
+        printCenteredText("Le pokemon " + trainer1->getFighterPokemon()->getItsName() + " de " + trainer1->getItsName() + " est KO !");
+    }
+    if(trainer2->getFighterPokemon()->getItsCurrentHP() == 0)
+    {
+        winner = trainer1 ;
+        printCenteredText("Le pokemon " + trainer2->getFighterPokemon()->getItsName() + " de " + trainer2->getItsName() + " est KO !");
+    }
+    cout << COLOR_RESET ;
+
+    clearScreen();
+    topBoard();
+    displayInfoTrainers(trainer1, trainer2);
+    displayTeamsTrainers(trainer1, trainer2);
+
+    cout << GREEN_TEXT << endl ;
+    printCenteredText("Le gagnant de ce combat est " + winner->getItsName() + " avec son pokemon " + winner->getFighterPokemon()->getItsName());
+    cout << COLOR_RESET ;
+    bottomBoard();
+}
+
+void UI::displayGameWinner(Trainer * winner)
+{
+    clearScreen();
+    topBoard();
+    cout << GREEN_TEXT << endl ;
+    printCenteredText("Le gagnant de cette partie est " + winner->getItsName());
+
+    displayInfoTrainer(winner);
+    displayTeamTrainer(winner);
+
+    bottomBoard();
 }
 
 //*************************************************************** FONCTION DE CENTRAGE *********************************************************************************//
