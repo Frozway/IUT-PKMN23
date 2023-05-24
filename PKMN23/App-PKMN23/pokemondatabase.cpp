@@ -1,4 +1,9 @@
 #include "pokemondatabase.h"
+#include "pokemon.h"
+#include "firepokemon.h"
+#include "electrikpokemon.h"
+#include "grasspokemon.h"
+#include "waterpokemon.h"
 
 PokemonDataBase::PokemonDataBase()
 {

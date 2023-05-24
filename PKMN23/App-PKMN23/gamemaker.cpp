@@ -11,6 +11,16 @@ GameMaker::GameMaker()
     itsSecondTrainer = new Trainer("itsSecondTrainer");
 }
 
+GameMaker::~GameMaker()
+{
+    delete itsUserInterface ;
+    delete itsPokemonDB ;
+    delete itsTrainer1 ;
+    delete itsTrainer2 ;
+    delete itsFirstTrainer ;
+    delete itsSecondTrainer ;
+}
+
 //*********************************************************** JOUER *************************************************************************************//
 
 void GameMaker::Play()
@@ -38,6 +48,11 @@ void GameMaker::Play()
 
 void GameMaker::gameLoopPVAI()
 {
+    srand (time(NULL));
+
+    SetupMode("SOLO VS IA");
+
+    introGame();
 
 }
 
@@ -48,6 +63,38 @@ void GameMaker::gameLoopPVP()
     SetupMode("MULTIJOUEUR");
 
     introGame();
+
+    itsUserInterface->displaySetFighter(itsFirstTrainer);
+
+    itsUserInterface->displaySetFighter(itsSecondTrainer);
+
+    do
+    {
+        Fight(itsFirstTrainer, itsSecondTrainer);
+
+        if(itsFirstTrainer->getFighterPokemon()->getItsCurrentHP() == 0)
+        {
+            itsUserInterface->displaySetFighter(itsFirstTrainer);
+
+            if(itsUserInterface->isNewSetFighter(itsSecondTrainer)==true)
+            {
+                itsUserInterface->displaySetFighter(itsSecondTrainer);
+            }
+        }
+        else if(itsSecondTrainer->getFighterPokemon()->getItsCurrentHP() == 0)
+        {
+            itsUserInterface->displaySetFighter(itsSecondTrainer);
+
+            if(itsUserInterface->isNewSetFighter(itsFirstTrainer)==true)
+            {
+                itsUserInterface->displaySetFighter(itsFirstTrainer);
+            }
+        }
+    }
+    while(isGameFinished(itsFirstTrainer, itsSecondTrainer) == false);
+
+    itsUserInterface->displayGameWinner(getWinner(itsFirstTrainer, itsSecondTrainer));
+
 }
 
 void GameMaker::gameLoopAI()
@@ -149,8 +196,14 @@ void GameMaker::SetupMode(string mode)
 
     else if(mode == "MULTIJOUEUR")
     {
-        itsTrainer1->setItsName(itsUserInterface->setupName(itsTrainer1));
-        itsTrainer2->setItsName(itsUserInterface->setupName(itsTrainer2));
+        if(itsUserInterface->isANewPlayer(itsTrainer1)==true)
+        {
+            itsTrainer1->setItsName(itsUserInterface->setupName(itsTrainer1));
+        }
+        if(itsUserInterface->isANewPlayer(itsTrainer2)==true)
+        {
+            itsTrainer2->setItsName(itsUserInterface->setupName(itsTrainer2));
+        }
     }
 
     else if(mode == "DEMO")

@@ -12,14 +12,10 @@
 #define CYAN_TEXT    "\033[36;1m"
 #define WHITE_TEXT   "\033[37;1m"
 
-//#include <windows.h>
 #include <unistd.h>
 #include <iomanip>
 #include "trainer.h"
 #include "pokemon.h"
-
-
-
 
 class UI
 {
@@ -44,8 +40,10 @@ public:
     void displayTeamsTrainers(Trainer* trainer1, Trainer* trainer2);
 
     bool isANewPlayer(Trainer* trainer);
+    bool isNewSetFighter(Trainer* trainer);
     string setupName(Trainer * trainer);
 
+    void displaySetFighter(Trainer * trainer);
     void displayFight(Trainer * trainer1, Trainer * trainer2);
     void displayFightWinner(Trainer * trainer1, Trainer * trainer2);
     void displayGameWinner(Trainer * winner);

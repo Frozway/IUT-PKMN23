@@ -111,6 +111,8 @@ void TrainerUnitTests::attackPokemonByTrainer_test()
 
     QCOMPARE(Pierre->getItsTeam()[0]->getItsCurrentHP(), 0); //Vérifier que Salamèche est à 0 HP
     QCOMPARE(actualCarapuceHP, expectedCarapuceHP); //Vérifier que carapuce à été soigné
+
+    cleanupTestCase();
 }
 
 void TrainerUnitTests::testPokemonInTeam()

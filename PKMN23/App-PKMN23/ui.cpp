@@ -24,9 +24,9 @@ string UI::Menu()
                                                                                       |                             |
                                                                                       | [2] : Multijoueur           |
                                                                                       |                             |
-                                                                                      | [3] : Demo (IA VS IA)       |
+                                                                                      | [3] : Démo (IA VS IA)       |
                                                                                       |                             |
-                                                                                      | [4] : Regles du jeu         |
+                                                                                      | [4] : Règles du jeu         |
                                                                                       |                             |
                                                                                       | [5] : Quitter le jeu        |
                                                                                       |                             |
@@ -88,7 +88,7 @@ void UI::topBoard()
                                                                       \    \ \      /       `-.`.___,-' |  |\  /| \      /  | |   |
                                                                        \    \ `.__,'|  |`-._    `|      |__| \/ |  `.__,'|  | |   |
                                                                         \_.-'       |__|    `-._ |              '-.|     '-.| |   |
-                                                                                                `'                            '-._|
+                                                                                                `'                            '-._| by Thibaut LEFRANCOIS D2
 
 )"
         << COLOR_RESET <<R"(            //==============================================================================================================================================================================\\)" << endl;
@@ -208,16 +208,15 @@ void UI::displayInfoTrainer(Trainer * trainer)
     cout << BLUE_TEXT ;
     printCenteredText("Voici les informations du joueur " +trainer->getItsName());
     cout << COLOR_RESET;
-    //printCenteredText("Dresseur : " + trainer->getItsName());
     printCenteredText("Niveau : " + to_string(trainer->getItsLevel()));
     printCenteredText("Points : " + to_string(trainer->getItsPoints()));
     printCenteredText("Nombre de points de vie total de l'equipe : " + to_string(trainer->getItsTotalTeamHP()) + "HP");
     printCenteredText("Puissance de combat totale de l'equipe : " + to_string(trainer->getItsTotalCP()) + "CP");
-    printCenteredText("Vitesse moyenne de l'equipe : " + to_string(trainer->getItsAverageSpeed()) + "KM/H");
-    printCenteredText("Vitesse moyenne de l'equipe (EAU) : " + to_string(trainer->getItsAverageSpeed("WATER")) + "KM/H");
-    printCenteredText("Vitesse moyenne de l'equipe (FIRE) : " + to_string(trainer->getItsAverageSpeed("FIRE")) + "KM/H");
-    printCenteredText("Vitesse moyenne de l'equipe (GRASS) : " + to_string(trainer->getItsAverageSpeed("GRASS")) + "KM/H");
-    printCenteredText("Vitesse moyenne de l'equipe (ELECTRIK) : " + to_string(trainer->getItsAverageSpeed("ELECTRIK")) + "KM/H");
+    printCenteredText("Vitesse moyenne de l'équipe : " + to_string(trainer->getItsAverageSpeed()) + "KM/H");
+    printCenteredText("Vitesse moyenne de l'équipe (EAU) : " + to_string(trainer->getItsAverageSpeed("WATER")) + "KM/H");
+    printCenteredText("Vitesse moyenne de l'équipe (FIRE) : " + to_string(trainer->getItsAverageSpeed("FIRE")) + "KM/H");
+    printCenteredText("Vitesse moyenne de l'équipe (GRASS) : " + to_string(trainer->getItsAverageSpeed("GRASS")) + "KM/H");
+    printCenteredText("Vitesse moyenne de l'équipe (ELECTRIK) : " + to_string(trainer->getItsAverageSpeed("ELECTRIK")) + "KM/H");
 }
 
 void UI::displayInfoTrainers(Trainer* trainer1, Trainer* trainer2)
@@ -312,12 +311,50 @@ void UI::displayTeamsTrainers(Trainer* trainer1, Trainer* trainer2)
 
 //*************************************************************** DIALOGUE DE MISE EN PLACE *********************************************************************************//
 
+bool UI::isNewSetFighter(Trainer* trainer)
+{
+    clearScreen();
+    topBoard();
+    cout << CYAN_TEXT ;
+    printCenteredText(trainer->getItsName());
+    cout << BLUE_TEXT ;
+    printCenteredText(", voulez vous changer de Pokémon pour le prochain combat ?");
+    cout << COLOR_RESET ;
+    printCenteredText("[0] Non | [1] Oui");
+    setCenteredTextForInput();
+
+    int choice;
+
+    while(true)
+    {
+        cin >> choice;
+        if(cin.fail() || (choice != 0 && choice != 1))
+        {
+            cout << RED_TEXT ;
+            printCenteredText("Votre choix n'est pas possible, veuillez recommencer :");
+            cout << COLOR_RESET ;
+            cin.clear(); //Réinitialiser l'entrée si une erreur à été produite pour pouvoir de nouveau entrée une valeur
+            cin.ignore(10,'\n'); //Ignore un certains nombre de caractères pour ne pas prendre en compte l'entrée comme plusieurs entrée et cela à partir la fin de ligne
+        }
+        else
+            break;
+    }
+    cout << endl ;
+
+    if(choice == 0)
+    {
+        return false;
+    }
+    else return true;
+
+}
+
 bool UI::isANewPlayer(Trainer* trainer)
 {
     topBoard();
 
     int choice ;
-    cout << CYAN_TEXT ;
+    cout << CYAN_TEXT << endl ;
     printCenteredText(trainer->getItsName());
     cout << BLUE_TEXT ;
     printCenteredText("avez vous une sauvegarde ?");
@@ -325,7 +362,6 @@ bool UI::isANewPlayer(Trainer* trainer)
     printCenteredText("[0] Non | [1] Oui") ;
     bottomBoard();
     setCenteredTextForInput() ;
-    //cout << "Votre reponse : ";
     while(true)
     {
         cin >> choice;
@@ -358,8 +394,8 @@ string UI::setupName(Trainer * trainer)
 {
     string name ;
     topBoard();
-    cout << BLUE_TEXT ;
-    printCenteredText(trainer->getItsName() + ", quel est ton surnom");
+    cout << BLUE_TEXT << endl ;
+    printCenteredText(trainer->getItsName() + ", quel est ton surnom ?");
     cout << COLOR_RESET ;
     bottomBoard();
     setCenteredTextForInput();
@@ -370,6 +406,56 @@ string UI::setupName(Trainer * trainer)
 }
 
 //*************************************************************** AFFICHAGE EN JEU *********************************************************************************//
+
+void UI::displaySetFighter(Trainer * trainer)
+{
+    clearScreen();
+    topBoard();
+
+    int choice = 0;
+
+    cout << CYAN_TEXT ;
+    printCenteredText(trainer->getItsName());
+    cout << BLUE_TEXT;
+    printCenteredText("Parmis les Pokémon ci-dessous, lequel veux tu choisir pour le combat ? (Entrez le numéro)");
+    cout << COLOR_RESET;
+
+    displayTeamTrainer(trainer);
+
+    bottomBoard();
+
+    setCenteredTextForInput();
+
+    do
+    {
+
+        cin >> choice ;
+
+        if(choice < 1 || choice >= 7 )
+        {
+            cout << RED_TEXT ;
+            printCenteredText("Indice invalide ! Choissisez un Pokémon entre 1 et 6, recommencez :");
+            cout << COLOR_RESET ;
+        }
+        else if(trainer->getItsTeam()[choice-1]->getItsCurrentHP() == 0)
+                {
+                    cout << RED_TEXT ;
+                    printCenteredText("Impossible de choisir ce Pokémon, il est mort ! Recommencez :");
+                    cout << COLOR_RESET ;
+                }
+    }
+    while(trainer->getItsTeam()[choice-1]->getItsCurrentHP() == 0 || choice >= 7);
+
+    trainer->setFighterPokemon(trainer->getItsTeam()[choice-1]);
+
+    cout << GREEN_TEXT << endl ;
+
+    printCenteredText("Le Pokémon qui combattra à tes côtés est : " + trainer->getFighterPokemon()->getItsName());
+
+    cout << COLOR_RESET ;
+
+
+}
 
 void UI::displayFight(Trainer * trainer1, Trainer * trainer2)
 {
@@ -419,7 +505,7 @@ void UI::displayFight(Trainer * trainer1, Trainer * trainer2)
 
     bottomBoard() ;
 
-    string attack1 = "Le pokemon " + trainer1->getFighterPokemon()->getItsName() + " inflige " + to_string(trainer1->getFighterPokemon()->nbDamage(trainer2->getFighterPokemon())) + " degats a " + trainer2->getFighterPokemon()->getItsName() ;
+    string attack1 = "Le Pokémon " + trainer1->getFighterPokemon()->getItsName() + " inflige " + to_string(trainer1->getFighterPokemon()->nbDamage(trainer2->getFighterPokemon())) + " dégâts à " + trainer2->getFighterPokemon()->getItsName() ;
 
     pauseText(2);
 
@@ -436,12 +522,12 @@ void UI::displayFightWinner(Trainer * trainer1, Trainer * trainer2)
     if(trainer1->getFighterPokemon()->getItsCurrentHP() == 0)
     {
         winner = trainer2 ;
-        printCenteredText("Le pokemon " + trainer1->getFighterPokemon()->getItsName() + " de " + trainer1->getItsName() + " est KO !");
+        printCenteredText("Le Pokémon " + trainer1->getFighterPokemon()->getItsName() + " de " + trainer1->getItsName() + " est KO !");
     }
     if(trainer2->getFighterPokemon()->getItsCurrentHP() == 0)
     {
         winner = trainer1 ;
-        printCenteredText("Le pokemon " + trainer2->getFighterPokemon()->getItsName() + " de " + trainer2->getItsName() + " est KO !");
+        printCenteredText("Le Pokémon " + trainer2->getFighterPokemon()->getItsName() + " de " + trainer2->getItsName() + " est KO !");
     }
     cout << COLOR_RESET ;
 
@@ -451,7 +537,7 @@ void UI::displayFightWinner(Trainer * trainer1, Trainer * trainer2)
     displayTeamsTrainers(trainer1, trainer2);
 
     cout << GREEN_TEXT << endl ;
-    printCenteredText("Le gagnant de ce combat est " + winner->getItsName() + " avec son pokemon " + winner->getFighterPokemon()->getItsName());
+    printCenteredText("Le gagnant de ce combat est " + winner->getItsName() + " avec son Pokémon " + winner->getFighterPokemon()->getItsName());
     cout << COLOR_RESET ;
     bottomBoard();
 }
@@ -494,9 +580,7 @@ void UI::setCenteredTextForTeamsColumns()
 void UI::setCenteredTextForInput()
 {
     cout << setfill(' ') << setw(92) << "" ;
-    cout<< "Votre reponse : " ;
+    cout<< "Votre réponse : " ;
 }
-
-
 
 

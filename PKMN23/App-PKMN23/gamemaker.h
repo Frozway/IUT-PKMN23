@@ -8,9 +8,6 @@
 #include "pokemondatabase.h"
 
 
-
-
-
 class GameMaker
 {
 private:
@@ -23,6 +20,7 @@ private:
 
 public:
     GameMaker();
+    ~GameMaker();
     void Play();
     void Fight(Trainer * firstTrainer, Trainer * secondTrainer);
     void gameLoopPVP();
