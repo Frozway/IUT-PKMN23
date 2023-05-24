@@ -15,7 +15,7 @@ GameMaker::GameMaker()
 
 void GameMaker::Play()
 {
-    system("pause");
+    itsUserInterface->clearScreen();
 
     string mode = itsUserInterface->Menu();
 
@@ -216,10 +216,10 @@ void GameMaker::pauseGame(int time)
     // Pause pendant le nombre de secondes spécifié
     #ifdef _WIN32
         // Windows
-        Sleep(time * 1000);
+        sleep(time);
     #else
         // UNIX
-        sleep(seconds);
+        sleep(time);
     #endif
 }
 

@@ -165,9 +165,10 @@ void Trainer::calculateLevel()
     }
     else if(itsPoints < 0 && itsLevel > 1)
     {
-        itsLevel += 1 ;
-        itsPoints -= 10 ;
+        itsLevel -= 1 ;
+        itsPoints += 10 ;
     }
+
 }
 
 float Trainer::getItsAverageSpeed(string itsType)

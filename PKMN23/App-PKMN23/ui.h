@@ -12,7 +12,7 @@
 #define CYAN_TEXT    "\033[36;1m"
 #define WHITE_TEXT   "\033[37;1m"
 
-#include <windows.h>
+//#include <windows.h>
 #include <unistd.h>
 #include <iomanip>
 #include "trainer.h"

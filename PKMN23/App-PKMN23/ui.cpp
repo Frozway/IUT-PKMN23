@@ -142,10 +142,10 @@ void UI::pauseText(int time)
     // Pause pendant le nombre de secondes spécifié
     #ifdef _WIN32
         // Windows
-        Sleep(time * 1000);
+        sleep(time);
     #else
         // UNIX
-        sleep(seconds);
+        sleep(time);
     #endif
 }
 
@@ -225,8 +225,10 @@ void UI::displayInfoTrainers(Trainer* trainer1, Trainer* trainer2)
     int columnWidth = 80;
 
     setCenteredTextForTeamsColumns();
-    cout << setw(columnWidth) << left << "Dresseur : " + trainer1->getItsName();
-    cout << setw(columnWidth) << left << "Dresseur : " + trainer2->getItsName() << endl;
+    cout << CYAN_TEXT << setw(columnWidth) << left << "Attaquant : " + trainer1->getItsName();
+    cout << BLUE_TEXT << setw(columnWidth) << left << "Defenseur : " + trainer2->getItsName() << endl;
+
+    cout << COLOR_RESET ;
 
     setCenteredTextForTeamsColumns();
     cout << setw(columnWidth) << left << "Niveau : " + to_string(trainer1->getItsLevel()) + "           Points : " + to_string(trainer1->getItsPoints());
@@ -282,14 +284,14 @@ void UI::displayTeamTrainer(Trainer * trainer)
 void UI::displayTeamsTrainers(Trainer* trainer1, Trainer* trainer2)
 {
     cout << endl ;
-    setCenteredTextForTeamsColumns();;
+    setCenteredTextForTeamsColumns();
     cout << "X------------------------------------------------------X" ;
     cout << setfill(' ') << setw(24) << "" ;
     cout << "X------------------------------------------------------X" << endl ;
 
     for (int i = 0; i < 6; i++)
     {
-        setCenteredTextForTeamsColumns();;
+        setCenteredTextForTeamsColumns();
         displayPokemon(trainer1->getItsTeam()[i]);
         cout << setfill(' ') << setw(24) << "" ;
         displayPokemon(trainer2->getItsTeam()[i]);
@@ -387,7 +389,9 @@ void UI::displayFight(Trainer * trainer1, Trainer * trainer2)
     cout << "|                                                      |" << endl ;
 
     setCenteredTextForAPokemon() ;
+    cout << CYAN_TEXT;
     displayPokemon(trainer1->getFighterPokemon());
+    cout << COLOR_RESET;
 
     cout << endl ;
     setCenteredTextForAPokemon();
@@ -401,7 +405,9 @@ void UI::displayFight(Trainer * trainer1, Trainer * trainer2)
     cout << "|                                                      |" << endl ;
 
     setCenteredTextForAPokemon() ;
+    cout << BLUE_TEXT ;
     displayPokemon(trainer2->getFighterPokemon());
+    cout << COLOR_RESET ;
 
     cout << endl ;
 
