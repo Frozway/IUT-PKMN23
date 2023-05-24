@@ -54,6 +54,64 @@ void GameMaker::gameLoopPVAI()
 
     introGame();
 
+    //Si le premier joueur n'est pas une IA (vérifié grâce au nom), alors lui faire choisir son pokémon de départ
+    if(itsFirstTrainer->getItsName() == itsTrainer1->getItsName())
+    {
+        itsUserInterface->displaySetFighter(itsFirstTrainer);
+        itsSecondTrainer->setFighterPokemon(itsSecondTrainer->getItsTeam()[0]);
+    }
+    //Sinon c'est que le joueur 2 n'est pas une IA alors lui faire choisir son pokémon de départ
+    else
+    {
+        itsUserInterface->displaySetFighter(itsSecondTrainer);
+        itsFirstTrainer->setFighterPokemon(itsSecondTrainer->getItsTeam()[0]);
+    }
+
+
+
+    do
+    {
+        Fight(itsFirstTrainer, itsSecondTrainer);
+
+        //Si le premier joueur est une IA, lui attribuer automatiquement un nouveau pokémon si son pokémon est mort
+        if(itsFirstTrainer->getItsName()=="IA-Aron" && itsFirstTrainer->getFighterPokemon()->getItsCurrentHP() == 0)
+        {
+            itsFirstTrainer->setFighterPokemon(itsFirstTrainer->getNextAlivePokemon());
+
+            //Demander au joueur si il veut changer de pokémon
+            if(itsUserInterface->isNewSetFighter(itsSecondTrainer)==true)
+            {
+                itsUserInterface->displaySetFighter(itsSecondTrainer);
+            }
+        }
+
+        //Sinon si le premier joueur est le vrai joueur, lui demander de changer de pokémon
+        else if(itsFirstTrainer->getItsName()==itsTrainer1->getItsName() && itsFirstTrainer->getFighterPokemon()->getItsCurrentHP() == 0)
+        {
+            itsUserInterface->displaySetFighter(itsFirstTrainer);
+        }
+
+        //Sinon si le deuxième joueur est une IA, lui attribuer automatiquement un nouveau pokémon si son pokémon est mort
+        else if(itsSecondTrainer->getItsName()=="IA-Aron" && itsSecondTrainer->getFighterPokemon()->getItsCurrentHP() == 0)
+        {
+            itsSecondTrainer->setFighterPokemon(itsSecondTrainer->getNextAlivePokemon());
+
+            //Demander au joueur si il veut changer de pokémon
+            if(itsUserInterface->isNewSetFighter(itsFirstTrainer)==true)
+            {
+                itsUserInterface->displaySetFighter(itsFirstTrainer);
+            }
+        }
+        //Sinon si le deuxième joueur est le vrai joueur, lui demander de changer de pokémon
+        else if(itsSecondTrainer->getItsName()==itsTrainer1->getItsName() && itsSecondTrainer->getFighterPokemon()->getItsCurrentHP() == 0)
+        {
+            itsUserInterface->displaySetFighter(itsSecondTrainer);
+        }
+    }
+    while(isGameFinished(itsFirstTrainer, itsSecondTrainer) == false);
+
+    itsUserInterface->displayGameWinner(getWinner(itsFirstTrainer, itsSecondTrainer));
+
 }
 
 void GameMaker::gameLoopPVP()
@@ -191,7 +249,7 @@ void GameMaker::SetupMode(string mode)
             itsTrainer1->setItsName(itsUserInterface->setupName(itsTrainer1));
         }
 
-        itsTrainer2->setItsName("IA");
+        itsTrainer2->setItsName("IA-Aron");
     }
 
     else if(mode == "MULTIJOUEUR")

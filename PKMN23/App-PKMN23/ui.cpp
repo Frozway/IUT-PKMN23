@@ -357,7 +357,7 @@ bool UI::isANewPlayer(Trainer* trainer)
     cout << CYAN_TEXT << endl ;
     printCenteredText(trainer->getItsName());
     cout << BLUE_TEXT ;
-    printCenteredText("avez vous une sauvegarde ?");
+    printCenteredText("avez vous un compte ?");
     cout << COLOR_RESET ;
     printCenteredText("[0] Non | [1] Oui") ;
     bottomBoard();
