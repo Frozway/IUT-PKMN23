@@ -3,7 +3,11 @@
 void Trainer::setFighterPokemon(Pokemon *newFighterPokemon)
 {
     //fighterPokemon = nullptr ;
-    fighterPokemon = newFighterPokemon;
+    if(newFighterPokemon->getItsCurrentHP() != 0)
+    {
+        fighterPokemon = newFighterPokemon;
+    }
+
 }
 
 Pokemon *Trainer::getFighterPokemon()

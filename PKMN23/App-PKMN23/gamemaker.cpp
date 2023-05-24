@@ -11,6 +11,8 @@ GameMaker::GameMaker()
     itsSecondTrainer = new Trainer("itsSecondTrainer");
 }
 
+//*********************************************************** JOUER *************************************************************************************//
+
 void GameMaker::Play()
 {
     system("pause");
@@ -19,27 +21,33 @@ void GameMaker::Play()
 
     if(mode == "SOLO VS IA")
     {
-        pauseGame(2);
+        pauseGame(1);
         gameLoopPVAI();
     }
     else if(mode == "MULTIJOUEUR")
     {
-        pauseGame(2);
+        pauseGame(1);
         gameLoopPVP();
     }
     else if(mode == "DEMO")
     {
-        pauseGame(2);
+        pauseGame(1);
         gameLoopAI();
     }
 }
 
 void GameMaker::gameLoopPVAI()
 {
+
 }
 
 void GameMaker::gameLoopPVP()
 {
+    srand (time(NULL));
+
+    SetupMode("MULTIJOUEUR");
+
+    introGame();
 }
 
 void GameMaker::gameLoopAI()
@@ -48,30 +56,9 @@ void GameMaker::gameLoopAI()
 
     SetupMode("DEMO");
 
-    initFirstTrainer(itsTrainer1, itsTrainer2);
+    introGame();
 
-    //******************************* Affichage les infos des trainers pour la démo ***********************************//
-
-    itsUserInterface->fastClearScreen();
-
-    itsUserInterface->topBoard();
-
-    itsUserInterface->displayInfoTrainer(itsFirstTrainer);
-    itsUserInterface->displayTeamTrainer(itsFirstTrainer);
-
-    itsUserInterface->bottomBoard();
-
-    itsUserInterface->clearScreen();
-
-    itsUserInterface->topBoard();
-
-    itsUserInterface->displayInfoTrainer(itsSecondTrainer);
-    itsUserInterface->displayTeamTrainer(itsSecondTrainer);
-
-    itsUserInterface->bottomBoard();
-
-    //int pokemonTrainer1 = 0 ;
-    //int pokemonTrainer2 = 0 ;
+    //******************************* Lancement des combats ***********************************//
 
     //Attribution du pokémon aux IA (pour la démo on prendra toujours le premier)
     itsFirstTrainer->setFighterPokemon(itsFirstTrainer->getItsTeam()[0]);
@@ -91,9 +78,6 @@ void GameMaker::gameLoopAI()
         }
     }
     while(isGameFinished(itsFirstTrainer, itsSecondTrainer) == false);
-
-
-    //itsUserInterface->displayTeamTrainer(itsSecondTrainer);
 
     itsUserInterface->displayGameWinner(getWinner(itsFirstTrainer, itsSecondTrainer));
 
@@ -147,18 +131,7 @@ void GameMaker::Fight(Trainer * itsFirstTrainer, Trainer * itsSecondTrainer)
     // Afficher le gagnant de la bataille
     itsUserInterface->displayFightWinner(itsFirstTrainer, itsSecondTrainer);
 
-
-
 }
-
-
-
-
-
-
-
-
-
 
 void GameMaker::SetupMode(string mode)
 {
@@ -184,9 +157,10 @@ void GameMaker::SetupMode(string mode)
     {
         itsTrainer1->setItsName("IA-Aron");
         itsTrainer2->setItsName("IA-Nelson");
-        itsPokemonDB->fillARandomTeam(itsTrainer1);
-        itsPokemonDB->fillARandomTeam(itsTrainer2);
     }
+
+    itsPokemonDB->fillARandomTeam(itsTrainer1);
+    itsPokemonDB->fillARandomTeam(itsTrainer2);
 
 }
 
@@ -233,9 +207,8 @@ void GameMaker::initFirstTrainer(Trainer * trainer1, Trainer * trainer2)
         }
     }
 
-    itsFirstTrainer->setItsName("IA-FIRST");
-    itsSecondTrainer->setItsName("IA-SECOND");
-
+    itsFirstTrainer->setItsName("P1 - " + itsFirstTrainer->getItsName());
+    itsSecondTrainer->setItsName("P2 - " + itsSecondTrainer->getItsName());
 }
 
 void GameMaker::pauseGame(int time)
@@ -292,4 +265,30 @@ bool GameMaker::isGameFinished(Trainer* trainer1, Trainer* trainer2)
         return true;
     }
     else return false;
+}
+
+void GameMaker::introGame()
+{
+
+    initFirstTrainer(itsTrainer1, itsTrainer2);
+
+    //******************************* Affichage des infos des trainers pour la démo ***********************************//
+
+    itsUserInterface->fastClearScreen();
+
+    itsUserInterface->topBoard();
+
+    itsUserInterface->displayInfoTrainer(itsFirstTrainer);
+    itsUserInterface->displayTeamTrainer(itsFirstTrainer);
+
+    itsUserInterface->bottomBoard();
+
+    itsUserInterface->clearScreen();
+
+    itsUserInterface->topBoard();
+
+    itsUserInterface->displayInfoTrainer(itsSecondTrainer);
+    itsUserInterface->displayTeamTrainer(itsSecondTrainer);
+
+    itsUserInterface->bottomBoard();
 }

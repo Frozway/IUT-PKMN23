@@ -35,6 +35,7 @@ public:
     void initFirstTrainer(Trainer * trainer1, Trainer * trainer2);
     Trainer getFightWinner(Trainer * trainer1, Trainer * trainer2);
     Trainer * getWinner(Trainer* trainer1, Trainer* trainer2);
+    void introGame();
 
 };
 

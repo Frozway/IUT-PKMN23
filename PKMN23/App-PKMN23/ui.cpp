@@ -415,12 +415,11 @@ void UI::displayFight(Trainer * trainer1, Trainer * trainer2)
 
     string attack1 = "Le pokemon " + trainer1->getFighterPokemon()->getItsName() + " inflige " + to_string(trainer1->getFighterPokemon()->nbDamage(trainer2->getFighterPokemon())) + " degats a " + trainer2->getFighterPokemon()->getItsName() ;
 
-    pauseText(5);
+    pauseText(2);
 
     printCenteredText(attack1);
-    pauseText(2);
-    //printCenteredText(attack2);
 
+    pauseText(2);
 
 }
 
