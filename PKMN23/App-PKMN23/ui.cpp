@@ -185,14 +185,6 @@ void UI::displayPokemon(Pokemon * pokemon)
                        pokemon->getItsCP(),
                        pokemon->getItsSpeed());
     }
-    else if(pokemon->getItsType() == "ELECTRIK")
-    {
-        printf("| %-13s (ELECTRIK) : %-3i PV | %-3i CP | %-5.2f KM/H |",
-                       pokemon->getItsName().c_str(),
-                       pokemon->getItsCurrentHP(),
-                       pokemon->getItsCP(),
-                       pokemon->getItsSpeed());
-    }
     else if(pokemon->getItsType() == "GRASS")
     {
         printf("| %-13s (GRASS) : %-3i PV | %-3i CP | %-5.2f KM/H |",
@@ -204,6 +196,13 @@ void UI::displayPokemon(Pokemon * pokemon)
     else if(pokemon->getItsType() == "WATER")
     {
         printf("| %-13s (WATER) : %-3i PV | %-3i CP | %-5.2f KM/H |",
+                       pokemon->getItsName().c_str(),
+                       pokemon->getItsCurrentHP(),
+                       pokemon->getItsCP(),
+                       pokemon->getItsSpeed());
+    }
+    else{
+        printf("| %-10s (ELECTRIK) : %-3i PV | %-3i CP | %-5.2f KM/H |",
                        pokemon->getItsName().c_str(),
                        pokemon->getItsCurrentHP(),
                        pokemon->getItsCP(),
