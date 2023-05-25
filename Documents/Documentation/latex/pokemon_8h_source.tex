@@ -1,0 +1,56 @@
+\hypertarget{pokemon_8h_source}{}\doxysection{pokemon.\+h}
+\label{pokemon_8h_source}\index{C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/App-\/PKMN23/pokemon.h@{C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/App-\/PKMN23/pokemon.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ POKEMON\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ POKEMON\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{using\ namespace\ }std\ ;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_pokemon}{Pokemon}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_pokemon_adf6e6aee4e7688449cd300c3caffac27}{itsName}}\ ;\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_pokemon_a66a93c7640cf6095219002266ce872bc}{itsHeight}}\ ;\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_pokemon_a4067705e285ffa22478a7efc95c20dc1}{itsWeight}}\ ;\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_pokemon_a6c4b4da8d9a6dc10b3e245c56d2a5691}{itsMaxHP}}\ ;\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_pokemon_a3189727a12973a1ce648e4ecda87bde9}{itsCurrentHP}}\ ;\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_pokemon_af7463f1c7a04de7d1e23dff3f744bc30}{itsCP}}\ ;\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_pokemon}{Pokemon}}(\textcolor{keywordtype}{string}\ name,\ \textcolor{keywordtype}{float}\ height,\ \textcolor{keywordtype}{float}\ weight,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ maxHP,\ \textcolor{keywordtype}{int}\ currentHP,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ cp);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//virtual\ \string~Pokemon()\ \{\};}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_pokemon_a8b4c82d15214b5a6ca1d0c857cdf0ca9}{displayPokemon}}()\ =\ 0;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_pokemon_a3981757d704d865de655bc6c7e25b2e1}{getItsType}}()\ =\ 0;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_pokemon_a93d63281de4d96770caf0ba35ffa0ba4}{getItsSpeed}}()\ =\ 0;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_pokemon_a16560aaa82150d644511c8587247f0b3}{nbDamage}}(\mbox{\hyperlink{class_pokemon}{Pokemon}}\ *\ anOpponent)\ =\ 0;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pokemon_a5f077060384d9e8191d0a7886b8f4891}{attack}}(\mbox{\hyperlink{class_pokemon}{Pokemon}}\ *\ anOpponent)\ ;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_pokemon_a34bca3eac98df589fa6e5d6356fad347}{getItsName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_pokemon_aacd7d3bdfd74eef95c2dd8c7fb5ab0f7}{getItsMaxHP}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_pokemon_a614ec58ef7649a60b7cad77e7e953cfd}{getItsCurrentHP}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_pokemon_a7d518d4c39ee14020283ff3fe1879e66}{getItsCP}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_pokemon_a756d066309ebbce6b0919a5d714e5b52}{getItsHeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_pokemon_a7d345711cb487baba9a4279e709ab264}{getItsWeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pokemon_ac81075e77feba2a45b896bdeac0be46c}{setItsHP}}(\textcolor{keywordtype}{int}\ newItsHP);}
+\DoxyCodeLine{00114\ \};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ POKEMON\_H}}
+
+\end{DoxyCode}

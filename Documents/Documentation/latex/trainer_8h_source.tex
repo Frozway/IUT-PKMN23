@@ -1,0 +1,74 @@
+\hypertarget{trainer_8h_source}{}\doxysection{trainer.\+h}
+\label{trainer_8h_source}\index{C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/App-\/PKMN23/trainer.h@{C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/App-\/PKMN23/trainer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ TRAINER\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ TRAINER\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}pokemon.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_trainer}{Trainer}}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{string}\ itsName;\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ itsLevel;\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ itsPoints;\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_pokemon}{Pokemon}}\ *\ fighterPokemon\ ;\ }
+\DoxyCodeLine{00027\ \ \ \ \ vector<Pokemon*>\ *\ itsPokemonTeam;\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_trainer}{Trainer}}(\textcolor{keywordtype}{string}\ name);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_trainer_aa3d993d1eb090f4111e12a710fe9d3f6}{\string~Trainer}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trainer_af872e2207c133db240b3fc454f8e39b7}{catchPokemon}}(\mbox{\hyperlink{class_pokemon}{Pokemon}}*\ pokemon);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trainer_acdd937457993c1851cd9f2c06e4097ac}{removePokemon}}(\mbox{\hyperlink{class_pokemon}{Pokemon}}*\ pokemon);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trainer_ae04f6bd11054e6ee2f62de3239900dfc}{attack}}(\mbox{\hyperlink{class_pokemon}{Pokemon}}*\ myPokemon,\ \mbox{\hyperlink{class_trainer}{Trainer}}\ *\ anOpponentTrainer,\ \mbox{\hyperlink{class_pokemon}{Pokemon}}*\ anOpponentPokemon);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_trainer_a10f5509fb9ef2f7152a3d56f32e84995}{isPokemonInTeam}}(\mbox{\hyperlink{class_pokemon}{Pokemon}}*\ pokemon);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trainer_ae68884aacb9e1b2403bf3f88228cd848}{displayTrainer}}();}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trainer_a58a6ee2030bfacd829f554ce0d5eb9ff}{displayTeam}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trainer_a406ce6634f9c5dfcff2069b620954592}{calculateLevel}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_trainer_a0a19f44bdd3bbaab8568693b178a6e89}{getItsAverageSpeed}}();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_trainer_a0a19f44bdd3bbaab8568693b178a6e89}{getItsAverageSpeed}}(\textcolor{keywordtype}{string}\ itsType);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_trainer_a91167ab5697b194e947a802c021e1d1f}{getItsTotalTeamHP}}();}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_trainer_a73b606a3e7acb7d060f7c544e1cb9567}{getItsTotalCP}}();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_trainer_a38dc57b6e547be5813d37a73c97d7b59}{getItsLevel}}();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_trainer_a289ae5d07ede4c8743c092f7d0963b3f}{getItsPoints}}();}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_trainer_a55f4b654dbb6faf07bad2b8892afb689}{getItsName}}();}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00135\ \ \ \ \ vector<Pokemon*>\ \mbox{\hyperlink{class_trainer_a45f4df3675bf165f0143083ab24fb5dd}{getItsTeam}}();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trainer_a9f66c2bfc5d383386161a63e4ced753b}{setItsPoints}}(\textcolor{keywordtype}{int}\ newItsPoints);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_trainer_a3a1021922c0a2992ab1b6ac366a3943b}{allPokemonsDead}}();}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trainer_ac1552cfe514ffa0820a5a846473d681b}{setItsName}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ newItsName);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trainer_a2f67eaa990fb01970083e7ae96b01aff}{setFighterPokemon}}(\mbox{\hyperlink{class_pokemon}{Pokemon}}*\ newFighterPokemon);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00165\ \ \ \ \ \mbox{\hyperlink{class_pokemon}{Pokemon}}*\ \mbox{\hyperlink{class_trainer_a988b3bf3939833c073e5aed8298571de}{getNextAlivePokemon}}();}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00171\ \ \ \ \ \mbox{\hyperlink{class_pokemon}{Pokemon}}*\ \mbox{\hyperlink{class_trainer_a0f0ba33c9b623e07a6dbdc18e797c83d}{getFighterPokemon}}();}
+\DoxyCodeLine{00172\ \};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TRAINER\_H}}
+
+\end{DoxyCode}

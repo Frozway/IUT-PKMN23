@@ -1,0 +1,306 @@
+\hypertarget{class_pokemon}{}\doxysection{Pokemon Class Reference}
+\label{class_pokemon}\index{Pokemon@{Pokemon}}
+Inheritance diagram for Pokemon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pokemon}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pokemon_ad192530dbb9fe053380c110d9486ca8e}{Pokemon}} (string name, float height, float weight, unsigned int max\+HP, int current\+HP, unsigned int cp)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_pokemon}{Pokemon}} Constructor for the \mbox{\hyperlink{class_pokemon}{Pokemon}} class. \end{DoxyCompactList}\item 
+virtual string \mbox{\hyperlink{class_pokemon_a8b4c82d15214b5a6ca1d0c857cdf0ca9}{display\+Pokemon}} ()=0
+\begin{DoxyCompactList}\small\item\em display\+Pokemon A pure virtual function that return the information about the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+virtual string \mbox{\hyperlink{class_pokemon_a3981757d704d865de655bc6c7e25b2e1}{get\+Its\+Type}} ()=0
+\begin{DoxyCompactList}\small\item\em get\+Its\+Type A pure virtual function that returns the type of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_pokemon_a93d63281de4d96770caf0ba35ffa0ba4}{get\+Its\+Speed}} ()=0
+\begin{DoxyCompactList}\small\item\em get\+Its\+Speed A pure virtual function that returns the speed of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_pokemon_a16560aaa82150d644511c8587247f0b3}{nb\+Damage}} (\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$an\+Opponent)=0
+\begin{DoxyCompactList}\small\item\em nb\+Damage A pure virtual function that calculates the damage done by the \mbox{\hyperlink{class_pokemon}{Pokemon}} to its opponent. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pokemon_a5f077060384d9e8191d0a7886b8f4891}{attack}} (\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$an\+Opponent)
+\begin{DoxyCompactList}\small\item\em attack A function that represents the \mbox{\hyperlink{class_pokemon}{Pokemon}} attacking its opponent. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_pokemon_a34bca3eac98df589fa6e5d6356fad347}{get\+Its\+Name}} () const
+\begin{DoxyCompactList}\small\item\em get\+Its\+Nale A function that returns the name of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_pokemon_aacd7d3bdfd74eef95c2dd8c7fb5ab0f7}{get\+Its\+Max\+HP}} () const
+\begin{DoxyCompactList}\small\item\em get\+Its\+HP A function that returns the max health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_pokemon_a614ec58ef7649a60b7cad77e7e953cfd}{get\+Its\+Current\+HP}} () const
+\begin{DoxyCompactList}\small\item\em get\+Its\+HP A function that returns the current health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_pokemon_a7d518d4c39ee14020283ff3fe1879e66}{get\+Its\+CP}} () const
+\begin{DoxyCompactList}\small\item\em get\+Its\+CP A function that returns the combat points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_pokemon_a756d066309ebbce6b0919a5d714e5b52}{get\+Its\+Height}} () const
+\begin{DoxyCompactList}\small\item\em get\+Its\+Height A function that returns the height of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_pokemon_a7d345711cb487baba9a4279e709ab264}{get\+Its\+Weight}} () const
+\begin{DoxyCompactList}\small\item\em get\+Its\+Weight A function that returns the weight of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pokemon_ac81075e77feba2a45b896bdeac0be46c}{set\+Its\+HP}} (int new\+Its\+HP)
+\begin{DoxyCompactList}\small\item\em set\+Its\+HP A function that sets the health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_pokemon_adf6e6aee4e7688449cd300c3caffac27}{its\+Name}}
+\item 
+float \mbox{\hyperlink{class_pokemon_a66a93c7640cf6095219002266ce872bc}{its\+Height}}
+\item 
+float \mbox{\hyperlink{class_pokemon_a4067705e285ffa22478a7efc95c20dc1}{its\+Weight}}
+\item 
+unsigned int \mbox{\hyperlink{class_pokemon_a6c4b4da8d9a6dc10b3e245c56d2a5691}{its\+Max\+HP}}
+\item 
+unsigned int \mbox{\hyperlink{class_pokemon_a3189727a12973a1ce648e4ecda87bde9}{its\+Current\+HP}}
+\item 
+unsigned int \mbox{\hyperlink{class_pokemon_af7463f1c7a04de7d1e23dff3f744bc30}{its\+CP}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_pokemon_ad192530dbb9fe053380c110d9486ca8e}\label{class_pokemon_ad192530dbb9fe053380c110d9486ca8e}} 
+\index{Pokemon@{Pokemon}!Pokemon@{Pokemon}}
+\index{Pokemon@{Pokemon}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{Pokemon()}{Pokemon()}}
+{\footnotesize\ttfamily Pokemon\+::\+Pokemon (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{float}]{height,  }\item[{float}]{weight,  }\item[{unsigned int}]{max\+HP,  }\item[{int}]{current\+HP,  }\item[{unsigned int}]{cp }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_pokemon}{Pokemon}} Constructor for the \mbox{\hyperlink{class_pokemon}{Pokemon}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \\
+\hline
+{\em height} & The height of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \\
+\hline
+{\em weight} & The weight of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \\
+\hline
+{\em hp} & The health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \\
+\hline
+{\em cp} & The combat points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pokemon_a5f077060384d9e8191d0a7886b8f4891}\label{class_pokemon_a5f077060384d9e8191d0a7886b8f4891}} 
+\index{Pokemon@{Pokemon}!attack@{attack}}
+\index{attack@{attack}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Pokemon\+::attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$}]{an\+Opponent }\end{DoxyParamCaption})}
+
+
+
+attack A function that represents the \mbox{\hyperlink{class_pokemon}{Pokemon}} attacking its opponent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Pokemon} & A pointer to the attacking \mbox{\hyperlink{class_pokemon}{Pokemon}}. \\
+\hline
+{\em an\+Opponent} & A pointer to the opponent \mbox{\hyperlink{class_pokemon}{Pokemon}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_pokemon_a8b4c82d15214b5a6ca1d0c857cdf0ca9}\label{class_pokemon_a8b4c82d15214b5a6ca1d0c857cdf0ca9}} 
+\index{Pokemon@{Pokemon}!displayPokemon@{displayPokemon}}
+\index{displayPokemon@{displayPokemon}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{displayPokemon()}{displayPokemon()}}
+{\footnotesize\ttfamily virtual string Pokemon\+::display\+Pokemon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+display\+Pokemon A pure virtual function that return the information about the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+
+
+
+Implemented in \mbox{\hyperlink{class_electrik_pokemon_a0c58c72e58d3cd50035fd6a72eef4be3}{Electrik\+Pokemon}}, \mbox{\hyperlink{class_fire_pokemon_ae45c74d9d257c6db8a53c24d616486ac}{Fire\+Pokemon}}, \mbox{\hyperlink{class_grass_pokemon_a405213f239dd92dd4e6bc56326206c5e}{Grass\+Pokemon}}, and \mbox{\hyperlink{class_water_pokemon_aae92c94e0df10ecd3558daf3572c4b87}{Water\+Pokemon}}.
+
+\mbox{\Hypertarget{class_pokemon_a7d518d4c39ee14020283ff3fe1879e66}\label{class_pokemon_a7d518d4c39ee14020283ff3fe1879e66}} 
+\index{Pokemon@{Pokemon}!getItsCP@{getItsCP}}
+\index{getItsCP@{getItsCP}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{getItsCP()}{getItsCP()}}
+{\footnotesize\ttfamily int Pokemon\+::get\+Its\+CP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+get\+Its\+CP A function that returns the combat points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+
+\begin{DoxyReturn}{Returns}
+The combat points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pokemon_a614ec58ef7649a60b7cad77e7e953cfd}\label{class_pokemon_a614ec58ef7649a60b7cad77e7e953cfd}} 
+\index{Pokemon@{Pokemon}!getItsCurrentHP@{getItsCurrentHP}}
+\index{getItsCurrentHP@{getItsCurrentHP}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{getItsCurrentHP()}{getItsCurrentHP()}}
+{\footnotesize\ttfamily int Pokemon\+::get\+Its\+Current\+HP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+get\+Its\+HP A function that returns the current health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+
+\begin{DoxyReturn}{Returns}
+The health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pokemon_a756d066309ebbce6b0919a5d714e5b52}\label{class_pokemon_a756d066309ebbce6b0919a5d714e5b52}} 
+\index{Pokemon@{Pokemon}!getItsHeight@{getItsHeight}}
+\index{getItsHeight@{getItsHeight}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{getItsHeight()}{getItsHeight()}}
+{\footnotesize\ttfamily float Pokemon\+::get\+Its\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+get\+Its\+Height A function that returns the height of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+
+\begin{DoxyReturn}{Returns}
+The height of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pokemon_aacd7d3bdfd74eef95c2dd8c7fb5ab0f7}\label{class_pokemon_aacd7d3bdfd74eef95c2dd8c7fb5ab0f7}} 
+\index{Pokemon@{Pokemon}!getItsMaxHP@{getItsMaxHP}}
+\index{getItsMaxHP@{getItsMaxHP}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{getItsMaxHP()}{getItsMaxHP()}}
+{\footnotesize\ttfamily int Pokemon\+::get\+Its\+Max\+HP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+get\+Its\+HP A function that returns the max health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+
+\begin{DoxyReturn}{Returns}
+The health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pokemon_a34bca3eac98df589fa6e5d6356fad347}\label{class_pokemon_a34bca3eac98df589fa6e5d6356fad347}} 
+\index{Pokemon@{Pokemon}!getItsName@{getItsName}}
+\index{getItsName@{getItsName}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{getItsName()}{getItsName()}}
+{\footnotesize\ttfamily string Pokemon\+::get\+Its\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+get\+Its\+Nale A function that returns the name of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+
+\begin{DoxyReturn}{Returns}
+The name of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pokemon_a93d63281de4d96770caf0ba35ffa0ba4}\label{class_pokemon_a93d63281de4d96770caf0ba35ffa0ba4}} 
+\index{Pokemon@{Pokemon}!getItsSpeed@{getItsSpeed}}
+\index{getItsSpeed@{getItsSpeed}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{getItsSpeed()}{getItsSpeed()}}
+{\footnotesize\ttfamily virtual float Pokemon\+::get\+Its\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+get\+Its\+Speed A pure virtual function that returns the speed of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+
+\begin{DoxyReturn}{Returns}
+The speed of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_electrik_pokemon_a6e58a58ae6ff69a82b1474b8a014cad8}{Electrik\+Pokemon}}, \mbox{\hyperlink{class_fire_pokemon_a8d751dece12e268be1ccacdd9cff33f5}{Fire\+Pokemon}}, \mbox{\hyperlink{class_grass_pokemon_aa76048fdee517b60101848958ab1ab68}{Grass\+Pokemon}}, and \mbox{\hyperlink{class_water_pokemon_abe911ad78747ac307b61d9815095cacb}{Water\+Pokemon}}.
+
+\mbox{\Hypertarget{class_pokemon_a3981757d704d865de655bc6c7e25b2e1}\label{class_pokemon_a3981757d704d865de655bc6c7e25b2e1}} 
+\index{Pokemon@{Pokemon}!getItsType@{getItsType}}
+\index{getItsType@{getItsType}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{getItsType()}{getItsType()}}
+{\footnotesize\ttfamily virtual string Pokemon\+::get\+Its\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+get\+Its\+Type A pure virtual function that returns the type of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+
+\begin{DoxyReturn}{Returns}
+The type of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_electrik_pokemon_ada4a174fbaf18b1c2a07af845f758002}{Electrik\+Pokemon}}, \mbox{\hyperlink{class_fire_pokemon_adc5075237da17bf64b38e24a562bc8bb}{Fire\+Pokemon}}, \mbox{\hyperlink{class_grass_pokemon_ad326d677b46ab018afd0471bba4cf370}{Grass\+Pokemon}}, and \mbox{\hyperlink{class_water_pokemon_a86d6ad136037941d00dddef99d0a5280}{Water\+Pokemon}}.
+
+\mbox{\Hypertarget{class_pokemon_a7d345711cb487baba9a4279e709ab264}\label{class_pokemon_a7d345711cb487baba9a4279e709ab264}} 
+\index{Pokemon@{Pokemon}!getItsWeight@{getItsWeight}}
+\index{getItsWeight@{getItsWeight}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{getItsWeight()}{getItsWeight()}}
+{\footnotesize\ttfamily float Pokemon\+::get\+Its\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+get\+Its\+Weight A function that returns the weight of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+
+\begin{DoxyReturn}{Returns}
+The weight of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pokemon_a16560aaa82150d644511c8587247f0b3}\label{class_pokemon_a16560aaa82150d644511c8587247f0b3}} 
+\index{Pokemon@{Pokemon}!nbDamage@{nbDamage}}
+\index{nbDamage@{nbDamage}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{nbDamage()}{nbDamage()}}
+{\footnotesize\ttfamily virtual int Pokemon\+::nb\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$}]{an\+Opponent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+nb\+Damage A pure virtual function that calculates the damage done by the \mbox{\hyperlink{class_pokemon}{Pokemon}} to its opponent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em an\+Opponent} & A pointer to the opponent \mbox{\hyperlink{class_pokemon}{Pokemon}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The damage done by the \mbox{\hyperlink{class_pokemon}{Pokemon}} to its opponent. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_electrik_pokemon_aaed0b6b272a26f0bc7dc97a0fe384d66}{Electrik\+Pokemon}}, \mbox{\hyperlink{class_fire_pokemon_a85e834c64aabf508008adf1995af8f56}{Fire\+Pokemon}}, \mbox{\hyperlink{class_grass_pokemon_a4279f38cfdaa09383a198fc54832198f}{Grass\+Pokemon}}, and \mbox{\hyperlink{class_water_pokemon_a9054bab54fb61bafa60c0d72131396aa}{Water\+Pokemon}}.
+
+\mbox{\Hypertarget{class_pokemon_ac81075e77feba2a45b896bdeac0be46c}\label{class_pokemon_ac81075e77feba2a45b896bdeac0be46c}} 
+\index{Pokemon@{Pokemon}!setItsHP@{setItsHP}}
+\index{setItsHP@{setItsHP}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{setItsHP()}{setItsHP()}}
+{\footnotesize\ttfamily void Pokemon\+::set\+Its\+HP (\begin{DoxyParamCaption}\item[{int}]{new\+Its\+HP }\end{DoxyParamCaption})}
+
+
+
+set\+Its\+HP A function that sets the health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Its\+HP} & The new health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pokemon_af7463f1c7a04de7d1e23dff3f744bc30}\label{class_pokemon_af7463f1c7a04de7d1e23dff3f744bc30}} 
+\index{Pokemon@{Pokemon}!itsCP@{itsCP}}
+\index{itsCP@{itsCP}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{itsCP}{itsCP}}
+{\footnotesize\ttfamily unsigned int Pokemon\+::its\+CP\hspace{0.3cm}{\ttfamily [protected]}}
+
+The combat points of the \mbox{\hyperlink{class_pokemon}{Pokemon}} \mbox{\Hypertarget{class_pokemon_a3189727a12973a1ce648e4ecda87bde9}\label{class_pokemon_a3189727a12973a1ce648e4ecda87bde9}} 
+\index{Pokemon@{Pokemon}!itsCurrentHP@{itsCurrentHP}}
+\index{itsCurrentHP@{itsCurrentHP}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{itsCurrentHP}{itsCurrentHP}}
+{\footnotesize\ttfamily unsigned int Pokemon\+::its\+Current\+HP\hspace{0.3cm}{\ttfamily [protected]}}
+
+The current health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}} \mbox{\Hypertarget{class_pokemon_a66a93c7640cf6095219002266ce872bc}\label{class_pokemon_a66a93c7640cf6095219002266ce872bc}} 
+\index{Pokemon@{Pokemon}!itsHeight@{itsHeight}}
+\index{itsHeight@{itsHeight}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{itsHeight}{itsHeight}}
+{\footnotesize\ttfamily float Pokemon\+::its\+Height\hspace{0.3cm}{\ttfamily [protected]}}
+
+The height of the \mbox{\hyperlink{class_pokemon}{Pokemon}} \mbox{\Hypertarget{class_pokemon_a6c4b4da8d9a6dc10b3e245c56d2a5691}\label{class_pokemon_a6c4b4da8d9a6dc10b3e245c56d2a5691}} 
+\index{Pokemon@{Pokemon}!itsMaxHP@{itsMaxHP}}
+\index{itsMaxHP@{itsMaxHP}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{itsMaxHP}{itsMaxHP}}
+{\footnotesize\ttfamily unsigned int Pokemon\+::its\+Max\+HP\hspace{0.3cm}{\ttfamily [protected]}}
+
+The max health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}} \mbox{\Hypertarget{class_pokemon_adf6e6aee4e7688449cd300c3caffac27}\label{class_pokemon_adf6e6aee4e7688449cd300c3caffac27}} 
+\index{Pokemon@{Pokemon}!itsName@{itsName}}
+\index{itsName@{itsName}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{itsName}{itsName}}
+{\footnotesize\ttfamily string Pokemon\+::its\+Name\hspace{0.3cm}{\ttfamily [protected]}}
+
+The name of the \mbox{\hyperlink{class_pokemon}{Pokemon}} \mbox{\Hypertarget{class_pokemon_a4067705e285ffa22478a7efc95c20dc1}\label{class_pokemon_a4067705e285ffa22478a7efc95c20dc1}} 
+\index{Pokemon@{Pokemon}!itsWeight@{itsWeight}}
+\index{itsWeight@{itsWeight}!Pokemon@{Pokemon}}
+\doxysubsubsection{\texorpdfstring{itsWeight}{itsWeight}}
+{\footnotesize\ttfamily float Pokemon\+::its\+Weight\hspace{0.3cm}{\ttfamily [protected]}}
+
+The weight of the \mbox{\hyperlink{class_pokemon}{Pokemon}} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tibol/\+Desktop/\+IUT/\+Projet/\+Pokemon/pkmn23/\+PKMN23/\+App-\/\+PKMN23/pokemon.\+h\item 
+C\+:/\+Users/tibol/\+Desktop/\+IUT/\+Projet/\+Pokemon/pkmn23/\+PKMN23/\+App-\/\+PKMN23/pokemon.\+cpp\end{DoxyCompactItemize}

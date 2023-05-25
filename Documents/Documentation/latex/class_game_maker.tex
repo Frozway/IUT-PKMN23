@@ -1,0 +1,418 @@
+\hypertarget{class_game_maker}{}\doxysection{Game\+Maker Class Reference}
+\label{class_game_maker}\index{GameMaker@{GameMaker}}
+
+
+The \mbox{\hyperlink{class_game_maker}{Game\+Maker}} class manages the game flow and interactions between trainers, \mbox{\hyperlink{class_pokemon}{Pokemon}}, and the user interface.  
+
+
+
+
+{\ttfamily \#include $<$gamemaker.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_maker_aa77184114d4e5d9b2fff2c07582e059f}\label{class_game_maker_aa77184114d4e5d9b2fff2c07582e059f}} 
+{\bfseries Game\+Maker} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_game_maker}{Game\+Maker}} constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_maker_a9418082fa1ce5344ab6fba0d51eaa35e}\label{class_game_maker_a9418082fa1ce5344ab6fba0d51eaa35e}} 
+{\bfseries $\sim$\+Game\+Maker} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_game_maker}{Game\+Maker}} destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_maker_a1786e82036db9c8387beed8298c2a098}\label{class_game_maker_a1786e82036db9c8387beed8298c2a098}} 
+void {\bfseries Play} ()
+\begin{DoxyCompactList}\small\item\em Play starts the game and manages the game loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_maker_ad6d65299cd3e6beb114786f379d10677}\label{class_game_maker_ad6d65299cd3e6beb114786f379d10677}} 
+void {\bfseries game\+Loop\+PVAI} ()
+\begin{DoxyCompactList}\small\item\em game\+Loop\+PVAI manages the game loop for player vs. AI mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_maker_a28dd7365b1d8a8f85e41030b5c7e0e32}\label{class_game_maker_a28dd7365b1d8a8f85e41030b5c7e0e32}} 
+void {\bfseries game\+Loop\+PVP} ()
+\begin{DoxyCompactList}\small\item\em game\+Loop\+PVP manages the game loop for player vs. player mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_maker_adab551419c506f566fed96c68e5e7596}\label{class_game_maker_adab551419c506f566fed96c68e5e7596}} 
+void {\bfseries game\+Loop\+AI} ()
+\begin{DoxyCompactList}\small\item\em game\+Loop\+AI manages the game loop for AI vs. AI mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_maker_a7778cb644f00b9d83249932852c83b96}\label{class_game_maker_a7778cb644f00b9d83249932852c83b96}} 
+void {\bfseries intro\+Game} ()
+\begin{DoxyCompactList}\small\item\em intro\+Game displays the game intro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_maker_a49c8a2962c092238aaca1fac7b351fca}{setup\+Mode}} (string mode)
+\begin{DoxyCompactList}\small\item\em setup\+Mode sets up the game mode (PvP, Pv\+AI, AIv\+AI). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_maker_ae9fbeea8a24da45dca42dba3b1419b57}{init\+First\+Second\+Trainer}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer1, \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer2)
+\begin{DoxyCompactList}\small\item\em init\+First\+Second\+Trainer initializes the first and second trainers for a fight. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_maker_acd1fd021c3fd2f14888feec779816c18}{Fight}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$its\+First\+Trainer, \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$its\+Second\+Trainer)
+\begin{DoxyCompactList}\small\item\em Fight simulates a fight between two trainers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_maker_a390a73f6adbefca00252c9d06f87b6d3}{pause\+Game}} (int time)
+\begin{DoxyCompactList}\small\item\em pause\+Game pauses the game for a specified time. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_maker_ac096338b1058da3e001de3565443507d}{is\+Fight\+Finished}} (\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$pokemon1, \mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$pokemon2)
+\begin{DoxyCompactList}\small\item\em is\+Fight\+Finished checks if a fight between two \mbox{\hyperlink{class_pokemon}{Pokemon}} is finished. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_maker_ada1006f17c43bc6a4dff0b3c12153751}{is\+Game\+Finished}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer1, \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer2)
+\begin{DoxyCompactList}\small\item\em is\+Game\+Finished checks if a game between two trainers is finished. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_trainer}{Trainer}} \mbox{\hyperlink{class_game_maker_a42a64227b72ea001c3c7f23622780278}{get\+Fight\+Winner}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer1, \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer2)
+\begin{DoxyCompactList}\small\item\em get\+Fight\+Winner determines the winner of a fight between two trainers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$ \mbox{\hyperlink{class_game_maker_a8eba228813c0b042913ed115740244ec}{get\+Winner}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer1, \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer2)
+\begin{DoxyCompactList}\small\item\em get\+Winner determines the winner of a game between two trainers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_maker_a6cfd5aeca22af8d5d5263a44d986c3c0}{transfer\+Pokemon}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer, \mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$pokemon\+To\+Transfer)
+\begin{DoxyCompactList}\small\item\em transfer\+Pokemon transfers a \mbox{\hyperlink{class_pokemon}{Pokemon}} from one trainer to another. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_u_i}{UI}} $\ast$ \mbox{\hyperlink{class_game_maker_ac541da4fb548da1545a7420b5092ee01}{get\+Its\+User\+Interface}} () const
+\begin{DoxyCompactList}\small\item\em Getter pour l\textquotesingle{}interface utilisateur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_maker_a6403ba98ea8cb1a396e502312278bb4e}{set\+Its\+User\+Interface}} (\mbox{\hyperlink{class_u_i}{UI}} $\ast$new\+Its\+User\+Interface)
+\begin{DoxyCompactList}\small\item\em Setter pour l\textquotesingle{}interface utilisateur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_pokemon_data_base}{Pokemon\+Data\+Base}} $\ast$ \mbox{\hyperlink{class_game_maker_ab1191a6638565172d7a4e33ca0783ce8}{get\+Its\+Pokemon\+DB}} () const
+\begin{DoxyCompactList}\small\item\em Getter pour la base de données de Pokémon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_maker_aef5c92db9ac82f4ba9f7661df3277fec}{set\+Its\+Pokemon\+DB}} (\mbox{\hyperlink{class_pokemon_data_base}{Pokemon\+Data\+Base}} $\ast$new\+Its\+Pokemon\+DB)
+\begin{DoxyCompactList}\small\item\em Setter pour la base de données de Pokémon. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$ \mbox{\hyperlink{class_game_maker_a65f985b9ea2db93eea1b9b065440e5d1}{get\+Its\+Trainer1}} () const
+\begin{DoxyCompactList}\small\item\em Getter pour le premier dresseur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_maker_a118b025e30fc1908485482f38b3dca74}{set\+Its\+Trainer1}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$new\+Its\+Trainer1)
+\begin{DoxyCompactList}\small\item\em Setter pour le premier dresseur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$ \mbox{\hyperlink{class_game_maker_ad7e71ccb6d92f2e798e6d02d23967bfc}{get\+Its\+Trainer2}} () const
+\begin{DoxyCompactList}\small\item\em Getter pour le deuxième dresseur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_maker_aec5e4e6ed5f769b768857d91355497e8}{set\+Its\+Trainer2}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$new\+Its\+Trainer2)
+\begin{DoxyCompactList}\small\item\em Setter pour le deuxième dresseur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$ \mbox{\hyperlink{class_game_maker_ab12572299704ed2e415b616517813941}{get\+Its\+First\+Trainer}} () const
+\begin{DoxyCompactList}\small\item\em Getter pour le premier dresseur dans une bataille. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_maker_af66a5065f1c997b1d36ce493458b8019}{set\+Its\+First\+Trainer}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$new\+Its\+First\+Trainer)
+\begin{DoxyCompactList}\small\item\em Setter pour le premier dresseur dans une bataille. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$ \mbox{\hyperlink{class_game_maker_afd3e37427b7345684d52a8f665e6be81}{get\+Its\+Second\+Trainer}} () const
+\begin{DoxyCompactList}\small\item\em Getter pour le deuxième dresseur dans une bataille. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_maker_a9bde02273560c3b456f88d69865d6eed}{set\+Its\+Second\+Trainer}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$new\+Its\+Second\+Trainer)
+\begin{DoxyCompactList}\small\item\em Setter pour le deuxième dresseur dans une bataille. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_game_maker}{Game\+Maker}} class manages the game flow and interactions between trainers, \mbox{\hyperlink{class_pokemon}{Pokemon}}, and the user interface. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_maker_acd1fd021c3fd2f14888feec779816c18}\label{class_game_maker_acd1fd021c3fd2f14888feec779816c18}} 
+\index{GameMaker@{GameMaker}!Fight@{Fight}}
+\index{Fight@{Fight}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{Fight()}{Fight()}}
+{\footnotesize\ttfamily void Game\+Maker\+::\+Fight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{its\+First\+Trainer,  }\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{its\+Second\+Trainer }\end{DoxyParamCaption})}
+
+
+
+Fight simulates a fight between two trainers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em its\+First\+Trainer} & Pointer to the first trainer. \\
+\hline
+{\em its\+Second\+Trainer} & Pointer to the second trainer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_maker_a42a64227b72ea001c3c7f23622780278}\label{class_game_maker_a42a64227b72ea001c3c7f23622780278}} 
+\index{GameMaker@{GameMaker}!getFightWinner@{getFightWinner}}
+\index{getFightWinner@{getFightWinner}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{getFightWinner()}{getFightWinner()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_trainer}{Trainer}} Game\+Maker\+::get\+Fight\+Winner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer1,  }\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer2 }\end{DoxyParamCaption})}
+
+
+
+get\+Fight\+Winner determines the winner of a fight between two trainers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer1} & Pointer to the first trainer. \\
+\hline
+{\em trainer2} & Pointer to the second trainer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The winner trainer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_maker_ab12572299704ed2e415b616517813941}\label{class_game_maker_ab12572299704ed2e415b616517813941}} 
+\index{GameMaker@{GameMaker}!getItsFirstTrainer@{getItsFirstTrainer}}
+\index{getItsFirstTrainer@{getItsFirstTrainer}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{getItsFirstTrainer()}{getItsFirstTrainer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$ Game\+Maker\+::get\+Its\+First\+Trainer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter pour le premier dresseur dans une bataille. 
+
+\begin{DoxyReturn}{Returns}
+Le premier dresseur associé à cette instance de \mbox{\hyperlink{class_game_maker}{Game\+Maker}} lors d\textquotesingle{}une bataille. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_maker_ab1191a6638565172d7a4e33ca0783ce8}\label{class_game_maker_ab1191a6638565172d7a4e33ca0783ce8}} 
+\index{GameMaker@{GameMaker}!getItsPokemonDB@{getItsPokemonDB}}
+\index{getItsPokemonDB@{getItsPokemonDB}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{getItsPokemonDB()}{getItsPokemonDB()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pokemon_data_base}{Pokemon\+Data\+Base}} $\ast$ Game\+Maker\+::get\+Its\+Pokemon\+DB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter pour la base de données de Pokémon. 
+
+\begin{DoxyReturn}{Returns}
+La base de données de Pokémon associée à cette instance de \mbox{\hyperlink{class_game_maker}{Game\+Maker}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_maker_afd3e37427b7345684d52a8f665e6be81}\label{class_game_maker_afd3e37427b7345684d52a8f665e6be81}} 
+\index{GameMaker@{GameMaker}!getItsSecondTrainer@{getItsSecondTrainer}}
+\index{getItsSecondTrainer@{getItsSecondTrainer}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{getItsSecondTrainer()}{getItsSecondTrainer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$ Game\+Maker\+::get\+Its\+Second\+Trainer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter pour le deuxième dresseur dans une bataille. 
+
+\begin{DoxyReturn}{Returns}
+Le deuxième dresseur associé à cette instance de \mbox{\hyperlink{class_game_maker}{Game\+Maker}} lors d\textquotesingle{}une bataille. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_maker_a65f985b9ea2db93eea1b9b065440e5d1}\label{class_game_maker_a65f985b9ea2db93eea1b9b065440e5d1}} 
+\index{GameMaker@{GameMaker}!getItsTrainer1@{getItsTrainer1}}
+\index{getItsTrainer1@{getItsTrainer1}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{getItsTrainer1()}{getItsTrainer1()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$ Game\+Maker\+::get\+Its\+Trainer1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter pour le premier dresseur. 
+
+\begin{DoxyReturn}{Returns}
+Le premier dresseur associé à cette instance de \mbox{\hyperlink{class_game_maker}{Game\+Maker}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_maker_ad7e71ccb6d92f2e798e6d02d23967bfc}\label{class_game_maker_ad7e71ccb6d92f2e798e6d02d23967bfc}} 
+\index{GameMaker@{GameMaker}!getItsTrainer2@{getItsTrainer2}}
+\index{getItsTrainer2@{getItsTrainer2}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{getItsTrainer2()}{getItsTrainer2()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$ Game\+Maker\+::get\+Its\+Trainer2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter pour le deuxième dresseur. 
+
+\begin{DoxyReturn}{Returns}
+Le deuxième dresseur associé à cette instance de \mbox{\hyperlink{class_game_maker}{Game\+Maker}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_maker_ac541da4fb548da1545a7420b5092ee01}\label{class_game_maker_ac541da4fb548da1545a7420b5092ee01}} 
+\index{GameMaker@{GameMaker}!getItsUserInterface@{getItsUserInterface}}
+\index{getItsUserInterface@{getItsUserInterface}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{getItsUserInterface()}{getItsUserInterface()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_u_i}{UI}} $\ast$ Game\+Maker\+::get\+Its\+User\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter pour l\textquotesingle{}interface utilisateur. 
+
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}interface utilisateur associée à cette instance de \mbox{\hyperlink{class_game_maker}{Game\+Maker}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_maker_a8eba228813c0b042913ed115740244ec}\label{class_game_maker_a8eba228813c0b042913ed115740244ec}} 
+\index{GameMaker@{GameMaker}!getWinner@{getWinner}}
+\index{getWinner@{getWinner}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{getWinner()}{getWinner()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$ Game\+Maker\+::get\+Winner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer1,  }\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer2 }\end{DoxyParamCaption})}
+
+
+
+get\+Winner determines the winner of a game between two trainers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer1} & Pointer to the first trainer. \\
+\hline
+{\em trainer2} & Pointer to the second trainer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The winner trainer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_maker_ae9fbeea8a24da45dca42dba3b1419b57}\label{class_game_maker_ae9fbeea8a24da45dca42dba3b1419b57}} 
+\index{GameMaker@{GameMaker}!initFirstSecondTrainer@{initFirstSecondTrainer}}
+\index{initFirstSecondTrainer@{initFirstSecondTrainer}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{initFirstSecondTrainer()}{initFirstSecondTrainer()}}
+{\footnotesize\ttfamily void Game\+Maker\+::init\+First\+Second\+Trainer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer1,  }\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer2 }\end{DoxyParamCaption})}
+
+
+
+init\+First\+Second\+Trainer initializes the first and second trainers for a fight. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer1} & Pointer to the first trainer. \\
+\hline
+{\em trainer2} & Pointer to the second trainer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_maker_ac096338b1058da3e001de3565443507d}\label{class_game_maker_ac096338b1058da3e001de3565443507d}} 
+\index{GameMaker@{GameMaker}!isFightFinished@{isFightFinished}}
+\index{isFightFinished@{isFightFinished}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{isFightFinished()}{isFightFinished()}}
+{\footnotesize\ttfamily bool Game\+Maker\+::is\+Fight\+Finished (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$}]{pokemon1,  }\item[{\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$}]{pokemon2 }\end{DoxyParamCaption})}
+
+
+
+is\+Fight\+Finished checks if a fight between two \mbox{\hyperlink{class_pokemon}{Pokemon}} is finished. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon1} & Pointer to the first \mbox{\hyperlink{class_pokemon}{Pokemon}}. \\
+\hline
+{\em pokemon2} & Pointer to the second \mbox{\hyperlink{class_pokemon}{Pokemon}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the fight is finished, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_maker_ada1006f17c43bc6a4dff0b3c12153751}\label{class_game_maker_ada1006f17c43bc6a4dff0b3c12153751}} 
+\index{GameMaker@{GameMaker}!isGameFinished@{isGameFinished}}
+\index{isGameFinished@{isGameFinished}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{isGameFinished()}{isGameFinished()}}
+{\footnotesize\ttfamily bool Game\+Maker\+::is\+Game\+Finished (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer1,  }\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer2 }\end{DoxyParamCaption})}
+
+
+
+is\+Game\+Finished checks if a game between two trainers is finished. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer1} & Pointer to the first trainer. \\
+\hline
+{\em trainer2} & Pointer to the second trainer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the game is finished, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_maker_a390a73f6adbefca00252c9d06f87b6d3}\label{class_game_maker_a390a73f6adbefca00252c9d06f87b6d3}} 
+\index{GameMaker@{GameMaker}!pauseGame@{pauseGame}}
+\index{pauseGame@{pauseGame}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{pauseGame()}{pauseGame()}}
+{\footnotesize\ttfamily void Game\+Maker\+::pause\+Game (\begin{DoxyParamCaption}\item[{int}]{time }\end{DoxyParamCaption})}
+
+
+
+pause\+Game pauses the game for a specified time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & The time to pause in milliseconds. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_maker_af66a5065f1c997b1d36ce493458b8019}\label{class_game_maker_af66a5065f1c997b1d36ce493458b8019}} 
+\index{GameMaker@{GameMaker}!setItsFirstTrainer@{setItsFirstTrainer}}
+\index{setItsFirstTrainer@{setItsFirstTrainer}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{setItsFirstTrainer()}{setItsFirstTrainer()}}
+{\footnotesize\ttfamily void Game\+Maker\+::set\+Its\+First\+Trainer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{new\+Its\+First\+Trainer }\end{DoxyParamCaption})}
+
+
+
+Setter pour le premier dresseur dans une bataille. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Its\+First\+Trainer} & Le nouvel objet \mbox{\hyperlink{class_trainer}{Trainer}} à associer en tant que premier dresseur lors d\textquotesingle{}une bataille dans cette instance de \mbox{\hyperlink{class_game_maker}{Game\+Maker}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_maker_aef5c92db9ac82f4ba9f7661df3277fec}\label{class_game_maker_aef5c92db9ac82f4ba9f7661df3277fec}} 
+\index{GameMaker@{GameMaker}!setItsPokemonDB@{setItsPokemonDB}}
+\index{setItsPokemonDB@{setItsPokemonDB}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{setItsPokemonDB()}{setItsPokemonDB()}}
+{\footnotesize\ttfamily void Game\+Maker\+::set\+Its\+Pokemon\+DB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pokemon_data_base}{Pokemon\+Data\+Base}} $\ast$}]{new\+Its\+Pokemon\+DB }\end{DoxyParamCaption})}
+
+
+
+Setter pour la base de données de Pokémon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Its\+Pokemon\+DB} & Le nouvel objet \mbox{\hyperlink{class_pokemon_data_base}{Pokemon\+Data\+Base}} à associer à cette instance de \mbox{\hyperlink{class_game_maker}{Game\+Maker}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_maker_a9bde02273560c3b456f88d69865d6eed}\label{class_game_maker_a9bde02273560c3b456f88d69865d6eed}} 
+\index{GameMaker@{GameMaker}!setItsSecondTrainer@{setItsSecondTrainer}}
+\index{setItsSecondTrainer@{setItsSecondTrainer}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{setItsSecondTrainer()}{setItsSecondTrainer()}}
+{\footnotesize\ttfamily void Game\+Maker\+::set\+Its\+Second\+Trainer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{new\+Its\+Second\+Trainer }\end{DoxyParamCaption})}
+
+
+
+Setter pour le deuxième dresseur dans une bataille. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Its\+Second\+Trainer} & Le nouvel objet \mbox{\hyperlink{class_trainer}{Trainer}} à associer en tant que deuxième dresseur lors d\textquotesingle{}une bataille dans cette instance de \mbox{\hyperlink{class_game_maker}{Game\+Maker}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_maker_a118b025e30fc1908485482f38b3dca74}\label{class_game_maker_a118b025e30fc1908485482f38b3dca74}} 
+\index{GameMaker@{GameMaker}!setItsTrainer1@{setItsTrainer1}}
+\index{setItsTrainer1@{setItsTrainer1}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{setItsTrainer1()}{setItsTrainer1()}}
+{\footnotesize\ttfamily void Game\+Maker\+::set\+Its\+Trainer1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{new\+Its\+Trainer1 }\end{DoxyParamCaption})}
+
+
+
+Setter pour le premier dresseur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Its\+Trainer1} & Le nouvel objet \mbox{\hyperlink{class_trainer}{Trainer}} à associer en tant que premier dresseur dans cette instance de \mbox{\hyperlink{class_game_maker}{Game\+Maker}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_maker_aec5e4e6ed5f769b768857d91355497e8}\label{class_game_maker_aec5e4e6ed5f769b768857d91355497e8}} 
+\index{GameMaker@{GameMaker}!setItsTrainer2@{setItsTrainer2}}
+\index{setItsTrainer2@{setItsTrainer2}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{setItsTrainer2()}{setItsTrainer2()}}
+{\footnotesize\ttfamily void Game\+Maker\+::set\+Its\+Trainer2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{new\+Its\+Trainer2 }\end{DoxyParamCaption})}
+
+
+
+Setter pour le deuxième dresseur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Its\+Trainer2} & Le nouvel objet \mbox{\hyperlink{class_trainer}{Trainer}} à associer en tant que deuxième dresseur dans cette instance de \mbox{\hyperlink{class_game_maker}{Game\+Maker}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_maker_a6403ba98ea8cb1a396e502312278bb4e}\label{class_game_maker_a6403ba98ea8cb1a396e502312278bb4e}} 
+\index{GameMaker@{GameMaker}!setItsUserInterface@{setItsUserInterface}}
+\index{setItsUserInterface@{setItsUserInterface}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{setItsUserInterface()}{setItsUserInterface()}}
+{\footnotesize\ttfamily void Game\+Maker\+::set\+Its\+User\+Interface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_u_i}{UI}} $\ast$}]{new\+Its\+User\+Interface }\end{DoxyParamCaption})}
+
+
+
+Setter pour l\textquotesingle{}interface utilisateur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Its\+User\+Interface} & Le nouvel objet \mbox{\hyperlink{class_u_i}{UI}} à associer à cette instance de \mbox{\hyperlink{class_game_maker}{Game\+Maker}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_maker_a49c8a2962c092238aaca1fac7b351fca}\label{class_game_maker_a49c8a2962c092238aaca1fac7b351fca}} 
+\index{GameMaker@{GameMaker}!setupMode@{setupMode}}
+\index{setupMode@{setupMode}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{setupMode()}{setupMode()}}
+{\footnotesize\ttfamily void Game\+Maker\+::setup\+Mode (\begin{DoxyParamCaption}\item[{string}]{mode }\end{DoxyParamCaption})}
+
+
+
+setup\+Mode sets up the game mode (PvP, Pv\+AI, AIv\+AI). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The game mode. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_maker_a6cfd5aeca22af8d5d5263a44d986c3c0}\label{class_game_maker_a6cfd5aeca22af8d5d5263a44d986c3c0}} 
+\index{GameMaker@{GameMaker}!transferPokemon@{transferPokemon}}
+\index{transferPokemon@{transferPokemon}!GameMaker@{GameMaker}}
+\doxysubsubsection{\texorpdfstring{transferPokemon()}{transferPokemon()}}
+{\footnotesize\ttfamily void Game\+Maker\+::transfer\+Pokemon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer,  }\item[{\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$}]{pokemon\+To\+Transfer }\end{DoxyParamCaption})}
+
+
+
+transfer\+Pokemon transfers a \mbox{\hyperlink{class_pokemon}{Pokemon}} from one trainer to another. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer} & Pointer to the trainer who transfers the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \\
+\hline
+{\em pokemon\+To\+Transfer} & Pointer to the \mbox{\hyperlink{class_pokemon}{Pokemon}} to be transferred. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tibol/\+Desktop/\+IUT/\+Projet/\+Pokemon/pkmn23/\+PKMN23/\+App-\/\+PKMN23/gamemaker.\+h\item 
+C\+:/\+Users/tibol/\+Desktop/\+IUT/\+Projet/\+Pokemon/pkmn23/\+PKMN23/\+App-\/\+PKMN23/gamemaker.\+cpp\end{DoxyCompactItemize}

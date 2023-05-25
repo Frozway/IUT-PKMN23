@@ -1,0 +1,13 @@
+pages:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r Documents/Documentation/html/* .public
+    - mv .public public
+    - mv public/index.html public/404.html
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+    - v1.0

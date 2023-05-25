@@ -1,0 +1,207 @@
+\hypertarget{class_grass_pokemon}{}\doxysection{Grass\+Pokemon Class Reference}
+\label{class_grass_pokemon}\index{GrassPokemon@{GrassPokemon}}
+
+
+The \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}} class represents a Grass-\/type \mbox{\hyperlink{class_pokemon}{Pokemon}}. It inherits from the \mbox{\hyperlink{class_pokemon}{Pokemon}} class and adds additional attributes specific to Grass-\/type \mbox{\hyperlink{class_pokemon}{Pokemon}}, such as its number of fins and speed.  
+
+
+
+
+{\ttfamily \#include $<$grasspokemon.\+h$>$}
+
+Inheritance diagram for Grass\+Pokemon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_grass_pokemon}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_grass_pokemon_a4e2b3c64695f888e439082df621c84db}{Grass\+Pokemon}} (string name, float height, float weight, unsigned int max\+HP, int current\+HP, unsigned int cp)
+\begin{DoxyCompactList}\small\item\em Construct a new Grass \mbox{\hyperlink{class_pokemon}{Pokemon}} object. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_grass_pokemon_a405213f239dd92dd4e6bc56326206c5e}{display\+Pokemon}} ()
+\begin{DoxyCompactList}\small\item\em Return the details of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_grass_pokemon_a4279f38cfdaa09383a198fc54832198f}{nb\+Damage}} (\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$an\+Opponent)
+\begin{DoxyCompactList}\small\item\em Calculate the damage inflicted on an opponent. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_grass_pokemon_ad326d677b46ab018afd0471bba4cf370}{get\+Its\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Get the type of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_grass_pokemon_aa76048fdee517b60101848958ab1ab68}{get\+Its\+Speed}} ()
+\begin{DoxyCompactList}\small\item\em Get the speed of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_pokemon}{Pokemon}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pokemon_ad192530dbb9fe053380c110d9486ca8e}{Pokemon}} (string name, float height, float weight, unsigned int max\+HP, int current\+HP, unsigned int cp)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_pokemon}{Pokemon}} Constructor for the \mbox{\hyperlink{class_pokemon}{Pokemon}} class. \end{DoxyCompactList}\item 
+virtual string \mbox{\hyperlink{class_pokemon_a8b4c82d15214b5a6ca1d0c857cdf0ca9}{display\+Pokemon}} ()=0
+\begin{DoxyCompactList}\small\item\em display\+Pokemon A pure virtual function that return the information about the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+virtual string \mbox{\hyperlink{class_pokemon_a3981757d704d865de655bc6c7e25b2e1}{get\+Its\+Type}} ()=0
+\begin{DoxyCompactList}\small\item\em get\+Its\+Type A pure virtual function that returns the type of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_pokemon_a93d63281de4d96770caf0ba35ffa0ba4}{get\+Its\+Speed}} ()=0
+\begin{DoxyCompactList}\small\item\em get\+Its\+Speed A pure virtual function that returns the speed of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_pokemon_a16560aaa82150d644511c8587247f0b3}{nb\+Damage}} (\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$an\+Opponent)=0
+\begin{DoxyCompactList}\small\item\em nb\+Damage A pure virtual function that calculates the damage done by the \mbox{\hyperlink{class_pokemon}{Pokemon}} to its opponent. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pokemon_a5f077060384d9e8191d0a7886b8f4891}{attack}} (\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$an\+Opponent)
+\begin{DoxyCompactList}\small\item\em attack A function that represents the \mbox{\hyperlink{class_pokemon}{Pokemon}} attacking its opponent. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_pokemon_a34bca3eac98df589fa6e5d6356fad347}{get\+Its\+Name}} () const
+\begin{DoxyCompactList}\small\item\em get\+Its\+Nale A function that returns the name of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_pokemon_aacd7d3bdfd74eef95c2dd8c7fb5ab0f7}{get\+Its\+Max\+HP}} () const
+\begin{DoxyCompactList}\small\item\em get\+Its\+HP A function that returns the max health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_pokemon_a614ec58ef7649a60b7cad77e7e953cfd}{get\+Its\+Current\+HP}} () const
+\begin{DoxyCompactList}\small\item\em get\+Its\+HP A function that returns the current health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_pokemon_a7d518d4c39ee14020283ff3fe1879e66}{get\+Its\+CP}} () const
+\begin{DoxyCompactList}\small\item\em get\+Its\+CP A function that returns the combat points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_pokemon_a756d066309ebbce6b0919a5d714e5b52}{get\+Its\+Height}} () const
+\begin{DoxyCompactList}\small\item\em get\+Its\+Height A function that returns the height of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_pokemon_a7d345711cb487baba9a4279e709ab264}{get\+Its\+Weight}} () const
+\begin{DoxyCompactList}\small\item\em get\+Its\+Weight A function that returns the weight of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pokemon_ac81075e77feba2a45b896bdeac0be46c}{set\+Its\+HP}} (int new\+Its\+HP)
+\begin{DoxyCompactList}\small\item\em set\+Its\+HP A function that sets the health points of the \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_pokemon}{Pokemon}}}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_pokemon_adf6e6aee4e7688449cd300c3caffac27}{its\+Name}}
+\item 
+float \mbox{\hyperlink{class_pokemon_a66a93c7640cf6095219002266ce872bc}{its\+Height}}
+\item 
+float \mbox{\hyperlink{class_pokemon_a4067705e285ffa22478a7efc95c20dc1}{its\+Weight}}
+\item 
+unsigned int \mbox{\hyperlink{class_pokemon_a6c4b4da8d9a6dc10b3e245c56d2a5691}{its\+Max\+HP}}
+\item 
+unsigned int \mbox{\hyperlink{class_pokemon_a3189727a12973a1ce648e4ecda87bde9}{its\+Current\+HP}}
+\item 
+unsigned int \mbox{\hyperlink{class_pokemon_af7463f1c7a04de7d1e23dff3f744bc30}{its\+CP}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}} class represents a Grass-\/type \mbox{\hyperlink{class_pokemon}{Pokemon}}. It inherits from the \mbox{\hyperlink{class_pokemon}{Pokemon}} class and adds additional attributes specific to Grass-\/type \mbox{\hyperlink{class_pokemon}{Pokemon}}, such as its number of fins and speed. 
+
+\begin{DoxyAuthor}{Author}
+Thibaut LEFRANCOIS 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+May 2023 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Thibaut LEFRANCOIS 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_grass_pokemon_a4e2b3c64695f888e439082df621c84db}\label{class_grass_pokemon_a4e2b3c64695f888e439082df621c84db}} 
+\index{GrassPokemon@{GrassPokemon}!GrassPokemon@{GrassPokemon}}
+\index{GrassPokemon@{GrassPokemon}!GrassPokemon@{GrassPokemon}}
+\doxysubsubsection{\texorpdfstring{GrassPokemon()}{GrassPokemon()}}
+{\footnotesize\ttfamily Grass\+Pokemon\+::\+Grass\+Pokemon (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{float}]{height,  }\item[{float}]{weight,  }\item[{unsigned int}]{max\+HP,  }\item[{int}]{current\+HP,  }\item[{unsigned int}]{cp }\end{DoxyParamCaption})}
+
+
+
+Construct a new Grass \mbox{\hyperlink{class_pokemon}{Pokemon}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. \\
+\hline
+{\em height} & The height of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. \\
+\hline
+{\em weight} & The weight of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. \\
+\hline
+{\em max\+HP} & The max health points of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. \\
+\hline
+{\em current\+HP} & The current health points of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. \\
+\hline
+{\em cp} & The combat points of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. \\
+\hline
+{\em nb\+Fins} & The number of fins the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}} has. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_grass_pokemon_a405213f239dd92dd4e6bc56326206c5e}\label{class_grass_pokemon_a405213f239dd92dd4e6bc56326206c5e}} 
+\index{GrassPokemon@{GrassPokemon}!displayPokemon@{displayPokemon}}
+\index{displayPokemon@{displayPokemon}!GrassPokemon@{GrassPokemon}}
+\doxysubsubsection{\texorpdfstring{displayPokemon()}{displayPokemon()}}
+{\footnotesize\ttfamily string Grass\+Pokemon\+::display\+Pokemon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Return the details of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. 
+
+This method overrides the \mbox{\hyperlink{class_grass_pokemon_a405213f239dd92dd4e6bc56326206c5e}{display\+Pokemon()}} method in the \mbox{\hyperlink{class_pokemon}{Pokemon}} class to include the additional attributes specific to \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. 
+
+Implements \mbox{\hyperlink{class_pokemon_a8b4c82d15214b5a6ca1d0c857cdf0ca9}{Pokemon}}.
+
+\mbox{\Hypertarget{class_grass_pokemon_aa76048fdee517b60101848958ab1ab68}\label{class_grass_pokemon_aa76048fdee517b60101848958ab1ab68}} 
+\index{GrassPokemon@{GrassPokemon}!getItsSpeed@{getItsSpeed}}
+\index{getItsSpeed@{getItsSpeed}!GrassPokemon@{GrassPokemon}}
+\doxysubsubsection{\texorpdfstring{getItsSpeed()}{getItsSpeed()}}
+{\footnotesize\ttfamily float Grass\+Pokemon\+::get\+Its\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the speed of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. 
+
+This method overrides the \mbox{\hyperlink{class_grass_pokemon_aa76048fdee517b60101848958ab1ab68}{get\+Its\+Speed()}} method in the \mbox{\hyperlink{class_pokemon}{Pokemon}} class to return the float of the speed.
+
+\begin{DoxyReturn}{Returns}
+The speed of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_pokemon_a93d63281de4d96770caf0ba35ffa0ba4}{Pokemon}}.
+
+\mbox{\Hypertarget{class_grass_pokemon_ad326d677b46ab018afd0471bba4cf370}\label{class_grass_pokemon_ad326d677b46ab018afd0471bba4cf370}} 
+\index{GrassPokemon@{GrassPokemon}!getItsType@{getItsType}}
+\index{getItsType@{getItsType}!GrassPokemon@{GrassPokemon}}
+\doxysubsubsection{\texorpdfstring{getItsType()}{getItsType()}}
+{\footnotesize\ttfamily string Grass\+Pokemon\+::get\+Its\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the type of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. 
+
+This method overrides the \mbox{\hyperlink{class_grass_pokemon_ad326d677b46ab018afd0471bba4cf370}{get\+Its\+Type()}} method in the \mbox{\hyperlink{class_pokemon}{Pokemon}} class to return the string \char`\"{}\+Grass\char`\"{}, which is the type of \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}.
+
+\begin{DoxyReturn}{Returns}
+The type of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_pokemon_a3981757d704d865de655bc6c7e25b2e1}{Pokemon}}.
+
+\mbox{\Hypertarget{class_grass_pokemon_a4279f38cfdaa09383a198fc54832198f}\label{class_grass_pokemon_a4279f38cfdaa09383a198fc54832198f}} 
+\index{GrassPokemon@{GrassPokemon}!nbDamage@{nbDamage}}
+\index{nbDamage@{nbDamage}!GrassPokemon@{GrassPokemon}}
+\doxysubsubsection{\texorpdfstring{nbDamage()}{nbDamage()}}
+{\footnotesize\ttfamily int Grass\+Pokemon\+::nb\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$}]{an\+Opponent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculate the damage inflicted on an opponent. 
+
+This method calculates the damage inflicted on an opponent \mbox{\hyperlink{class_pokemon}{Pokemon}} based on the combat points and type advantage of the \mbox{\hyperlink{class_grass_pokemon}{Grass\+Pokemon}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em an\+Opponent} & A pointer to the opponent \mbox{\hyperlink{class_pokemon}{Pokemon}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The damage inflicted on the opponent. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_pokemon_a16560aaa82150d644511c8587247f0b3}{Pokemon}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tibol/\+Desktop/\+IUT/\+Projet/\+Pokemon/pkmn23/\+PKMN23/\+App-\/\+PKMN23/grasspokemon.\+h\item 
+C\+:/\+Users/tibol/\+Desktop/\+IUT/\+Projet/\+Pokemon/pkmn23/\+PKMN23/\+App-\/\+PKMN23/grasspokemon.\+cpp\end{DoxyCompactItemize}

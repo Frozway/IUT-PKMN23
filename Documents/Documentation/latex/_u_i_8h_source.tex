@@ -1,0 +1,84 @@
+\hypertarget{_u_i_8h_source}{}\doxysection{UI.\+h}
+\label{_u_i_8h_source}\index{C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/App-\/PKMN23/UI.h@{C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/App-\/PKMN23/UI.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ UI\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ UI\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ COLOR\_RESET\ \ "{}\(\backslash\)033[0m"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ BOLD\ \ \ \ \ \ \ \ \ "{}\(\backslash\)033[1m"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ BLACK\_TEXT\ \ \ "{}\(\backslash\)033[30;1m"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ RED\_TEXT\ \ \ \ \ "{}\(\backslash\)033[31;1m"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ GREEN\_TEXT\ \ \ "{}\(\backslash\)033[32;1m"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ YELLOW\_TEXT\ \ "{}\(\backslash\)033[33;1m"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ BLUE\_TEXT\ \ \ \ "{}\(\backslash\)033[34;1m"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ MAGENTA\_TEXT\ "{}\(\backslash\)033[35;1m"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ CYAN\_TEXT\ \ \ \ "{}\(\backslash\)033[36;1m"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ WHITE\_TEXT\ \ \ "{}\(\backslash\)033[37;1m"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}trainer.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}pokemon.h"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_u_i}{UI}}}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_u_i_a675985a56b5e87ebdc8e5884b9f2ee09}{UI}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_u_i_a4f1140047b9f15507d141209276be4bc}{Menu}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_a55052612dd778c122864217607814bda}{topBoard}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_ac6a8209e81af8dac5bc9ad9d6880f9dd}{bottomBoard}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_a7d8409beb6fcc8af9966b39ecee3082d}{clearScreen}}();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_a6cc344062a7c6e43a84b5d6294300343}{fastClearScreen}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_acadf85ad292c9bf079426a3e7f7b5907}{pauseText}}(\textcolor{keywordtype}{int}\ time);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_a85db5060e1e535627f5d27eb2be98f16}{displayRules}}();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_a0225a91242bf1e4f5b81821656d91deb}{displayPokemon}}(\mbox{\hyperlink{class_pokemon}{Pokemon}}\ *\ pokemon);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_aa8675e3482959ef9a521f793956b3256}{displayInfoPokemon}}(\mbox{\hyperlink{class_pokemon}{Pokemon}}\ *\ pokemon);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_aa04efa0d67be1cf98159426fb737beec}{displayInfoTrainer}}(\mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_af7b42790accd7e83b3c8253fa2b33348}{displayInfoTrainers}}(\mbox{\hyperlink{class_trainer}{Trainer}}*\ trainer1,\ \mbox{\hyperlink{class_trainer}{Trainer}}*\ trainer2);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_ad89b5688b534cde769825985cd52fd89}{displayTeamTrainer}}(\mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_ae1099bf32cc8ccd6bb3fae3f28a31ff5}{displayTeamsTrainers}}(\mbox{\hyperlink{class_trainer}{Trainer}}*\ trainer1,\ \mbox{\hyperlink{class_trainer}{Trainer}}*\ trainer2);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_u_i_aa629769f3fe31d8ec5e17d793579e04f}{isANewPlayer}}(\mbox{\hyperlink{class_trainer}{Trainer}}*\ trainer);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_u_i_a2082a431cf359549fe0286b4f33a23cf}{isNewSetFighter}}(\mbox{\hyperlink{class_trainer}{Trainer}}*\ trainer);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_u_i_a9a29f9025755b2b542be39a9ea6c1d25}{setupName}}(\mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_af90035f5804949e7a7a55d3d89ed1190}{displaySetFighter}}(\mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_u_i_aa4543cc6cebcea76cf8e9ea174587579}{displayTransferPokemon}}(\mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_a9c553ede08abfecd04669d79edafdd36}{displayFight}}(\mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer1,\ \mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer2);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_a7bfbc0b182144fff91788aea8fcdcf32}{displayFightWinner}}(\mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer1,\ \mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer2);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_a68a197b3e1e6a57597a8e898b4d66178}{displayGameWinner}}(\mbox{\hyperlink{class_trainer}{Trainer}}\ *\ winner);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_a89f48e6e3a2fa0147e30ae5927c520da}{printCenteredText}}(\textcolor{keywordtype}{string}\ text);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_a219de62efc136828ce984ba70fd5fe69}{setCenteredTextForAPokemon}}();}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_a4b59703c57c40c796fbe1a4aa3c16fdc}{setCenteredTextForTeamsColumns}}();}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_a50e781d4c37717b5fd3c8339ac308c4f}{setCenteredTextForInput}}();}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\ \ \ \ \#endif\ }\textcolor{comment}{//\ UI\_H}}
+
+\end{DoxyCode}

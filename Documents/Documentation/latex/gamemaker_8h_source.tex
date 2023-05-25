@@ -1,0 +1,84 @@
+\hypertarget{gamemaker_8h_source}{}\doxysection{gamemaker.\+h}
+\label{gamemaker_8h_source}\index{C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/App-\/PKMN23/gamemaker.h@{C:/Users/tibol/Desktop/IUT/Projet/Pokemon/pkmn23/PKMN23/App-\/PKMN23/gamemaker.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAMEMAKER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GAMEMAKER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}ui.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}pokemon.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}trainer.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{pokemondatabase_8h}{pokemondatabase.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_maker}{GameMaker}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_u_i}{UI}}\ *\ itsUserInterface\ ;\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_pokemon_data_base}{PokemonDataBase}}\ *\ itsPokemonDB\ ;\ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_trainer}{Trainer}}\ *\ itsTrainer1\ ;\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_trainer}{Trainer}}\ *\ itsTrainer2\ ;\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_trainer}{Trainer}}\ *\ itsFirstTrainer;\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_trainer}{Trainer}}\ *\ itsSecondTrainer;\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_game_maker_aa77184114d4e5d9b2fff2c07582e059f}{GameMaker}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_game_maker_a9418082fa1ce5344ab6fba0d51eaa35e}{\string~GameMaker}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_a1786e82036db9c8387beed8298c2a098}{Play}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_ad6d65299cd3e6beb114786f379d10677}{gameLoopPVAI}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_a28dd7365b1d8a8f85e41030b5c7e0e32}{gameLoopPVP}}();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_adab551419c506f566fed96c68e5e7596}{gameLoopAI}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_a7778cb644f00b9d83249932852c83b96}{introGame}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_a49c8a2962c092238aaca1fac7b351fca}{setupMode}}(\textcolor{keywordtype}{string}\ mode);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_ae9fbeea8a24da45dca42dba3b1419b57}{initFirstSecondTrainer}}(\mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer1,\ \mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer2);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_acd1fd021c3fd2f14888feec779816c18}{Fight}}(\mbox{\hyperlink{class_trainer}{Trainer}}\ *\ itsFirstTrainer,\ \mbox{\hyperlink{class_trainer}{Trainer}}\ *\ itsSecondTrainer);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_a390a73f6adbefca00252c9d06f87b6d3}{pauseGame}}(\textcolor{keywordtype}{int}\ time);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_maker_ac096338b1058da3e001de3565443507d}{isFightFinished}}(\mbox{\hyperlink{class_pokemon}{Pokemon}}*\ pokemon1,\ \mbox{\hyperlink{class_pokemon}{Pokemon}}\ *\ pokemon2);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_maker_ada1006f17c43bc6a4dff0b3c12153751}{isGameFinished}}(\mbox{\hyperlink{class_trainer}{Trainer}}*\ trainer1,\ \mbox{\hyperlink{class_trainer}{Trainer}}*\ trainer2);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{class_trainer}{Trainer}}\ \mbox{\hyperlink{class_game_maker_a42a64227b72ea001c3c7f23622780278}{getFightWinner}}(\mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer1,\ \mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer2);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{class_trainer}{Trainer}}\ *\ \mbox{\hyperlink{class_game_maker_a8eba228813c0b042913ed115740244ec}{getWinner}}(\mbox{\hyperlink{class_trainer}{Trainer}}*\ trainer1,\ \mbox{\hyperlink{class_trainer}{Trainer}}*\ trainer2);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_a6cfd5aeca22af8d5d5263a44d986c3c0}{transferPokemon}}(\mbox{\hyperlink{class_trainer}{Trainer}}\ *\ trainer,\ \mbox{\hyperlink{class_pokemon}{Pokemon}}*\ pokemonToTransfer);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{class_u_i}{UI}}*\ \mbox{\hyperlink{class_game_maker_ac541da4fb548da1545a7420b5092ee01}{getItsUserInterface}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_a6403ba98ea8cb1a396e502312278bb4e}{setItsUserInterface}}(\mbox{\hyperlink{class_u_i}{UI}}*\ newItsUserInterface);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{class_pokemon_data_base}{PokemonDataBase}}*\ \mbox{\hyperlink{class_game_maker_ab1191a6638565172d7a4e33ca0783ce8}{getItsPokemonDB}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_aef5c92db9ac82f4ba9f7661df3277fec}{setItsPokemonDB}}(\mbox{\hyperlink{class_pokemon_data_base}{PokemonDataBase}}*\ newItsPokemonDB);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00152\ \ \ \ \ \mbox{\hyperlink{class_trainer}{Trainer}}*\ \mbox{\hyperlink{class_game_maker_a65f985b9ea2db93eea1b9b065440e5d1}{getItsTrainer1}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_a118b025e30fc1908485482f38b3dca74}{setItsTrainer1}}(\mbox{\hyperlink{class_trainer}{Trainer}}*\ newItsTrainer1);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00164\ \ \ \ \ \mbox{\hyperlink{class_trainer}{Trainer}}*\ \mbox{\hyperlink{class_game_maker_ad7e71ccb6d92f2e798e6d02d23967bfc}{getItsTrainer2}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_aec5e4e6ed5f769b768857d91355497e8}{setItsTrainer2}}(\mbox{\hyperlink{class_trainer}{Trainer}}*\ newItsTrainer2);}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{class_trainer}{Trainer}}*\ \mbox{\hyperlink{class_game_maker_ab12572299704ed2e415b616517813941}{getItsFirstTrainer}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_af66a5065f1c997b1d36ce493458b8019}{setItsFirstTrainer}}(\mbox{\hyperlink{class_trainer}{Trainer}}*\ newItsFirstTrainer);}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00188\ \ \ \ \ \mbox{\hyperlink{class_trainer}{Trainer}}*\ \mbox{\hyperlink{class_game_maker_afd3e37427b7345684d52a8f665e6be81}{getItsSecondTrainer}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_maker_a9bde02273560c3b456f88d69865d6eed}{setItsSecondTrainer}}(\mbox{\hyperlink{class_trainer}{Trainer}}*\ newItsSecondTrainer);}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \};}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GAMEMAKER\_H}}
+
+\end{DoxyCode}

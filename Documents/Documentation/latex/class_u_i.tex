@@ -1,0 +1,360 @@
+\hypertarget{class_u_i}{}\doxysection{UI Class Reference}
+\label{class_u_i}\index{UI@{UI}}
+
+
+The \mbox{\hyperlink{class_u_i}{UI}} class handles the user interface of the game.  
+
+
+
+
+{\ttfamily \#include $<$UI.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_u_i_a675985a56b5e87ebdc8e5884b9f2ee09}\label{class_u_i_a675985a56b5e87ebdc8e5884b9f2ee09}} 
+{\bfseries UI} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_u_i}{UI}} constructor. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_u_i_a4f1140047b9f15507d141209276be4bc}{Menu}} ()
+\begin{DoxyCompactList}\small\item\em Menu displays the game menu and returns the selected option. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_u_i_a55052612dd778c122864217607814bda}\label{class_u_i_a55052612dd778c122864217607814bda}} 
+void {\bfseries top\+Board} ()
+\begin{DoxyCompactList}\small\item\em top\+Board displays the top part of the game board. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_u_i_ac6a8209e81af8dac5bc9ad9d6880f9dd}\label{class_u_i_ac6a8209e81af8dac5bc9ad9d6880f9dd}} 
+void {\bfseries bottom\+Board} ()
+\begin{DoxyCompactList}\small\item\em bottom\+Board displays the bottom part of the game board. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_u_i_a7d8409beb6fcc8af9966b39ecee3082d}\label{class_u_i_a7d8409beb6fcc8af9966b39ecee3082d}} 
+void {\bfseries clear\+Screen} ()
+\begin{DoxyCompactList}\small\item\em clear\+Screen clears the console screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_u_i_a6cc344062a7c6e43a84b5d6294300343}\label{class_u_i_a6cc344062a7c6e43a84b5d6294300343}} 
+void {\bfseries fast\+Clear\+Screen} ()
+\begin{DoxyCompactList}\small\item\em fast\+Clear\+Screen clears the console screen quickly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_acadf85ad292c9bf079426a3e7f7b5907}{pause\+Text}} (int time)
+\begin{DoxyCompactList}\small\item\em pause\+Text pauses the display of text for a specified time. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_u_i_a85db5060e1e535627f5d27eb2be98f16}\label{class_u_i_a85db5060e1e535627f5d27eb2be98f16}} 
+void {\bfseries display\+Rules} ()
+\begin{DoxyCompactList}\small\item\em display\+Rules launch the rules on the screen for the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_a0225a91242bf1e4f5b81821656d91deb}{display\+Pokemon}} (\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$pokemon)
+\begin{DoxyCompactList}\small\item\em display\+Pokemon displays information about a \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_aa8675e3482959ef9a521f793956b3256}{display\+Info\+Pokemon}} (\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$pokemon)
+\begin{DoxyCompactList}\small\item\em display\+Info\+Pokemon displays detailed information about a \mbox{\hyperlink{class_pokemon}{Pokemon}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_aa04efa0d67be1cf98159426fb737beec}{display\+Info\+Trainer}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer)
+\begin{DoxyCompactList}\small\item\em display\+Info\+Trainer displays information about a trainer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_af7b42790accd7e83b3c8253fa2b33348}{display\+Info\+Trainers}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer1, \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer2)
+\begin{DoxyCompactList}\small\item\em display\+Info\+Trainers displays information about two trainers side by side. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_ad89b5688b534cde769825985cd52fd89}{display\+Team\+Trainer}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer)
+\begin{DoxyCompactList}\small\item\em display\+Team\+Trainer displays the team of a trainer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_ae1099bf32cc8ccd6bb3fae3f28a31ff5}{display\+Teams\+Trainers}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer1, \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer2)
+\begin{DoxyCompactList}\small\item\em display\+Teams\+Trainers displays the teams of two trainers side by side. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_u_i_aa629769f3fe31d8ec5e17d793579e04f}{is\+ANew\+Player}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer)
+\begin{DoxyCompactList}\small\item\em is\+ANew\+Player checks if a new player is starting the game. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_u_i_a2082a431cf359549fe0286b4f33a23cf}{is\+New\+Set\+Fighter}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer)
+\begin{DoxyCompactList}\small\item\em is\+New\+Set\+Fighter checks if a trainer is setting a new fighter. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_u_i_a9a29f9025755b2b542be39a9ea6c1d25}{setup\+Name}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer)
+\begin{DoxyCompactList}\small\item\em setup\+Name sets up the name of a trainer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_af90035f5804949e7a7a55d3d89ed1190}{display\+Set\+Fighter}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer)
+\begin{DoxyCompactList}\small\item\em display\+Set\+Fighter displays the set fighter screen for a trainer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_u_i_aa4543cc6cebcea76cf8e9ea174587579}{display\+Transfer\+Pokemon}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer)
+\begin{DoxyCompactList}\small\item\em display\+Transfer\+Pokemon displays the transfer \mbox{\hyperlink{class_pokemon}{Pokemon}} screen for a trainer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_a9c553ede08abfecd04669d79edafdd36}{display\+Fight}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer1, \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer2)
+\begin{DoxyCompactList}\small\item\em display\+Fight displays the fight screen between two trainers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_a7bfbc0b182144fff91788aea8fcdcf32}{display\+Fight\+Winner}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer1, \mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer2)
+\begin{DoxyCompactList}\small\item\em display\+Fight\+Winner displays the winner of a fight between two trainers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_a68a197b3e1e6a57597a8e898b4d66178}{display\+Game\+Winner}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$winner)
+\begin{DoxyCompactList}\small\item\em display\+Game\+Winner displays the winner of the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_a89f48e6e3a2fa0147e30ae5927c520da}{print\+Centered\+Text}} (string text)
+\begin{DoxyCompactList}\small\item\em print\+Centered\+Text prints a text string centered on the console screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_u_i_a219de62efc136828ce984ba70fd5fe69}\label{class_u_i_a219de62efc136828ce984ba70fd5fe69}} 
+void {\bfseries set\+Centered\+Text\+For\+APokemon} ()
+\begin{DoxyCompactList}\small\item\em set\+Centered\+Text\+For\+APokemon sets the console settings for displaying a \mbox{\hyperlink{class_pokemon}{Pokemon}}\textquotesingle{}s information centered. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_u_i_a4b59703c57c40c796fbe1a4aa3c16fdc}\label{class_u_i_a4b59703c57c40c796fbe1a4aa3c16fdc}} 
+void {\bfseries set\+Centered\+Text\+For\+Teams\+Columns} ()
+\begin{DoxyCompactList}\small\item\em set\+Centered\+Text\+For\+Teams\+Columns sets the console settings for displaying teams\textquotesingle{} columns centered. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_u_i_a50e781d4c37717b5fd3c8339ac308c4f}\label{class_u_i_a50e781d4c37717b5fd3c8339ac308c4f}} 
+void {\bfseries set\+Centered\+Text\+For\+Input} ()
+\begin{DoxyCompactList}\small\item\em set\+Centered\+Text\+For\+Input sets the console settings for displaying user input centered. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_u_i}{UI}} class handles the user interface of the game. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_u_i_a9c553ede08abfecd04669d79edafdd36}\label{class_u_i_a9c553ede08abfecd04669d79edafdd36}} 
+\index{UI@{UI}!displayFight@{displayFight}}
+\index{displayFight@{displayFight}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{displayFight()}{displayFight()}}
+{\footnotesize\ttfamily void UI\+::display\+Fight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer1,  }\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer2 }\end{DoxyParamCaption})}
+
+
+
+display\+Fight displays the fight screen between two trainers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer1} & Pointer to the first trainer. \\
+\hline
+{\em trainer2} & Pointer to the second trainer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_a7bfbc0b182144fff91788aea8fcdcf32}\label{class_u_i_a7bfbc0b182144fff91788aea8fcdcf32}} 
+\index{UI@{UI}!displayFightWinner@{displayFightWinner}}
+\index{displayFightWinner@{displayFightWinner}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{displayFightWinner()}{displayFightWinner()}}
+{\footnotesize\ttfamily void UI\+::display\+Fight\+Winner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer1,  }\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer2 }\end{DoxyParamCaption})}
+
+
+
+display\+Fight\+Winner displays the winner of a fight between two trainers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer1} & Pointer to the first trainer. \\
+\hline
+{\em trainer2} & Pointer to the second trainer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_a68a197b3e1e6a57597a8e898b4d66178}\label{class_u_i_a68a197b3e1e6a57597a8e898b4d66178}} 
+\index{UI@{UI}!displayGameWinner@{displayGameWinner}}
+\index{displayGameWinner@{displayGameWinner}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{displayGameWinner()}{displayGameWinner()}}
+{\footnotesize\ttfamily void UI\+::display\+Game\+Winner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{winner }\end{DoxyParamCaption})}
+
+
+
+display\+Game\+Winner displays the winner of the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em winner} & Pointer to the winning trainer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_aa8675e3482959ef9a521f793956b3256}\label{class_u_i_aa8675e3482959ef9a521f793956b3256}} 
+\index{UI@{UI}!displayInfoPokemon@{displayInfoPokemon}}
+\index{displayInfoPokemon@{displayInfoPokemon}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{displayInfoPokemon()}{displayInfoPokemon()}}
+{\footnotesize\ttfamily void UI\+::display\+Info\+Pokemon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$}]{pokemon }\end{DoxyParamCaption})}
+
+
+
+display\+Info\+Pokemon displays detailed information about a \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & Pointer to the \mbox{\hyperlink{class_pokemon}{Pokemon}} to display. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_aa04efa0d67be1cf98159426fb737beec}\label{class_u_i_aa04efa0d67be1cf98159426fb737beec}} 
+\index{UI@{UI}!displayInfoTrainer@{displayInfoTrainer}}
+\index{displayInfoTrainer@{displayInfoTrainer}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{displayInfoTrainer()}{displayInfoTrainer()}}
+{\footnotesize\ttfamily void UI\+::display\+Info\+Trainer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer }\end{DoxyParamCaption})}
+
+
+
+display\+Info\+Trainer displays information about a trainer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer} & Pointer to the trainer to display. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_af7b42790accd7e83b3c8253fa2b33348}\label{class_u_i_af7b42790accd7e83b3c8253fa2b33348}} 
+\index{UI@{UI}!displayInfoTrainers@{displayInfoTrainers}}
+\index{displayInfoTrainers@{displayInfoTrainers}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{displayInfoTrainers()}{displayInfoTrainers()}}
+{\footnotesize\ttfamily void UI\+::display\+Info\+Trainers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer1,  }\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer2 }\end{DoxyParamCaption})}
+
+
+
+display\+Info\+Trainers displays information about two trainers side by side. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer1} & Pointer to the first trainer. \\
+\hline
+{\em trainer2} & Pointer to the second trainer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_a0225a91242bf1e4f5b81821656d91deb}\label{class_u_i_a0225a91242bf1e4f5b81821656d91deb}} 
+\index{UI@{UI}!displayPokemon@{displayPokemon}}
+\index{displayPokemon@{displayPokemon}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{displayPokemon()}{displayPokemon()}}
+{\footnotesize\ttfamily void UI\+::display\+Pokemon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pokemon}{Pokemon}} $\ast$}]{pokemon }\end{DoxyParamCaption})}
+
+
+
+display\+Pokemon displays information about a \mbox{\hyperlink{class_pokemon}{Pokemon}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & Pointer to the \mbox{\hyperlink{class_pokemon}{Pokemon}} to display. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_af90035f5804949e7a7a55d3d89ed1190}\label{class_u_i_af90035f5804949e7a7a55d3d89ed1190}} 
+\index{UI@{UI}!displaySetFighter@{displaySetFighter}}
+\index{displaySetFighter@{displaySetFighter}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{displaySetFighter()}{displaySetFighter()}}
+{\footnotesize\ttfamily void UI\+::display\+Set\+Fighter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer }\end{DoxyParamCaption})}
+
+
+
+display\+Set\+Fighter displays the set fighter screen for a trainer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer} & Pointer to the trainer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_ae1099bf32cc8ccd6bb3fae3f28a31ff5}\label{class_u_i_ae1099bf32cc8ccd6bb3fae3f28a31ff5}} 
+\index{UI@{UI}!displayTeamsTrainers@{displayTeamsTrainers}}
+\index{displayTeamsTrainers@{displayTeamsTrainers}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{displayTeamsTrainers()}{displayTeamsTrainers()}}
+{\footnotesize\ttfamily void UI\+::display\+Teams\+Trainers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer1,  }\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer2 }\end{DoxyParamCaption})}
+
+
+
+display\+Teams\+Trainers displays the teams of two trainers side by side. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer1} & Pointer to the first trainer. \\
+\hline
+{\em trainer2} & Pointer to the second trainer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_ad89b5688b534cde769825985cd52fd89}\label{class_u_i_ad89b5688b534cde769825985cd52fd89}} 
+\index{UI@{UI}!displayTeamTrainer@{displayTeamTrainer}}
+\index{displayTeamTrainer@{displayTeamTrainer}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{displayTeamTrainer()}{displayTeamTrainer()}}
+{\footnotesize\ttfamily void UI\+::display\+Team\+Trainer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer }\end{DoxyParamCaption})}
+
+
+
+display\+Team\+Trainer displays the team of a trainer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer} & Pointer to the trainer whose team to display. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_aa4543cc6cebcea76cf8e9ea174587579}\label{class_u_i_aa4543cc6cebcea76cf8e9ea174587579}} 
+\index{UI@{UI}!displayTransferPokemon@{displayTransferPokemon}}
+\index{displayTransferPokemon@{displayTransferPokemon}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{displayTransferPokemon()}{displayTransferPokemon()}}
+{\footnotesize\ttfamily int UI\+::display\+Transfer\+Pokemon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer }\end{DoxyParamCaption})}
+
+
+
+display\+Transfer\+Pokemon displays the transfer \mbox{\hyperlink{class_pokemon}{Pokemon}} screen for a trainer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer} & Pointer to the trainer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The selected \mbox{\hyperlink{class_pokemon}{Pokemon}}\textquotesingle{}s index for transfer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_u_i_aa629769f3fe31d8ec5e17d793579e04f}\label{class_u_i_aa629769f3fe31d8ec5e17d793579e04f}} 
+\index{UI@{UI}!isANewPlayer@{isANewPlayer}}
+\index{isANewPlayer@{isANewPlayer}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{isANewPlayer()}{isANewPlayer()}}
+{\footnotesize\ttfamily bool UI\+::is\+ANew\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer }\end{DoxyParamCaption})}
+
+
+
+is\+ANew\+Player checks if a new player is starting the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer} & Pointer to the trainer to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if it\textquotesingle{}s a new player, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_u_i_a2082a431cf359549fe0286b4f33a23cf}\label{class_u_i_a2082a431cf359549fe0286b4f33a23cf}} 
+\index{UI@{UI}!isNewSetFighter@{isNewSetFighter}}
+\index{isNewSetFighter@{isNewSetFighter}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{isNewSetFighter()}{isNewSetFighter()}}
+{\footnotesize\ttfamily bool UI\+::is\+New\+Set\+Fighter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer }\end{DoxyParamCaption})}
+
+
+
+is\+New\+Set\+Fighter checks if a trainer is setting a new fighter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer} & Pointer to the trainer to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if it\textquotesingle{}s a new set fighter, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_u_i_a4f1140047b9f15507d141209276be4bc}\label{class_u_i_a4f1140047b9f15507d141209276be4bc}} 
+\index{UI@{UI}!Menu@{Menu}}
+\index{Menu@{Menu}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{Menu()}{Menu()}}
+{\footnotesize\ttfamily string UI\+::\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Menu displays the game menu and returns the selected option. 
+
+\begin{DoxyReturn}{Returns}
+The selected menu option. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_u_i_acadf85ad292c9bf079426a3e7f7b5907}\label{class_u_i_acadf85ad292c9bf079426a3e7f7b5907}} 
+\index{UI@{UI}!pauseText@{pauseText}}
+\index{pauseText@{pauseText}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{pauseText()}{pauseText()}}
+{\footnotesize\ttfamily void UI\+::pause\+Text (\begin{DoxyParamCaption}\item[{int}]{time }\end{DoxyParamCaption})}
+
+
+
+pause\+Text pauses the display of text for a specified time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & The time to pause in milliseconds. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_a89f48e6e3a2fa0147e30ae5927c520da}\label{class_u_i_a89f48e6e3a2fa0147e30ae5927c520da}} 
+\index{UI@{UI}!printCenteredText@{printCenteredText}}
+\index{printCenteredText@{printCenteredText}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{printCenteredText()}{printCenteredText()}}
+{\footnotesize\ttfamily void UI\+::print\+Centered\+Text (\begin{DoxyParamCaption}\item[{string}]{text }\end{DoxyParamCaption})}
+
+
+
+print\+Centered\+Text prints a text string centered on the console screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The text to be centered. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_a9a29f9025755b2b542be39a9ea6c1d25}\label{class_u_i_a9a29f9025755b2b542be39a9ea6c1d25}} 
+\index{UI@{UI}!setupName@{setupName}}
+\index{setupName@{setupName}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{setupName()}{setupName()}}
+{\footnotesize\ttfamily string UI\+::setup\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer }\end{DoxyParamCaption})}
+
+
+
+setup\+Name sets up the name of a trainer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer} & Pointer to the trainer to set the name for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The name entered by the user. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tibol/\+Desktop/\+IUT/\+Projet/\+Pokemon/pkmn23/\+PKMN23/\+App-\/\+PKMN23/UI.\+h\item 
+C\+:/\+Users/tibol/\+Desktop/\+IUT/\+Projet/\+Pokemon/pkmn23/\+PKMN23/\+App-\/\+PKMN23/ui.\+cpp\end{DoxyCompactItemize}

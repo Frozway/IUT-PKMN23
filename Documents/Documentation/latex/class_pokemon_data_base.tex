@@ -1,0 +1,106 @@
+\hypertarget{class_pokemon_data_base}{}\doxysection{Pokemon\+Data\+Base Class Reference}
+\label{class_pokemon_data_base}\index{PokemonDataBase@{PokemonDataBase}}
+
+
+The \mbox{\hyperlink{class_pokemon_data_base}{Pokemon\+Data\+Base}} class represents a database for managing \mbox{\hyperlink{class_pokemon}{Pokemon}} information.  
+
+
+
+
+{\ttfamily \#include $<$pokemondatabase.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pokemon_data_base_ab2cb5789f2bb1436db409641d4f5f320}{Pokemon\+Data\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{class_pokemon_data_base}{Pokemon\+Data\+Base}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_pokemon_data_base_a9884d9a835178df52bb0805bab0d2059}{is\+Open\+Data\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{class_pokemon}{Pokemon}} database is open. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pokemon_data_base_a62a66082e2870d1b93bc2af274741efb}{open\+Data\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Opens the \mbox{\hyperlink{class_pokemon}{Pokemon}} database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pokemon_data_base_a2b296c0132c779cef575a65a1624cc88}{close\+Database}} ()
+\begin{DoxyCompactList}\small\item\em Closes the \mbox{\hyperlink{class_pokemon}{Pokemon}} database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pokemon_data_base_a9bb3cfbf6964f29d0f483e2d5fe663db}{fill\+ARandom\+Team}} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer)
+\begin{DoxyCompactList}\small\item\em Fills a random team for a \mbox{\hyperlink{class_trainer}{Trainer}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_pokemon_data_base_a2cfbfe51924f0f2e087c730bf855f51d}\label{class_pokemon_data_base_a2cfbfe51924f0f2e087c730bf855f51d}} 
+void {\bfseries pick\+ARandom\+Pokemon} (\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$trainer)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_pokemon_data_base}{Pokemon\+Data\+Base}} class represents a database for managing \mbox{\hyperlink{class_pokemon}{Pokemon}} information. 
+
+The class provides functionality to open, close, and interact with a \mbox{\hyperlink{class_pokemon}{Pokemon}} database. It allows adding and retrieving \mbox{\hyperlink{class_pokemon}{Pokemon}} data from the database. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_pokemon_data_base_ab2cb5789f2bb1436db409641d4f5f320}\label{class_pokemon_data_base_ab2cb5789f2bb1436db409641d4f5f320}} 
+\index{PokemonDataBase@{PokemonDataBase}!PokemonDataBase@{PokemonDataBase}}
+\index{PokemonDataBase@{PokemonDataBase}!PokemonDataBase@{PokemonDataBase}}
+\doxysubsubsection{\texorpdfstring{PokemonDataBase()}{PokemonDataBase()}}
+{\footnotesize\ttfamily Pokemon\+Data\+Base\+::\+Pokemon\+Data\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructs a new \mbox{\hyperlink{class_pokemon_data_base}{Pokemon\+Data\+Base}} object. 
+
+This constructor initializes the \mbox{\hyperlink{class_pokemon}{Pokemon}} database object. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pokemon_data_base_a2b296c0132c779cef575a65a1624cc88}\label{class_pokemon_data_base_a2b296c0132c779cef575a65a1624cc88}} 
+\index{PokemonDataBase@{PokemonDataBase}!closeDatabase@{closeDatabase}}
+\index{closeDatabase@{closeDatabase}!PokemonDataBase@{PokemonDataBase}}
+\doxysubsubsection{\texorpdfstring{closeDatabase()}{closeDatabase()}}
+{\footnotesize\ttfamily void Pokemon\+Data\+Base\+::close\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Closes the \mbox{\hyperlink{class_pokemon}{Pokemon}} database. 
+
+This method closes the connection to the \mbox{\hyperlink{class_pokemon}{Pokemon}} database. \mbox{\Hypertarget{class_pokemon_data_base_a9bb3cfbf6964f29d0f483e2d5fe663db}\label{class_pokemon_data_base_a9bb3cfbf6964f29d0f483e2d5fe663db}} 
+\index{PokemonDataBase@{PokemonDataBase}!fillARandomTeam@{fillARandomTeam}}
+\index{fillARandomTeam@{fillARandomTeam}!PokemonDataBase@{PokemonDataBase}}
+\doxysubsubsection{\texorpdfstring{fillARandomTeam()}{fillARandomTeam()}}
+{\footnotesize\ttfamily void Pokemon\+Data\+Base\+::fill\+ARandom\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trainer}{Trainer}} $\ast$}]{trainer }\end{DoxyParamCaption})}
+
+
+
+Fills a random team for a \mbox{\hyperlink{class_trainer}{Trainer}}. 
+
+This method generates a random team of \mbox{\hyperlink{class_pokemon}{Pokemon}} for a given \mbox{\hyperlink{class_trainer}{Trainer}} by retrieving \mbox{\hyperlink{class_pokemon}{Pokemon}} data from the database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em trainer} & A pointer to the \mbox{\hyperlink{class_trainer}{Trainer}} for which to generate the random team. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_pokemon_data_base_a9884d9a835178df52bb0805bab0d2059}\label{class_pokemon_data_base_a9884d9a835178df52bb0805bab0d2059}} 
+\index{PokemonDataBase@{PokemonDataBase}!isOpenDataBase@{isOpenDataBase}}
+\index{isOpenDataBase@{isOpenDataBase}!PokemonDataBase@{PokemonDataBase}}
+\doxysubsubsection{\texorpdfstring{isOpenDataBase()}{isOpenDataBase()}}
+{\footnotesize\ttfamily bool Pokemon\+Data\+Base\+::is\+Open\+Data\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the \mbox{\hyperlink{class_pokemon}{Pokemon}} database is open. 
+
+This method checks if the \mbox{\hyperlink{class_pokemon}{Pokemon}} database is open and returns the status.
+
+\begin{DoxyReturn}{Returns}
+true if the \mbox{\hyperlink{class_pokemon}{Pokemon}} database is open, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pokemon_data_base_a62a66082e2870d1b93bc2af274741efb}\label{class_pokemon_data_base_a62a66082e2870d1b93bc2af274741efb}} 
+\index{PokemonDataBase@{PokemonDataBase}!openDataBase@{openDataBase}}
+\index{openDataBase@{openDataBase}!PokemonDataBase@{PokemonDataBase}}
+\doxysubsubsection{\texorpdfstring{openDataBase()}{openDataBase()}}
+{\footnotesize\ttfamily void Pokemon\+Data\+Base\+::open\+Data\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Opens the \mbox{\hyperlink{class_pokemon}{Pokemon}} database. 
+
+This method opens the connection to the \mbox{\hyperlink{class_pokemon}{Pokemon}} database. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tibol/\+Desktop/\+IUT/\+Projet/\+Pokemon/pkmn23/\+PKMN23/\+App-\/\+PKMN23/\mbox{\hyperlink{pokemondatabase_8h}{pokemondatabase.\+h}}\item 
+C\+:/\+Users/tibol/\+Desktop/\+IUT/\+Projet/\+Pokemon/pkmn23/\+PKMN23/\+App-\/\+PKMN23/pokemondatabase.\+cpp\end{DoxyCompactItemize}
