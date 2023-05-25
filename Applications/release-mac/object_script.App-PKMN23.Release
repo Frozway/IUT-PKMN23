@@ -1,0 +1,10 @@
+release/electrikpokemon.o
+release/firepokemon.o
+release/gamemaker.o
+release/grasspokemon.o
+release/main.o
+release/pokemon.o
+release/pokemondatabase.o
+release/trainer.o
+release/ui.o
+release/waterpokemon.o
