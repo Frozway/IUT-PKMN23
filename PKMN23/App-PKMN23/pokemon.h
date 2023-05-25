@@ -2,7 +2,7 @@
 * @brief The Pokemon class
 * The Pokemon class is the base class for all types of Pokemons in the game.
 * @author Thibaut LEFRANCOIS
-* @version 0.1
+* @version 1.0
 * @date May 2023
 * @copyright Thibaut LEFRANCOIS
 */
@@ -37,7 +37,7 @@ public:
      */
     Pokemon(string name, float height, float weight, unsigned int maxHP, int currentHP, unsigned int cp);
 
-    virtual ~Pokemon() {};
+    //virtual ~Pokemon() {};
 
     /**
      * @brief displayPokemon A pure virtual function that return the information about the Pokemon.

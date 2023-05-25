@@ -3,7 +3,7 @@
 * It inherits from the Pokemon class and adds additional attributes
 * specific to Fire-type Pokemon, such as its number of fins and speed.
 * @author Thibaut LEFRANCOIS
-* @version 0.1
+* @version 1.0
 * @date May 2023
 * @copyright Thibaut LEFRANCOIS
 */

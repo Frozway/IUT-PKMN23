@@ -64,7 +64,7 @@ string UI::Menu()
         case 3 : return "DEMO";
         break;
 
-        case 4 : return "REGLES";
+        case 4 : displayRules();
 
         case 5 : break ;
 
@@ -99,6 +99,32 @@ void UI::bottomBoard()
 {
     cout << endl << R"(            \\==============================================================================================================================================================================//)" << endl;
     cout << endl ;
+}
+
+void UI::displayRules()
+{
+    clearScreen();
+    topBoard();
+
+    cout << CYAN_TEXT;
+    printCenteredText("Règles du Jeu");
+    cout << COLOR_RESET;
+
+    // Affichage des règles du jeu, centrées
+    cout << "\n";
+    printCenteredText("1. Chaque joueur sélectionne un mode de jeu et se créé leur propre Trainer pour jouer.");
+    printCenteredText("2. Les dresseurs s'affrontent en utilisant leurs Pokémon pour se battre.");
+    printCenteredText("3. Chaque Pokémon possède des points de vie (PV), des points de combat (CP), une vitesse et plus encore.");
+    printCenteredText("4. Le joueur dont tous les Pokémon sont KO perd la partie.");
+    printCenteredText("5. Le joueur qui à un Pokémon KO lors d'un combat se voit perdre celui-ci.");
+    printCenteredText("6. Les équipes sont définis aléatoirement, mais il est possible de transférer un Pokémon pour en changer un (en début de partie).");
+    printCenteredText("7. Les joueurs peuvent choisir leur Pokémon pour attaquer, ainsi qu'ils décident de changer ou non après un combat gagné.");
+
+    bottomBoard();
+
+    clearScreen();
+
+    Menu();
 }
 
 //************************************************************** NETTOYAGE & FLUIDITE **********************************************************************************//
@@ -136,17 +162,9 @@ void UI::fastClearScreen()
     #endif
 }
 
-
 void UI::pauseText(int time)
 {
-    // Pause pendant le nombre de secondes spécifié
-    #ifdef _WIN32
-        // Windows
-        sleep(time);
-    #else
-        // UNIX
-        sleep(time);
-    #endif
+    sleep(time);
 }
 
 //**************************************************************** POKEMON ********************************************************************************//
@@ -224,90 +242,94 @@ void UI::displayInfoTrainers(Trainer* trainer1, Trainer* trainer2)
     int columnWidth = 80;
 
     setCenteredTextForTeamsColumns();
+
+    // Affichage des noms des dresseurs attaquant et défenseur
     cout << CYAN_TEXT << setw(columnWidth) << left << "Attaquant : " + trainer1->getItsName();
     cout << BLUE_TEXT << setw(columnWidth) << left << "Defenseur : " + trainer2->getItsName() << endl;
 
-    cout << COLOR_RESET ;
+    cout << COLOR_RESET;
 
     setCenteredTextForTeamsColumns();
+
+    // Affichage des niveaux et points des dresseurs attaquant et défenseur
     cout << setw(columnWidth) << left << "Niveau : " + to_string(trainer1->getItsLevel()) + "           Points : " + to_string(trainer1->getItsPoints());
-    cout << setw(columnWidth) << left << "Niveau : " + to_string(trainer2->getItsLevel()) + "           Points : " + to_string(trainer2->getItsPoints()) << endl << endl ;
+    cout << setw(columnWidth) << left << "Niveau : " + to_string(trainer2->getItsLevel()) + "           Points : " + to_string(trainer2->getItsPoints()) << endl << endl;
 
     setCenteredTextForTeamsColumns();
-    //cout << setw(columnWidth) << left << "Nombre de points de vie total de l'equipe : " + to_string(trainer1->getItsTotalTeamHP()) + " HP";
-    //cout << setw(columnWidth) << left << "Nombre de points de vie total de l'equipe : " + to_string(trainer2->getItsTotalTeamHP()) + " HP" << endl;
-
-//    setCenteredTextForTeamsColumns();
-//    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe : " + to_string(trainer1->getItsAverageSpeed()) + " KM/H";
-//    cout << setw(columnWidth) << left << "Vitesse moyenne de l'equipe : " + to_string(trainer2->getItsAverageSpeed()) + " KM/H" << endl;
-
-//    setCenteredTextForTeamsColumns();
-//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type EAU) : " + to_string(trainer1->getItsAverageSpeed("WATER")) + " KM/H";
-//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type EAU) : " + to_string(trainer2->getItsAverageSpeed("WATER")) + " KM/H" << endl;
-
-//    setCenteredTextForTeamsColumns();
-//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type FIRE) : " + to_string(trainer1->getItsAverageSpeed("FIRE")) + " KM/H";
-//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type FIRE) : " + to_string(trainer2->getItsAverageSpeed("FIRE")) + " KM/H" << endl;
-
-//    setCenteredTextForTeamsColumns();
-//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type GRASS) : " + to_string(trainer1->getItsAverageSpeed("GRASS")) + " KM/H";
-//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type GRASS) : " + to_string(trainer2->getItsAverageSpeed("GRASS")) + " KM/H" << endl;
-
-//    setCenteredTextForTeamsColumns();
-//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type ELECTRIK) : " + to_string(trainer1->getItsAverageSpeed("ELECTRIK")) + " KM/H";
-//    cout << setw(columnWidth) << left << "Vitesse moyenne (Type ELECTRIK) : " + to_string(trainer2->getItsAverageSpeed("ELECTRIK")) + " KM/H" << endl;
 }
 
-void UI::displayTeamTrainer(Trainer * trainer)
+void UI::displayTeamTrainer(Trainer* trainer)
 {
     setCenteredTextForAPokemon();
-    cout << "X------------------------------------------------------X" << endl ;
+
+    // Affichage de la bordure supérieure
+    cout << "X------------------------------------------------------X" << endl;
 
     for (int i = 0; i < 6; i++)
     {
-        setCenteredTextForAPokemon() ;
-        displayPokemon(trainer->getItsTeam()[i]);
         setCenteredTextForAPokemon();
-        cout << endl ;
+
+        // Affichage du Pokémon du dresseur
+        displayPokemon(trainer->getItsTeam()[i]);
+
+        setCenteredTextForAPokemon();
+        cout << endl;
+
         if (i != 5)
         {
             setCenteredTextForAPokemon();
-            cout << "x                                                      x" << endl ;
+
+            // Affichage de la séparation entre les Pokémon
+            cout << "x                                                      x" << endl;
         }
     }
-    setCenteredTextForAPokemon();
-    cout << "X------------------------------------------------------X" << endl ;
 
+    setCenteredTextForAPokemon();
+
+    // Affichage de la bordure inférieure
+    cout << "X------------------------------------------------------X" << endl;
 }
 
 void UI::displayTeamsTrainers(Trainer* trainer1, Trainer* trainer2)
 {
-    cout << endl ;
+    cout << endl;
+
     setCenteredTextForTeamsColumns();
-    cout << "X------------------------------------------------------X" ;
-    cout << setfill(' ') << setw(24) << "" ;
-    cout << "X------------------------------------------------------X" << endl ;
+
+    // Affichage de la bordure supérieure
+    cout << "X------------------------------------------------------X";
+    cout << setfill(' ') << setw(24) << "";
+    cout << "X------------------------------------------------------X" << endl;
 
     for (int i = 0; i < 6; i++)
     {
         setCenteredTextForTeamsColumns();
+
+        // Affichage des Pokémon des deux dresseurs côte à côte
         displayPokemon(trainer1->getItsTeam()[i]);
-        cout << setfill(' ') << setw(24) << "" ;
+        cout << setfill(' ') << setw(24) << "";
         displayPokemon(trainer2->getItsTeam()[i]);
-        cout << endl ;
+        cout << endl;
+
         if (i != 5)
         {
-            setCenteredTextForTeamsColumns();;
-            cout << "x                                                      x" ;
-            cout << setfill(' ') << setw(24) << "" ;
-            cout << "x                                                      x" << endl ;
+            setCenteredTextForTeamsColumns();
+
+            // Affichage de la séparation entre les équipes de Pokémon
+            cout << "x                                                      x";
+            cout << setfill(' ') << setw(24) << "";
+            cout << "x                                                      x" << endl;
         }
     }
-    setCenteredTextForTeamsColumns();;
-    cout << "X------------------------------------------------------X" ;
-    cout << setfill(' ') << setw(24) << "" ;
-    cout << "X------------------------------------------------------X" << endl ;
+
+    setCenteredTextForTeamsColumns();
+
+    // Affichage de la bordure inférieure
+    cout << "X------------------------------------------------------X";
+    cout << setfill(' ') << setw(24) << "";
+    cout << "X------------------------------------------------------X" << endl;
 }
+
 
 //*************************************************************** DIALOGUE DE MISE EN PLACE *********************************************************************************//
 
@@ -315,12 +337,18 @@ bool UI::isNewSetFighter(Trainer* trainer)
 {
     clearScreen();
     topBoard();
-    cout << CYAN_TEXT ;
+
+    // Affichage du nom du dresseur
+    cout << CYAN_TEXT;
     printCenteredText(trainer->getItsName());
-    cout << BLUE_TEXT ;
-    printCenteredText(", voulez vous changer de Pokémon pour le prochain combat ?");
-    cout << COLOR_RESET ;
+
+    cout << BLUE_TEXT;
+    printCenteredText("Voulez-vous changer de Pokémon pour le prochain combat ?");
+    cout << COLOR_RESET;
     printCenteredText("[0] Non | [1] Oui");
+
+    bottomBoard();
+
     setCenteredTextForInput();
 
     int choice;
@@ -328,66 +356,79 @@ bool UI::isNewSetFighter(Trainer* trainer)
     while(true)
     {
         cin >> choice;
+
         if(cin.fail() || (choice != 0 && choice != 1))
         {
-            cout << RED_TEXT ;
+            cout << RED_TEXT;
             printCenteredText("Votre choix n'est pas possible, veuillez recommencer :");
-            cout << COLOR_RESET ;
-            cin.clear(); //Réinitialiser l'entrée si une erreur à été produite pour pouvoir de nouveau entrée une valeur
-            cin.ignore(10,'\n'); //Ignore un certains nombre de caractères pour ne pas prendre en compte l'entrée comme plusieurs entrée et cela à partir la fin de ligne
+            cout << COLOR_RESET;
+
+            cin.clear(); // Réinitialiser l'entrée si une erreur a été produite pour pouvoir de nouveau entrer une valeur
+            cin.ignore(10,'\n'); // Ignorer un certain nombre de caractères pour ne pas prendre en compte l'entrée comme plusieurs entrées, à partir de la fin de ligne
         }
         else
+        {
             break;
+        }
     }
-    cout << endl ;
+
+    cout << endl;
 
     if(choice == 0)
     {
         return false;
     }
-    else return true;
-
+    else
+    {
+        return true;
+    }
 }
 
 bool UI::isANewPlayer(Trainer* trainer)
 {
     topBoard();
 
-    int choice ;
-    cout << CYAN_TEXT << endl ;
+    int choice;
+    cout << CYAN_TEXT << endl;
     printCenteredText(trainer->getItsName());
-    cout << BLUE_TEXT ;
-    printCenteredText("avez vous un compte ?");
-    cout << COLOR_RESET ;
-    printCenteredText("[0] Non | [1] Oui") ;
+    cout << BLUE_TEXT;
+    printCenteredText("Avez-vous un compte ?");
+    cout << COLOR_RESET;
+    printCenteredText("[0] Non | [1] Oui");
     bottomBoard();
-    setCenteredTextForInput() ;
+    setCenteredTextForInput();
+
     while(true)
     {
         cin >> choice;
+
         if(cin.fail() || (choice != 0 && choice != 1))
         {
-            cout << RED_TEXT ;
+            cout << RED_TEXT;
             printCenteredText("Votre choix n'est pas possible, veuillez recommencer :");
-            cout << COLOR_RESET ;
-            cin.clear(); //Réinitialiser l'entrée si une erreur à été produite pour pouvoir de nouveau entrée une valeur
-            cin.ignore(10,'\n'); //Ignore un certains nombre de caractères pour ne pas prendre en compte l'entrée comme plusieurs entrée et cela à partir la fin de ligne
+            cout << COLOR_RESET;
+
+            cin.clear(); // Réinitialiser l'entrée si une erreur a été produite pour pouvoir de nouveau entrer une valeur
+            cin.ignore(10,'\n'); // Ignorer un certain nombre de caractères pour ne pas prendre en compte l'entrée comme plusieurs entrées, à partir de la fin de ligne
         }
         else
+        {
             break;
+        }
     }
-    cout << endl ;
 
-    fastClearScreen() ;
+    cout << endl;
 
-
+    fastClearScreen();
 
     if(choice == 0)
     {
         return true;
     }
-    else return false;
-
+    else
+    {
+        return false;
+    }
 }
 
 string UI::setupName(Trainer * trainer)
@@ -457,6 +498,79 @@ void UI::displaySetFighter(Trainer * trainer)
 
 }
 
+int UI::displayTransferPokemon(Trainer * trainer)
+{
+    cout << BLUE_TEXT << endl;
+    printCenteredText("Souhaites tu transférer un Pokémon parmis ton équipe ?");
+    cout << COLOR_RESET;
+    printCenteredText("[0] Non | [1] Oui") ;
+
+    bottomBoard();
+
+    int choice = 0 ;
+
+    setCenteredTextForInput();
+
+    cin >> choice ;
+
+    if(choice == 1)
+    {
+        clearScreen();
+        topBoard();
+
+        int indexPokemonToTransfer = 0;
+
+        cout << BLUE_TEXT;
+        printCenteredText("Parmis les Pokémon ci-dessous, lequel veux tu transférer ? (Entrez le numéro)");
+        cout << COLOR_RESET;
+
+        displayTeamTrainer(trainer);
+
+        bottomBoard() ;
+
+        setCenteredTextForInput();
+
+        do
+        {
+            cin >> indexPokemonToTransfer;
+
+            if (indexPokemonToTransfer < 1 || indexPokemonToTransfer > 6)
+            {
+                cout << RED_TEXT;
+                printCenteredText("Indice invalide ! Choisissez un Pokémon entre 1 et 6, recommencez :");
+                cout << COLOR_RESET;
+            }
+        }
+        while (indexPokemonToTransfer < 1 || indexPokemonToTransfer > 6);
+
+        // Vérifier si l'indice est valide avant d'accéder au vecteur itsTeam
+            if (indexPokemonToTransfer <= (int)trainer->getItsTeam().size())
+            {
+                // Utiliser l'indice corrigé pour accéder au Pokémon dans le vecteur
+                Pokemon *pokemonToTransfer = trainer->getItsTeam()[indexPokemonToTransfer - 1];
+
+                cout << GREEN_TEXT << endl;
+                printCenteredText("Le Pokémon qui a été transféré est : " + pokemonToTransfer->getItsName());
+                cout << COLOR_RESET;
+
+                clearScreen();
+
+                topBoard();
+                cout << CYAN_TEXT ;
+                printCenteredText(trainer->getItsName());
+                cout << BLUE_TEXT;
+
+                printCenteredText("Voici ta nouvelle équipe :");
+                cout << COLOR_RESET;
+
+                return indexPokemonToTransfer;
+            }
+
+    }
+    return 0 ;
+
+}
+
 void UI::displayFight(Trainer * trainer1, Trainer * trainer2)
 {
 
@@ -505,11 +619,20 @@ void UI::displayFight(Trainer * trainer1, Trainer * trainer2)
 
     bottomBoard() ;
 
-    string attack1 = "Le Pokémon " + trainer1->getFighterPokemon()->getItsName() + " inflige " + to_string(trainer1->getFighterPokemon()->nbDamage(trainer2->getFighterPokemon())) + " dégâts à " + trainer2->getFighterPokemon()->getItsName() ;
+    string attackText = "Le Pokémon " + trainer1->getFighterPokemon()->getItsName() + " inflige " + to_string(trainer1->getFighterPokemon()->nbDamage(trainer2->getFighterPokemon())) + " dégâts à " + trainer2->getFighterPokemon()->getItsName() ;
+
+    if(trainer1->getFighterPokemon()->nbDamage(trainer2->getFighterPokemon()) == 2* trainer1->getFighterPokemon()->getItsCP())
+    {
+        attackText += " (SUPER EFFICACE)" ;
+    }
+    else if(trainer1->getFighterPokemon()->nbDamage(trainer2->getFighterPokemon()) == 0.5 * trainer1->getFighterPokemon()->getItsCP())
+    {
+        attackText += " (PEU EFFICACE)";
+    }
 
     pauseText(2);
 
-    printCenteredText(attack1);
+    printCenteredText(attackText);
 
     pauseText(2);
 
@@ -546,7 +669,7 @@ void UI::displayGameWinner(Trainer * winner)
 {
     clearScreen();
     topBoard();
-    cout << GREEN_TEXT << endl ;
+    cout << GREEN_TEXT ;
     printCenteredText("Le gagnant de cette partie est " + winner->getItsName());
 
     displayInfoTrainer(winner);

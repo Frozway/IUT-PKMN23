@@ -226,21 +226,11 @@ int Trainer::getItsPoints()
 
 void Trainer::removePokemon(Pokemon* pokemon)
 {
-    if(isPokemonInTeam(pokemon))
+    if (isPokemonInTeam(pokemon))
     {
-        // Parcourir chaque Pokémon dans l'équipe du dresseur
-        for (auto it = itsPokemonTeam->begin(); it != itsPokemonTeam->end(); ++it)
-        {
-            // Vérifier si le Pokémon à supprimer est trouvé dans l'équipe
-            if (*it == pokemon)
-            {
-                // Supprimer le Pokémon de l'équipe
-                itsPokemonTeam->erase(it);
-                break; // Sortir de la boucle après la suppression
-            }
-        }
+        // Utiliser la fonction erase avec la valeur retournée comme nouvel itérateur
+        itsPokemonTeam->erase(std::remove(itsPokemonTeam->begin(), itsPokemonTeam->end(), pokemon), itsPokemonTeam->end());
     }
-    else return ;
 }
 
 bool Trainer::isPokemonInTeam(Pokemon* pokemon)
@@ -288,3 +278,5 @@ Pokemon* Trainer::getNextAlivePokemon()
     // Aucun Pokémon en vie trouvé
     return nullptr;
 }
+
+

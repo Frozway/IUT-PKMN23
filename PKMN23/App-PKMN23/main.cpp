@@ -23,10 +23,13 @@ int main()
         setvbuf(stdout, nullptr, _IOFBF, 1000);
     #endif
 
+    //Création de l'application
     GameMaker * Game = new GameMaker();
 
+    //Lancement du jeu
     Game->Play();
 
+    //Suppression du jeu
     delete Game ;
 
     return 0;

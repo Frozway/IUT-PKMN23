@@ -5,10 +5,11 @@
  *
  * The class provides functionality to open, close, and interact with a Pokemon database.
  * It allows adding and retrieving Pokemon data from the database.
- * @version 0.3
- * @author Thibaut LEFRANCOIS
- * @date May 2023
- */
+* @author Thibaut LEFRANCOIS
+* @version 1.0
+* @date May 2023
+* @copyright Thibaut LEFRANCOIS
+*/
 
 #ifndef POKEMONDATABASE_H
 #define POKEMONDATABASE_H
@@ -72,6 +73,9 @@ public:
      * @param trainer A pointer to the Trainer for which to generate the random team.
      */
     void fillARandomTeam(Trainer* trainer);
+
+    void pickARandomPokemon(Trainer* trainer);
+
 };
 
 #endif // POKEMONDATABASE_H

@@ -2,17 +2,17 @@
  * @brief The Trainer class
  * The Trainer class represents a trainer in the Pokémon game. It manages a team of Pokémon and performs various operations related to the trainer and their team.
  *
- * @author Thibaut LEFRANCOIS
- * @version 0.2
- * @date May 2023
- */
+* @author Thibaut LEFRANCOIS
+* @version 1.0
+* @date May 2023
+* @copyright Thibaut LEFRANCOIS
+*/
 
 #ifndef TRAINER_H
 #define TRAINER_H
 
 #include "pokemon.h"
 #include <iostream>
-#include <map>
 #include <vector>
 #include <algorithm>
 #include <iomanip>
@@ -140,16 +140,35 @@ public:
      */
     void setItsPoints(int newItsPoints);
 
-    bool allPokemonsDead() ;
-    void setItsName(const string &newItsName);
+    /**
+     * Checks if all the Pokémon in the trainer's team are dead.
+     * @return true if all Pokémon are dead, false otherwise.
+     */
+    bool allPokemonsDead();
 
-    void setFighterPokemon(Pokemon *newFighterPokemon);
+    /**
+     * Sets the name of the Trainer.
+     * @param newItsName The new name for the Trainer.
+     */
+    void setItsName(const string& newItsName);
 
+    /**
+     * Sets the Pokémon that will be the fighter for the Trainer.
+     * @param newFighterPokemon The new Pokémon fighter.
+     */
+    void setFighterPokemon(Pokemon* newFighterPokemon);
+
+    /**
+     * Retrieves the next alive Pokémon from the Trainer's team.
+     * @return A pointer to the next alive Pokémon, or nullptr if there are no alive Pokémon.
+     */
     Pokemon* getNextAlivePokemon();
 
-
-
-    Pokemon *getFighterPokemon();
+    /**
+     * Retrieves the Pokémon currently chosen as the fighter for the Trainer.
+     * @return A pointer to the fighter Pokémon.
+     */
+    Pokemon* getFighterPokemon();
 };
 
 #endif // TRAINER_H
