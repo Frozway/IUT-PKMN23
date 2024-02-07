@@ -1,92 +1,43 @@
-# PKMN23
+---
 
+# Retrouver tous les détails dans le wiki et la documentation ici : https://tlefranc.forge-pages.iut-larochelle.fr/pkmn23/
 
+## Introduction
+> Bienvenue sur la page wiki dédiée au projet Pokémon (PKMN23) ! Cette ressource est conçue pour fournir une documentation complète sur l'ensemble du processus de développement du jeu de cartes Pokémon. Que vous soyez un membre de l'équipe de développement, un contributeur ou simplement curieux d'en apprendre davantage sur les coulisses du projet, cette page est l'endroit idéal pour accéder à toutes les informations nécessaires.
 
-## Getting started
+<br> L'objectif de cette documentation est de vous guider à travers les différentes phases du projet Pokémon, en commençant par l'analyse et la conception, jusqu'à la mise en œuvre finale du jeu. Vous trouverez ici des explications détaillées sur les choix de conception, les fonctionnalités principales, ainsi que les différentes étapes du développement.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Le Cahier des charges du projet Pokémon vous permettra de plonger dans les spécifications et les exigences du jeu. Vous découvrirez une description complète des fonctionnalités attendues, des règles du jeu et des caractéristiques des Pokémon et des dresseurs. Cette étape est cruciale pour établir une base solide avant de passer à la conception.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+La section d'analyse et conception vous présentera les différents diagrammes utilisés pour représenter la structure du projet. Vous trouverez des diagrammes de classes, des diagrammes de séquence et un diagramme de cas d'utilisation, qui vous aideront à visualiser les relations entre les différentes entités du jeu et à comprendre leur fonctionnement.
 
-## Add your files
+## Cahier des charges
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+> [Page détaillé du cahier des charges](Cahier des charges)
 
-```
-cd existing_repo
-git remote add origin https://forge.iut-larochelle.fr/tlefranc/pkmn23.git
-git branch -M main
-git push -uf origin main
-```
+Le cahier des charges de ce projet a pour objectif de définir les spécifications et les fonctionnalités de mon application Pokémon (PKMN23), ainsi que les règles du jeu et les caractéristiques des Pokémon et des dresseurs. Tout en sachant que ce jeu est conçu pour offrir une expérience immersive et captivante aux joueurs, en leur permettant de devenir de véritables dresseurs de Pokémon et de vivre des aventures passionnantes dans le monde Pokémon.
 
-## Integrate with your tools
+## Versions
 
-- [ ] [Set up project integrations](https://forge.iut-larochelle.fr/tlefranc/pkmn23/-/settings/integrations)
+> [Page détaillé avec les versions](Versions du jeu)
 
-## Collaborate with your team
+Dans le cadre du projet Pokémon, une version est une étape spécifique du développement qui regroupe un ensemble de fonctionnalités et d'améliorations mises en œuvre à un moment précis. Chaque version est identifiée par un numéro qui permet de suivre l'évolution du projet au fil du temps. La version 1.0 marque la toute première version jouable du jeu.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+La version 1.0 est le point de départ du projet Pokémon, où les fonctionnalités essentielles sont introduites pour offrir une expérience de jeu de base aux joueurs. Elle peut inclure des éléments tels que la création et la gestion des dresseurs, l'attrapage et la gestion des Pokémon, les combats entre les dresseurs, les interactions avec les Pokémon et les mécanismes de progression.
 
-## Test and Deploy
+Au fur et à mesure de l'avancement du projet, de nouvelles versions seront développées, apportant des améliorations, des correctifs de bugs, des fonctionnalités supplémentaires et des ajouts au gameplay. Chaque nouvelle version représentera une avancée significative dans le développement du jeu, offrant aux joueurs une expérience de jeu de plus en plus riche et complète.
 
-Use the built-in continuous integration in GitLab.
+## Analyse et Conception
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+> [Page détaillé avec les diagrammes](Analyse et Conception)
 
-***
+### Diagramme des cas d'utilisation
+Un diagramme de cas d'utilisation est une représentation graphique des interactions entre les acteurs (utilisateurs ou systèmes externes) et le système lui-même. Il met en évidence les fonctionnalités principales du système et montre comment les acteurs interagissent avec ces fonctionnalités.
 
-# Editing this README
+### Diagramme de classes
+Le diagramme de classe ci-dessous représente la structure et les relations des différentes classes du système "Pokemon". Il décrit les entités principales telles que les Pokémon, les dresseurs et la base de données des Pokémon. Le système permet aux utilisateurs de jouer à des combats de Pokémon dans différents modes (Joueur contre Joueur, Joueur contre IA, IA contre IA) en utilisant une interface utilisateur. Les dresseurs peuvent constituer des équipes de Pokémon, combattre et échanger des Pokémon entre eux.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+### Diagrammes de séquence 
+Un diagramme de séquence est un outil de modélisation qui montre l'ordre des interactions entre les objets d'un système pendant l'exécution d'un scénario spécifique. Il met en évidence les messages échangés entre les objets et l'ordre dans lequel ces messages sont transmis.
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Le modèle MVC (Modèle-Vue-Contrôleur) quant à lui, est un motif d'architecture de conception largement utilisé dans le développement logiciel pour séparer la logique métier (Modèle) de la présentation (Vue) et de la gestion des interactions (Contrôleur).
