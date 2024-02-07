@@ -1,6 +1,6 @@
 ---
 
-# Retrouver tous les détails dans le wiki et la documentation ici : https://tlefranc.forge-pages.iut-larochelle.fr/pkmn23/
+Retrouver tous les détails dans le wiki et la [documentation ici](https://tlefranc.forge-pages.iut-larochelle.fr/pkmn23/annotated.html)
 
 ## Introduction
 > Bienvenue sur la page wiki dédiée au projet Pokémon (PKMN23) ! Cette ressource est conçue pour fournir une documentation complète sur l'ensemble du processus de développement du jeu de cartes Pokémon. Que vous soyez un membre de l'équipe de développement, un contributeur ou simplement curieux d'en apprendre davantage sur les coulisses du projet, cette page est l'endroit idéal pour accéder à toutes les informations nécessaires.
